@@ -8,7 +8,7 @@
 <link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#f4f7fc; --ink:#141413; --body:#3d3d3a; --sub:#87867f; --mid:#5e5d59; --line:#e8e6dc;
@@ -51,6 +51,7 @@
   h3{font-family:var(--serif);font-size:17px;font-weight:500;margin:0 0 4px;line-height:1.5}
   .role{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--sub);margin:0 0 8px}
   .body p{margin:0 0 6px}
+  .body b{font-weight:600;color:var(--ink)}
   ul{margin:6px 0 0;padding-left:18px}
   li{margin:3px 0}
   details{margin-top:6px}
@@ -114,12 +115,12 @@
       <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026</p>
       <ul>
         <li>Shelter choice and walking routes are computed by rule-based code (OSMnx / NetworkX), not the LLM; the LLM only explains results that are already fixed.</li>
-        <li>Pass bar: zero claims that are not in the event log. 30/30 runtime answers passed, and 12/12 adversarial prompts were blocked.</li>
-        <li>In a 52-person survey, evacuation intent rose from 3.2 to 8.3 (p&lt;0.001); won the Minister of Employment and Labor Award (Encouragement Prize).</li>
+        <li>Pass bar: zero claims that are not in the event log. <b>30/30</b> runtime answers passed, and <b>12/12</b> adversarial prompts were blocked.</li>
+        <li>In a 52-person survey, evacuation intent rose from <b>3.2 to 8.3</b> (p&lt;0.001); won the Minister of Employment and Labor Award (Encouragement Prize).</li>
       </ul>
       <details><summary>More</summary><ul>
-        <li>Tested both wrong refusals and missed refusals: the chatbot wrongly refused only 1 of 28 valid questions (3.6%), but answered all 6 out-of-scope questions from unrelated evidence, a failure grounding scores do not catch; traced it to the retrieval step, not the verifier.</li>
-        <li>Contributions: built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
+        <li>Tested both wrong refusals and missed refusals: the chatbot wrongly refused only 1 of 28 valid questions (<b>3.6%</b>), but answered all 6 out-of-scope questions from unrelated evidence, a failure grounding scores do not catch; traced it to the retrieval step, not the verifier.</li>
+        <li><b>Contributions:</b> built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
         <li>Stack: FastAPI, LangChain, AWS EC2</li>
       </ul></details>
       <p class="links"><a href="https://github.com/team-savers/savers-project">GitHub ↗</a></p>
@@ -133,13 +134,13 @@
       <p class="role">Evaluation (team of 5) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
       <ul>
         <li>100 public RFPs in HWP and PDF; answers must cite the source and refuse unanswerable questions.</li>
-        <li>Built a 95-question golden set (5 types, 19 RFPs) with type-specific scorers; compared 708 configurations in 3 stages (retrieval grid, answer eval, controlled re-test).</li>
-        <li>Final local stack (KURE-v1 + dense k=4 + EXAONE 3.5): MRR 0.977, Hit@k 1.0, refusal 1.0 (19/19), 3.6 s, no API cost.</li>
+        <li>Built a 95-question golden set (5 types, 19 RFPs) with type-specific scorers; compared <b>708 configurations</b> in 3 stages (retrieval grid, answer eval, controlled re-test).</li>
+        <li>Final local stack (KURE-v1 + dense k=4 + EXAONE 3.5): <b>MRR 0.977</b>, Hit@k 1.0, refusal 1.0 (<b>19/19</b>), <b>3.6 s</b>, no API cost.</li>
       </ul>
       <details><summary>More</summary><ul>
         <li>OpenAI embeddings ranked last in the earlier 50-question round (MRR 0.65) and were dropped.</li>
         <li>Found that a score stuck at 0.3 came from errors in the golden set, not the model; raised Ollama's 4,096-token context limit to 8,192 after finding it cut off evidence; removed a reranker that added 21 s of latency for no gain.</li>
-        <li>Contributions: ran the embedding comparison, designed the golden-set and RAGAS evaluation, and wrote the automated scoring scripts.</li>
+        <li><b>Contributions:</b> ran the embedding comparison, designed the golden-set and RAGAS evaluation, and wrote the automated scoring scripts.</li>
       </ul></details>
       <p class="links"><a href="https://github.com/Eastar0102/codeit-part3-team1">GitHub ↗</a></p>
     </div>
@@ -152,11 +153,11 @@
       <p class="role">Team Lead · PM · Generation &amp; Evaluation (team of 5) · SDXL, ControlNet, IP-Adapter, GCP L4</p>
       <ul>
         <li>Ad images had to be remade for every time slot and channel without changing the product.</li>
-        <li>Built a two-step quality gate: an automatic check that the product was not altered (masked-region CLIP similarity ≥ 0.85), then human review, across 4 brand tones × 6 times of day.</li>
-        <li>Cut background generation from 17.47 s to 1.72 s (~10×) with a 768-px, 4-step LCM-LoRA path (full pipeline 5.97 s per image on an L4); 4/4 representative combinations, all 8 test cases and 486 automated tests passed.</li>
+        <li>Built a <b>two-step quality gate</b>: an automatic check that the product was not altered (masked-region CLIP similarity ≥ 0.85), then human review, across 4 brand tones × 6 times of day.</li>
+        <li>Cut background generation from <b>17.47 s to 1.72 s (~10×)</b> with a 768-px, 4-step LCM-LoRA path (full pipeline 5.97 s per image on an L4); 4/4 representative combinations, all 8 test cases and <b>486</b> automated tests passed.</li>
       </ul>
       <details><summary>More</summary><ul>
-        <li>Contributions: PM; built the SDXL / ControlNet generation pipeline, the CLIP preservation gate and eval harness; final report.</li>
+        <li><b>Contributions:</b> PM; built the SDXL / ControlNet generation pipeline, the CLIP preservation gate and eval harness; final report.</li>
       </ul></details>
       <p class="links"><a href="https://github.com/codeit-part4-team2/ad-creative-studio">GitHub ↗</a></p>
     </div>
@@ -169,13 +170,13 @@
       <p class="role">Team Lead · PM (team of 5) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
       <ul>
         <li>56 look-alike pill classes, only 186 training images, a 51× class imbalance, and up to 4 pills per image.</li>
-        <li>Minority-class crop-and-paste grew the data from 186 to 1,026 images (mAP@0.5 0.886 → 0.964).</li>
-        <li>YOLOv11l reached validation mAP@[0.75:0.95] 0.936, ahead of RF-DETR v3 (0.882) and RT-DETRv2 (0.876); a 3-model WBF ensemble raised the in-course Kaggle score from 0.851 to 0.9355 (+8.5 pp).</li>
+        <li>Minority-class crop-and-paste grew the data from <b>186 to 1,026 images</b> (mAP@0.5 0.886 → 0.964).</li>
+        <li>YOLOv11l reached validation mAP@[0.75:0.95] <b>0.936</b>, ahead of RF-DETR v3 (0.882) and RT-DETRv2 (0.876); a 3-model WBF ensemble raised the in-course Kaggle score from <b>0.851 to 0.9355</b> (+8.5 pp).</li>
       </ul>
       <details><summary>More</summary><ul>
-        <li>Grouped near-duplicate shots into the same split to prevent train/validation leakage, then ran 7 staged experiments across 4 detectors.</li>
+        <li>Grouped near-duplicate shots into the same split to prevent train/validation leakage, then ran <b>7 staged experiments</b> across 4 detectors.</li>
         <li>Compositing web pill images onto the competition background raised mAP@[0.75:0.95] from 0.919 to 0.936 and made a never-detected rare class detectable.</li>
-        <li>Contributions: PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
+        <li><b>Contributions:</b> PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
       </ul></details>
       <p class="links"><a href="https://github.com/qja0707/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
@@ -187,9 +188,9 @@
       <h3>Biomedical Abstract Sentence Classification · BERT vs. SciBERT Embeddings</h3>
       <p class="role">Course project, Penn State IST 597 Foundations of Deep Learning · team of 2, equal contribution · advised by Dr. C. Lee Giles · TensorFlow</p>
       <ul>
-        <li>Problem: most biomedical abstracts are unstructured, so readers cannot jump straight to the methods or results they need.</li>
+        <li><b>Problem:</b> most biomedical abstracts are unstructured, so readers cannot jump straight to the methods or results they need.</li>
         <li>Extracted BERT/SciBERT token embeddings from model checkpoints to replace Word2Vec (5.4M entries → 31K) in a hierarchical BiLSTM-CRF sentence classifier (HSLN), and ran all five conditions, including the baseline re-run.</li>
-        <li>On PubMed 20k RCT (5 classes), matched the re-run baseline (test accuracy 92.43% vs. 92.35%, single run) with a ~175× smaller embedding table; identified low vocabulary overlap (16% vs. 68% for Word2Vec) as the bottleneck.</li>
+        <li>On PubMed 20k RCT (5 classes), matched the re-run baseline (test accuracy 92.43% vs. 92.35%, single run) with a <b>~175× smaller</b> embedding table; identified low vocabulary overlap (16% vs. 68% for Word2Vec) as the bottleneck.</li>
       </ul>
     </div>
   </article>
@@ -235,7 +236,7 @@
       <p class="role">Ph.D. research · LSTM time-series modeling (Python)</p>
       <ul>
         <li>Built an LSTM model that forecasts short-term production from past production records and works for any number of wells.</li>
-        <li>Improved forecast accuracy by up to 23% over the industry-standard decline-curve method.</li>
+        <li>Improved forecast accuracy by <b>up to 23%</b> over the industry-standard decline-curve method.</li>
       </ul>
     </div>
   </article>
@@ -257,7 +258,7 @@
       <p class="role">Course project, PNG 512 Numerical Reservoir Simulation · individual · MATLAB (~1,000 lines)</p>
       <ul>
         <li>Built a simulator that splits a field map into a 60×30 grid and computes how oil, water and gas move over time: Newton-Raphson iterations, a GMRES solver for large sparse systems, and fluid-property table interpolation.</li>
-        <li>Added mass-balance checks at every step to catch numerical errors; results matched the standard reference case.</li>
+        <li>Added mass-balance checks at every step to catch numerical errors; results <b>matched the standard reference case</b>.</li>
       </ul>
     </div>
   </article>
@@ -302,7 +303,7 @@
   <h2>Teaching &amp; Honors</h2>
   <article class="entry">
     <div class="meta">2016 – 2024</div>
-    <div class="body"><h3>Teaching Assistant</h3><p class="role">The Pennsylvania State University</p><p>Held office hours and review sessions in English and gave detailed feedback on every assignment; named the department's Graduate Teaching Assistant of the Year (2017) for dedication to students' learning.</p></div>
+    <div class="body"><h3>Teaching Assistant</h3><p class="role">The Pennsylvania State University</p><p>Held office hours and review sessions in English and gave detailed feedback on every assignment; named the department's <b>Graduate Teaching Assistant of the Year</b> (2017) for dedication to students' learning.</p></div>
   </article>
   <article class="entry">
     <div class="meta">2019 – 2024</div>
