@@ -8,7 +8,7 @@
 <link rel="alternate" hreflang="en" href="https://eunnamahn.github.io/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#f4f7fc; --ink:#141413; --body:#3d3d3a; --sub:#87867f; --mid:#5e5d59; --line:#e8e6dc;
@@ -51,6 +51,7 @@
   h3{font-family:var(--serif);font-size:17px;font-weight:500;margin:0 0 4px;line-height:1.5}
   .role{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--sub);margin:0 0 8px}
   .body p{margin:0 0 6px}
+  .body b{font-weight:600;color:var(--ink)}
   ul{margin:6px 0 0;padding-left:18px}
   li{margin:3px 0}
   details{margin-top:6px}
@@ -113,12 +114,12 @@
       <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026</p>
       <ul>
         <li>대피소 선택과 도보 경로는 LLM에 맡기지 않고 규칙 기반 코드(OSMnx/NetworkX)로 계산해, LLM은 이미 정해진 결과를 설명만 하도록 설계했습니다.</li>
-        <li>통과 기준을 "기록에 없는 내용 0건"으로 정하고, 답변을 문장 단위로 기록과 대조하는 검증기를 만들었습니다. 실제 응답 30/30 통과, 오답 유도 질문 12/12 차단.</li>
-        <li>주민 52명 설문에서 대피 의향 점수가 3.2점에서 8.3점으로 올랐고(p&lt;0.001), 고용노동부장관상(장려상)을 받았습니다.</li>
+        <li>통과 기준을 "기록에 없는 내용 0건"으로 정하고, 답변을 문장 단위로 기록과 대조하는 검증기를 만들었습니다. 실제 응답 <b>30/30</b> 통과, 오답 유도 질문 <b>12/12</b> 차단.</li>
+        <li>주민 52명 설문에서 대피 의향 점수가 <b>3.2점에서 8.3점으로</b> 올랐고(p&lt;0.001), 고용노동부장관상(장려상)을 받았습니다.</li>
       </ul>
       <details><summary>더 보기</summary><ul>
-        <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정했습니다. 불필요한 거절은 3.6%(1/28)로 낮았지만, 서비스 범위 밖 질문 6건에는 모두 엉뚱한 근거로 답하는 문제를 찾아냈습니다. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 검색 단계에 있음을 확인했습니다.</li>
-        <li>담당 업무: 검증기와 평가 데이터(골든셋) 설계·구현, AWS 배포와 자동 품질 검사(CI) 구축, 설계 결정 기록(ADR) 23건 관리, 논문 제1저자 집필</li>
+        <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정했습니다. 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 서비스 범위 밖 질문 6건에는 모두 엉뚱한 근거로 답하는 문제를 찾아냈습니다. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 검색 단계에 있음을 확인했습니다.</li>
+        <li><b>담당 업무:</b> 검증기와 평가 데이터(골든셋) 설계·구현, AWS 배포와 자동 품질 검사(CI) 구축, 설계 결정 기록(ADR) 23건 관리, 논문 제1저자 집필</li>
         <li>기술: FastAPI, LangChain, NetworkX, AWS EC2</li>
       </ul></details>
       <p class="links"><a href="https://github.com/team-savers/savers-project">GitHub ↗</a></p>
@@ -132,13 +133,13 @@
       <p class="role">평가 담당 (5인 팀) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
       <ul>
         <li>HWP와 PDF가 섞인 공공 RFP 100건에서 출처를 인용해 답하고, 문서로 답할 수 없는 질문은 거절해야 했습니다.</li>
-        <li>정답을 미리 정해 둔 평가용 질문 95개(골든셋, 5개 유형)와 유형별 자동 채점기를 만들고, 검색·답변 설정 708개 조합을 3단계로 비교했습니다.</li>
-        <li>최종 선택한 무료 로컬 조합(KURE-v1 + EXAONE 3.5): 검색 정확도 MRR 0.977, 거절해야 할 질문 19/19 거절, 평균 응답 3.6초, 외부 API 비용 0원.</li>
+        <li>정답을 미리 정해 둔 평가용 질문 95개(골든셋, 5개 유형)와 유형별 자동 채점기를 만들고, 검색·답변 설정 <b>708개 조합</b>을 3단계로 비교했습니다.</li>
+        <li>최종 선택한 무료 로컬 조합(KURE-v1 + EXAONE 3.5): 검색 정확도 <b>MRR 0.977</b>, 거절해야 할 질문 <b>19/19</b> 거절, <b>평균 응답 3.6초</b>, 외부 API 비용 0원.</li>
       </ul>
       <details><summary>더 보기</summary><ul>
         <li>초기 50문항 실험에서 검색 정확도가 가장 낮았던 OpenAI 임베딩(MRR 0.65) 대신 무료 한국어 임베딩 KURE-v1을 채택했습니다.</li>
         <li>점수가 0.3에서 멈춘 원인이 모델이 아니라 평가 데이터 오류였음을 찾아 고쳤고, 입력 길이 제한(4,096토큰) 때문에 근거가 잘리던 문제는 8,192토큰으로 늘려 해결했습니다. 효과 없이 응답만 21초 늦추던 리랭커는 뺐습니다.</li>
-        <li>담당 업무: 임베딩 비교·KURE-v1 전환, 골든셋·RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
+        <li><b>담당 업무:</b> 임베딩 비교·KURE-v1 전환, 골든셋·RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
       </ul></details>
       <p class="links"><a href="https://github.com/Eastar0102/codeit-part3-team1">GitHub ↗</a></p>
     </div>
@@ -151,13 +152,13 @@
       <p class="role">팀장 · PM · 생성·평가 담당 (5인 팀) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
       <ul>
         <li>시간대와 채널마다 광고 이미지를 새로 만들되, 사진 속 제품은 바뀌지 않아야 했습니다.</li>
-        <li>제품이 바뀌지 않았는지 먼저 자동 검사(제품 영역 CLIP 유사도 0.85 이상)하고, 통과한 이미지만 사람이 보는 2단계 품질 관문을 설계했습니다(브랜드 톤 4종 × 시간대 6종).</li>
-        <li>배경 생성 시간을 17.47초에서 1.72초로 약 10배 줄였습니다(LCM-LoRA 4단계 생성, 이미지 한 장 전체 처리 평균 5.97초). 대표 조합 4/4와 테스트 8건 모두 통과, 자동화 테스트 486건 통과.</li>
+        <li>제품이 바뀌지 않았는지 먼저 자동 검사(제품 영역 CLIP 유사도 0.85 이상)하고, 통과한 이미지만 사람이 보는 <b>2단계 품질 관문</b>을 설계했습니다(브랜드 톤 4종 × 시간대 6종).</li>
+        <li>배경 생성 시간을 <b>17.47초에서 1.72초로 약 10배</b> 줄였습니다(LCM-LoRA 4단계 생성, 이미지 한 장 전체 처리 평균 5.97초). 대표 조합 4/4와 테스트 8건 모두 통과, 자동화 테스트 <b>486건</b> 통과.</li>
       </ul>
       <details><summary>더 보기</summary><ul>
         <li>생성 이미지로 13초 세로 쇼츠를 자동 제작하고, 사람이 승인한 경우에만 YouTube에 예약 게시했습니다.</li>
-        <li>한계: 정밀 이미지 비교(SSIM)와 블라인드 사람 평가는 하지 못해, 다음 단계 과제로 보고서에 명시했습니다.</li>
-        <li>담당 업무: 팀장·PM으로 4주 스프린트 운영, SDXL·ControlNet·IP-Adapter 생성 파이프라인 구현, CLIP 품질 관문·평가 하네스 설계, 최종 보고서 총괄</li>
+        <li><b>한계:</b> 정밀 이미지 비교(SSIM)와 블라인드 사람 평가는 하지 못해, 다음 단계 과제로 보고서에 명시했습니다.</li>
+        <li><b>담당 업무:</b> 팀장·PM으로 4주 스프린트 운영, SDXL·ControlNet·IP-Adapter 생성 파이프라인 구현, CLIP 품질 관문·평가 하네스 설계, 최종 보고서 총괄</li>
       </ul></details>
       <p class="links"><a href="https://github.com/codeit-part4-team2/ad-creative-studio">GitHub ↗</a></p>
     </div>
@@ -170,12 +171,12 @@
       <p class="role">팀장 · PM · 모델 실험 (5인 팀) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
       <ul>
         <li>외형이 비슷한 56개 클래스, 학습 이미지 186장, 51배 클래스 불균형 조건에서 알약을 탐지했습니다.</li>
-        <li>데이터가 적은 알약을 오려 붙이는 증강으로 학습 이미지를 186장에서 1,026장으로 늘리고, 인터넷 알약 이미지를 대회 배경에 합성해 한 번도 찾지 못하던 희귀 알약까지 탐지했습니다.</li>
-        <li>최종 모델 YOLOv11l이 비교 모델(RF-DETR 0.882, RT-DETRv2 0.876)보다 높은 정확도(mAP 0.936)를 냈고, 모델 3개 앙상블로 수업 내 Kaggle 대회 점수 0.851 → 0.9355를 달성했습니다.</li>
+        <li>데이터가 적은 알약을 오려 붙이는 증강으로 학습 이미지를 <b>186장에서 1,026장으로</b> 늘리고, 인터넷 알약 이미지를 대회 배경에 합성해 한 번도 찾지 못하던 희귀 알약까지 탐지했습니다.</li>
+        <li>최종 모델 YOLOv11l이 비교 모델(RF-DETR 0.882, RT-DETRv2 0.876)보다 높은 정확도(mAP <b>0.936</b>)를 냈고, 모델 3개 앙상블로 수업 내 Kaggle 대회 점수 <b>0.851 → 0.9355</b>를 달성했습니다.</li>
       </ul>
       <details><summary>더 보기</summary><ul>
-        <li>거의 같은 사진이 학습·검증 데이터에 나뉘어 들어가 점수가 부풀려지지 않도록 같은 그룹으로 묶은 뒤, 모델 4종(YOLOv8l·YOLOv11l·RT-DETRv2·RF-DETR)으로 7단계 실험을 진행했습니다.</li>
-        <li>담당 업무: PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습·튜닝, RT-DETR·RF-DETR 실험, Crop &amp; Paste 증강</li>
+        <li>거의 같은 사진이 학습·검증 데이터에 나뉘어 들어가 점수가 부풀려지지 않도록 같은 그룹으로 묶은 뒤, 모델 4종(YOLOv8l·YOLOv11l·RT-DETRv2·RF-DETR)으로 <b>7단계 실험</b>을 진행했습니다.</li>
+        <li><b>담당 업무:</b> PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습·튜닝, RT-DETR·RF-DETR 실험, Crop &amp; Paste 증강</li>
       </ul></details>
       <p class="links"><a href="https://github.com/qja0707/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
@@ -189,7 +190,7 @@
       <ul>
         <li>생의학 논문 초록 대부분이 비구조화되어 있어, 연구자가 방법·결과 등 필요한 정보만 골라 읽기 어려운 문제를 다뤘습니다.</li>
         <li>BERT·SciBERT에서 단어 임베딩을 추출해 기존 문장 분류 모델(HSLN)의 Word2Vec을 대체하고, 기준선 재현을 포함한 5가지 조건 실험을 수행했습니다.</li>
-        <li>임베딩 크기를 약 1/175로 줄이고도 기존과 같은 수준의 정확도를 유지했고(92.35% → 92.43%, PubMed 20k RCT, 단일 실행), 사전학습 어휘와 데이터 단어의 낮은 일치율(16%)을 성능의 한계 요인으로 분석했습니다.</li>
+        <li>임베딩 크기를 <b>약 1/175</b>로 줄이고도 기존과 같은 수준의 정확도를 유지했고(92.35% → 92.43%, PubMed 20k RCT, 단일 실행), 사전학습 어휘와 데이터 단어의 낮은 일치율(16%)을 성능의 한계 요인으로 분석했습니다.</li>
       </ul>
     </div>
   </article>
@@ -235,7 +236,7 @@
       <p class="role">박사 연구 · LSTM 시계열 모델링 (Python)</p>
       <ul>
         <li>과거 생산 기록으로 단기 생산량을 예측하는 LSTM 모델을 만들고, 유정(원유를 뽑는 우물) 개수가 달라도 그대로 쓸 수 있게 설계했습니다.</li>
-        <li>업계에서 표준으로 쓰는 예측 방식(감소곡선)보다 예측 정확도를 최대 23% 높였습니다.</li>
+        <li>업계에서 표준으로 쓰는 예측 방식(감소곡선)보다 예측 정확도를 <b>최대 23%</b> 높였습니다.</li>
       </ul>
     </div>
   </article>
@@ -256,8 +257,8 @@
       <h3>원유·물·가스 흐름 시뮬레이터 개발</h3>
       <p class="role">PNG 512 수치 저류층 시뮬레이션 수업 프로젝트 · 개인 · MATLAB (약 1,000줄)</p>
       <ul>
-        <li>지하 지층 지도를 60×30 격자로 나누고 원유·물·가스가 시간에 따라 어떻게 움직이는지 계산하는 시뮬레이터를 처음부터 구현했습니다(Newton-Raphson 반복 해법, 대형 행렬 해법 GMRES, 유체 물성 표 보간).</li>
-        <li>매 계산 단계마다 질량 보존을 점검해 오류를 잡도록 설계하고, 정답이 알려진 표준 예제와 결과가 일치함을 확인했습니다.</li>
+        <li>지하 지층 지도를 60×30 격자로 나누고 원유·물·가스가 시간에 따라 어떻게 움직이는지 계산하는 시뮬레이터를 <b>처음부터 구현</b>했습니다(Newton-Raphson 반복 해법, 대형 행렬 해법 GMRES, 유체 물성 표 보간).</li>
+        <li>매 계산 단계마다 질량 보존을 점검해 오류를 잡도록 설계하고, 정답이 알려진 <b>표준 예제와 결과가 일치</b>함을 확인했습니다.</li>
       </ul>
     </div>
   </article>
@@ -305,7 +306,7 @@
     <div class="body">
       <h3>대학원 조교</h3>
       <p class="role">The Pennsylvania State University · 영어 학부 수업</p>
-      <p>영어로 학부 수업 조교를 맡아 오피스아워·복습 세션을 운영하고 과제마다 상세한 피드백을 제공했습니다. 학생 학습에 대한 헌신과 기여를 인정받아 학과 선정 올해의 대학원 조교상을 받았습니다(2017).</p>
+      <p>영어로 학부 수업 조교를 맡아 오피스아워·복습 세션을 운영하고 과제마다 상세한 피드백을 제공했습니다. 학생 학습에 대한 헌신과 기여를 인정받아 학과 선정 <b>올해의 대학원 조교상</b>을 받았습니다(2017).</p>
     </div>
   </article>
   <article class="entry">
@@ -330,6 +331,10 @@
   <article class="entry">
     <div class="meta">2017.03</div>
     <div class="body"><h3>Engineer in Training (EIT)</h3><p class="role">미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429</p></div>
+  </article>
+  <article class="entry">
+    <div class="meta">2013 – 2014</div>
+    <div class="body"><h3>국가 이공계 장학금</h3><p class="role">4학기 전액</p></div>
   </article>
   <article class="entry">
     <div class="meta">2010.01 – 2011.11</div>
