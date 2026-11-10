@@ -4,81 +4,80 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eunnam Ahn · AI Engineer</title>
-<meta name="description" content="Eunnam Ahn — AI engineer building verifiable LLM/RAG systems, with a background in mathematical modeling.">
+<meta name="description" content="Eunnam Ahn, AI engineer who builds LLM systems around a pass/fail bar set before writing code.">
 <link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/">
-<meta property="og:title" content="Eunnam Ahn · AI Engineer">
-<meta property="og:description" content="Verifiable LLM/RAG systems · Evaluation &amp; quality · Mathematical modeling">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1d2430; --sub:#5b6b80; --line:#e3e8ef; --bg:#ffffff; --soft:#f5f7fa;
-    --accent:#1F4E8C; --accent-soft:#e8eef7; --gold:#a36a00;
-  }
+  :root{--ink:#20242a;--sub:#5f6670;--faint:#8a919b;--line:#e6e8eb;--soft:#f3f4f6}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",Roboto,sans-serif;
-       color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
-  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
-  .skip{position:absolute;left:-999px} .skip:focus{left:12px;top:12px;background:#fff;padding:6px 10px;z-index:99}
+  body{margin:0;font-family:"Noto Sans","Noto Sans KR",Arial,sans-serif;font-size:17px;line-height:1.7;color:var(--ink);background:#fff}
+  a{color:inherit;text-decoration:underline;text-decoration-color:#c5c9cf;text-underline-offset:3px}
+  a:hover{text-decoration-color:var(--ink)}
+  .wrap{max-width:800px;margin:0 auto;padding:0 24px}
+  .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:6px 10px;z-index:9}
 
-  nav{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10}
-  nav .wrap{display:flex;gap:20px;align-items:center;height:52px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
   nav .wrap::-webkit-scrollbar{display:none}
-  nav .lang{font-size:14px;color:var(--sub);margin-left:4px;padding-left:16px;border-left:1px solid var(--line)}
-  nav .lang b{color:var(--accent)}
-  nav .brand{font-weight:700;color:var(--ink);margin-right:auto}
-  nav a.l{color:var(--sub);font-size:14px} nav a.l:hover{color:var(--accent);text-decoration:none}
+  nav a{text-decoration:none;font-size:15px;color:var(--sub)}
+  nav a:hover{color:var(--ink)}
+  nav .name{font-weight:600;color:var(--ink);margin-right:auto}
+  nav .lang{display:flex;gap:14px;padding-left:18px;border-left:1px solid var(--line)}
+  nav .lang .on{color:var(--ink);font-weight:500}
 
-  header{padding:64px 0 40px}
-  header h1{font-size:40px;line-height:1.15;margin:0 0 6px;letter-spacing:-.5px}
-  header h1 span{font-weight:400;color:var(--sub);font-size:22px;margin-left:10px}
-  .role{color:var(--accent);font-weight:600;font-size:18px;margin:0 0 18px}
-  .tagline{font-size:18px;max-width:720px;margin:0 0 22px}
+  header{padding:56px 0 48px}
+  .who{display:flex;align-items:center;gap:24px;margin-bottom:28px}
+  .who img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:50% 30%;background:var(--soft)}
+  .who span{color:var(--sub);font-size:16px}
+  h1{font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:0 0 10px}
+  h1 small{font-size:20px;font-weight:400;color:var(--sub);margin-left:8px;letter-spacing:0}
+  .role{margin:0 0 6px;font-size:17px}
+  .focus{margin:0 0 22px;color:var(--sub);font-size:16px}
+  .intro{margin:0 0 26px}
   .btns{display:flex;flex-wrap:wrap;gap:10px}
-  .btn{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:14px;color:var(--ink)}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-  .btn:hover{text-decoration:none;border-color:var(--accent)}
-
-  .hero{display:flex;gap:32px;align-items:flex-start;justify-content:space-between}
-  .hero-text{flex:1;min-width:0}
-  .photo{width:150px;height:166px;object-fit:cover;border-radius:12px;border:1px solid var(--line);flex-shrink:0;margin-top:6px}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
-  .stat{background:var(--soft);border-radius:10px;padding:14px 16px}
-  .stat b{display:block;font-size:22px;color:var(--accent)}
-  .stat small{color:var(--sub);font-size:13px}
+  .btns a{text-decoration:none;font-size:15px;padding:8px 16px;border:1px solid #d5d8dc;border-radius:4px}
+  .btns a:first-child{background:var(--soft)}
+  .btns a:hover{border-color:var(--ink)}
 
   section{padding:44px 0;border-top:1px solid var(--line)}
-  h2{font-size:24px;margin:0 0 6px}
-  .lead{color:var(--sub);margin:0 0 24px}
-  h3{font-size:18px;margin:0}
+  h2{font-size:26px;font-weight:500;letter-spacing:-.01em;margin:0 0 28px}
+  h3{font-size:17px;font-weight:500;margin:0}
+  .entry{display:grid;grid-template-columns:180px 1fr;gap:4px 28px;padding:0 0 30px}
+  .entry:last-child{padding-bottom:0}
+  .entry .side{font-size:15px;color:var(--sub);line-height:1.6}
+  .entry .side b{display:block;color:var(--ink);font-weight:500;font-size:16px}
+  .entry h3{font-size:19px;margin-bottom:2px}
+  .entry .tech{font-size:15px;color:var(--sub);margin:0 0 8px}
+  .entry p{margin:0 0 6px}
+  ul{margin:6px 0 0;padding-left:20px}
+  li{margin:4px 0}
+  details{margin-top:8px}
+  summary{cursor:pointer;font-size:15px;color:var(--sub)}
+  summary:hover{color:var(--ink)}
+  .more{font-size:15px;margin-top:8px}
+  .pub{padding:0 0 22px}
+  .pub:last-child{padding-bottom:0}
+  .pub .t{font-weight:500}
+  .pub .m{color:var(--sub);font-size:15px}
+  .list{margin:0;padding:0;list-style:none}
+  .list li{display:grid;grid-template-columns:180px 1fr;gap:28px;margin:0;padding:6px 0}
+  .list .y{color:var(--sub);font-size:15px}
+  .list small{display:block;color:var(--sub);font-size:15px}
+  dl{margin:0;display:grid;grid-template-columns:180px 1fr;gap:10px 28px}
+  dt{color:var(--sub);font-size:15px}
+  dd{margin:0}
+  footer{padding:28px 0 56px;border-top:1px solid var(--line);color:var(--faint);font-size:14px}
 
-  .card{border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:16px;background:#fff}
-  .card-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
-  .date{color:var(--sub);font-size:14px;white-space:nowrap}
-  .meta{color:var(--sub);font-size:14px;margin:4px 0 12px}
-  .tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
-  .tag{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:600}
-  .tag.award{background:#fdf3e1;color:var(--gold)}
-  .tag.gray{background:var(--soft);color:var(--sub)}
-  .metrics{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px}
-  .metric{border-left:3px solid var(--accent);padding:2px 10px;font-size:14px}
-  .metric b{font-size:16px}
-  ul{margin:8px 0 0;padding-left:20px} li{margin:3px 0}
-  details{margin-top:8px} summary{cursor:pointer;color:var(--accent);font-size:14px;font-weight:600}
-  .links{font-size:14px;margin-top:10px}
-
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
-  .row:last-child{border-bottom:none}
-  .row .what b{display:block}
-  .row .what small{color:var(--sub)}
-  .skills dt{font-weight:700;margin-top:12px} .skills dd{margin:2px 0 0;color:var(--ink)}
-
-  footer{padding:32px 0 48px;color:var(--sub);font-size:13px;border-top:1px solid var(--line)}
-  @media (max-width:720px){
-    header h1{font-size:32px} header h1 span{display:block;margin:4px 0 0}
-    .stats{grid-template-columns:repeat(2,1fr)} .grid2{grid-template-columns:1fr}
-    .hero{flex-direction:column-reverse;gap:16px} .photo{width:104px;height:115px;margin-top:0}
+  @media (max-width:680px){
+    header{padding:40px 0 36px}
+    .who img{width:88px;height:88px}
+    h1{font-size:30px} h1 small{display:block;margin:6px 0 0}
+    .entry,.list li,dl{grid-template-columns:1fr;gap:2px}
+    .entry .side{margin-bottom:6px}
+    dt{margin-top:8px}
   }
 </style>
 </head>
@@ -86,197 +85,190 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <nav><div class="wrap">
-  <a class="brand" href="#top">Eunnam Ahn</a>
-  <a class="l" href="#projects">Projects</a>
-  <a class="l" href="#publications">Publications</a>
-  <a class="l" href="#research">Research</a>
-  <a class="l" href="#education">Education</a>
-  <a class="l" href="#skills">Skills</a>
-  <a class="l" href="#contact">Contact</a>
-  <span class="lang"><a href="../">KO</a> · <b>EN</b></span>
+  <a class="name" href="#top">Eunnam Ahn</a>
+  <a href="#projects">Projects</a>
+  <a href="#publications">Publications</a>
+  <a href="#research">Research</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+  <span class="lang"><a href="../">KO</a><a class="on" href="./">EN</a></span>
 </div></nav>
 
 <main id="main">
 <header id="top"><div class="wrap">
-  <div class="hero"><div class="hero-text">
-  <h1>Eunnam Ahn <span>안은남</span></h1>
-  <p class="role">AI Engineer · LLM / RAG Systems · Evaluation &amp; Quality · Mathematical Modeling</p>
-  <p class="tagline">I set the pass criteria first, then choose the design that meets them. Deterministic components make the decisions, the LLM only explains, and every claim is verified.</p>
-  <div class="btns">
-    <a class="btn primary" href="../resume_en.pdf">📄 CV (PDF)</a>
-    <a class="btn" href="https://github.com/eunnamahn">GitHub</a>
-    <a class="btn" href="mailto:baduk89@hanmail.net">Email</a>
+  <div class="who">
+    <img src="../profile.jpg" alt="Photo of Eunnam Ahn">
+    <span>AI Engineer · Busan, South Korea</span>
   </div>
-  </div><img class="photo" src="../profile.jpg" alt="Photo of Eunnam Ahn"></div>
-  <div class="stats">
-    <div class="stat"><b>0</b><small>unsupported claims shipped (SAVERS)</small></div>
-    <div class="stat"><b>9 yrs</b><small>graduate research in the US</small></div>
-    <div class="stat"><b>3 / 4</b><small>team projects led</small></div>
-    <div class="stat"><b>🏆 2026</b><small>Minister of Employment &amp; Labor Award</small></div>
+  <h1>Eunnam Ahn<small>안은남</small></h1>
+  <p class="role">AI Engineer · Ph.D. Candidate (ABD), Penn State</p>
+  <p class="focus">LLM / RAG Systems · Evaluation &amp; Quality · Mathematical Modeling</p>
+  <p class="intro">I build LLM systems around a pass/fail bar that I set before writing code, and I let that bar decide the design. On SAVERS, a disaster-evacuation assistant, I wrote the check that blocks any answer the event log cannot back up; the project won a national hackathon award and became my first-author paper at ACK 2026. Before moving into AI, I spent nine years in graduate school at Penn State building mathematical and statistical models, and I taught undergraduates in English for eight of them.</p>
+  <div class="btns">
+    <a href="../resume_en.pdf">CV (PDF)</a>
+    <a href="mailto:baduk89@hanmail.net">Email</a>
+    <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
 </div></header>
 
 <section id="projects"><div class="wrap">
   <h2>Projects</h2>
-  <p class="lead">Each project starts from a measurable pass criterion. Numbers first, details on demand.</p>
 
-  <article class="card">
-    <div class="card-top"><h3>SAVERS · Evidence-grounded evacuation guidance</h3><span class="date">2026.07 – 2026.09</span></div>
-    <p class="meta">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026</p>
-    <div class="tags"><span class="tag award">🏆 Minister's Award</span><span class="tag">LLM safety</span><span class="tag gray">FastAPI</span><span class="tag gray">LangChain</span><span class="tag gray">NetworkX</span><span class="tag gray">AWS EC2</span></div>
-    <div class="metrics">
-      <div class="metric"><b>35/35</b> golden set</div>
-      <div class="metric"><b>30/30</b> runtime claims matched</div>
-      <div class="metric"><b>12/12</b> adversarial blocked</div>
-      <div class="metric"><b>3.2 → 8.3</b> evacuation intent (n=52)</div>
+  <div class="entry">
+    <div class="side"><b>SAVERS</b>Jul – Sep 2026<br>Team lead · team of 4</div>
+    <div>
+      <h3>Evacuation guidance for disaster-vulnerable residents</h3>
+      <p class="tech">K-Digital Training Hackathon 2026 · FastAPI, LangChain, AWS EC2</p>
+      <p>Official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</p>
+      <ul>
+        <li>Kept shelter filtering and walking routes (OSMnx / NetworkX) in deterministic rules, so the LLM only explains fixed results.</li>
+        <li>A claim-level verifier checks every guardian answer against the user's event log: 35/35 correct on a 40-case golden set, 30/30 runtime responses matched, 12/12 adversarial prompts blocked.</li>
+        <li>In a 52-person survey, evacuation intent rose from 3.2 to 8.3 (p&lt;0.001); won the Minister of Employment and Labor Award (Encouragement Prize).</li>
+      </ul>
+      <details><summary>More</summary><ul>
+        <li>Measured refusal in both directions: over-refusal 3.6% (1/28), but 6/6 should-refuse controls were answered; both failures traced to lexical retrieval, not the verifier.</li>
+        <li>Contributions: built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
+      </ul></details>
+      <p class="more"><a href="https://github.com/team-savers/savers-project">GitHub</a></p>
     </div>
-    <p>A no-install mobile-web service that turns official flood alerts into personal evacuation guidance for residents who struggle to judge or evacuate alone.</p>
-    <details><summary>Details</summary><ul>
-      <li>Shelter filtering and walking routes (OSMnx / NetworkX) are fixed by deterministic rules; the LLM only explains results that are already decided.</li>
-      <li>A claim-level verifier checks every guardian answer against the user's event log and blocks unmatched claims before sending. Pass criterion: zero unsupported claims.</li>
-      <li>Measured refusal in both directions: over-refusal 3.6% (1/28), but all 6 should-refuse controls were answered. Both failures traced to lexical retrieval, not the verifier.</li>
-      <li>In a 52-person survey, self-reported evacuation intent rose from 3.2 to 8.3 (47 up, 0 down, p&lt;0.001); won the Minister of Employment and Labor Award (Excellence Prize).</li>
-      <li>Contributions: built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
-    </ul></details>
-    <p class="links"><a href="https://github.com/team-savers/savers-project">Code →</a></p>
-  </article>
+  </div>
 
-  <article class="card">
-    <div class="card-top"><h3>AI Ad Studio · Product-preserving ad generation</h3><span class="date">2026.08</span></div>
-    <p class="meta">Team Lead · PM · Generation &amp; Evaluation (team of 5)</p>
-    <div class="tags"><span class="tag">Generative AI</span><span class="tag gray">SDXL</span><span class="tag gray">ControlNet</span><span class="tag gray">IP-Adapter</span><span class="tag gray">LCM-LoRA</span><span class="tag gray">GCP L4</span></div>
-    <div class="metrics">
-      <div class="metric"><b>4/4</b> passed product gate</div>
-      <div class="metric">background <b>17.47 s → 1.72 s</b> (~10×)</div>
-      <div class="metric"><b>486</b> automated tests</div>
+  <div class="entry">
+    <div class="side"><b>BidMate</b>Jun – Jul 2026<br>Evaluation · team of 5</div>
+    <div>
+      <h3>RAG Q&amp;A and summarization for public RFP documents</h3>
+      <p class="tech">LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
+      <p>100 public RFPs in HWP and PDF; answers must cite the source and refuse unanswerable questions.</p>
+      <ul>
+        <li>Tested 708 configurations on a 95-question golden set covering five question types, scored by Hit@k, MRR, refusal accuracy and RAGAS.</li>
+        <li>The final local stack (KURE-v1 + dense k=4 + EXAONE 3.5) beat the OpenAI baseline: MRR 0.65 → 0.977, refusal accuracy 0.91 → 1.0, latency 11.27 s → 3.6 s, at $0 per query.</li>
+      </ul>
+      <details><summary>More</summary><ul>
+        <li>Traced a Hit@k stuck at 0.3 to a bug in the golden set and fixed it, found that Ollama's default 4,096-token context was quietly cutting off evidence (raised to 8,192), and dropped a reranker that added 21 s of latency for no gain.</li>
+        <li>Contributions: ran the embedding comparison, designed the golden-set and RAGAS evaluation, and wrote the automated scoring scripts.</li>
+      </ul></details>
+      <p class="more"><a href="https://github.com/Eastar0102/codeit-part3-team1">GitHub</a></p>
     </div>
-    <p>Ad images must be remade for every time slot and channel for small businesses — without changing the product.</p>
-    <details><summary>Details</summary><ul>
-      <li>Made product preservation the first gate, ahead of style: masked-region CLIP similarity ≥ 0.85, then visual review, across 4 brand tones × 6 times of day.</li>
-      <li>Cut background generation from 17.47 s to 1.72 s p50 (~10×) with a 768-px, 4-step LCM-LoRA path; full pipeline 5.97 s per image on an L4.</li>
-      <li>4/4 representative combinations and all 8 test cases passed; 486 automated tests passed.</li>
-      <li>Contributions: PM; built the SDXL / ControlNet generation pipeline, the CLIP preservation gate and eval harness; final report.</li>
-    </ul></details>
-    <p class="links"><a href="https://github.com/codeit-part4-team2/ad-creative-studio">Code →</a></p>
-  </article>
+  </div>
 
-  <article class="card">
-    <div class="card-top"><h3>BidMate · RAG Q&amp;A and summarization for public RFPs</h3><span class="date">2026.06 – 2026.07</span></div>
-    <p class="meta">Retrieval Engineer (team of 5)</p>
-    <div class="tags"><span class="tag">RAG</span><span class="tag gray">LangChain</span><span class="tag gray">LangGraph</span><span class="tag gray">FAISS</span><span class="tag gray">KURE-v1</span><span class="tag gray">EXAONE 3.5</span></div>
-    <div class="metrics">
-      <div class="metric"><b>708</b> configurations tested</div>
-      <div class="metric">MRR <b>0.65 → 0.977</b></div>
-      <div class="metric">refusal accuracy <b>0.91 → 1.0</b></div>
-      <div class="metric"><b>11.27 s → 3.6 s</b> at <b>$0</b>/query</div>
+  <div class="entry">
+    <div class="side"><b>AI Ad Studio</b>Aug 2026<br>Team lead · team of 5</div>
+    <div>
+      <h3>Ad image and copy generation for small businesses</h3>
+      <p class="tech">SDXL, ControlNet, IP-Adapter, GCP L4</p>
+      <p>Ad images had to be remade for every time slot and channel without changing the product.</p>
+      <ul>
+        <li>Made product preservation the first gate, ahead of style: masked-region CLIP similarity ≥ 0.85, then visual review, across 4 brand tones × 6 times of day.</li>
+        <li>Cut background generation from 17.47 s to 1.72 s with a 768-px, 4-step LCM-LoRA path (full pipeline 5.97 s per image on an L4); 4/4 representative combinations and 486 automated tests passed.</li>
+      </ul>
+      <details><summary>More</summary><ul>
+        <li>Contributions: PM; built the SDXL / ControlNet generation pipeline, the CLIP preservation gate and eval harness; final report.</li>
+      </ul></details>
+      <p class="more"><a href="https://github.com/codeit-part4-team2/ad-creative-studio">GitHub</a></p>
     </div>
-    <p>Question answering over 100 public RFPs in mixed HWP/PDF: answers must cite the source, and unanswerable questions must be refused.</p>
-    <details><summary>Details</summary><ul>
-      <li>Tested 708 configurations on a 95-question golden set covering 5 question types (short answer, number, contract terms, summary, refusal), scored by Hit@k, MRR, refusal accuracy and RAGAS.</li>
-      <li>The final local stack (KURE-v1 + dense k=4 + EXAONE 3.5) beat the OpenAI baseline: MRR 0.65 → 0.977, Hit@k 0.73 → 1.0, refusal accuracy 0.91 → 1.0, latency 11.27 s → 3.6 s, at $0 per query.</li>
-      <li>Debugged the evaluation itself: fixed a golden-set bug that pinned Hit@k at 0.3, found Ollama's default 4,096-token context silently truncating evidence (raised to 8,192), and dropped a reranker that added no score but raised latency from 3.6 s to 24.3 s.</li>
-      <li>Contributions: built the hybrid retrieval, ran the embedding comparison, designed the evaluation, and built the RFP agents.</li>
-    </ul></details>
-    <p class="links"><a href="https://github.com/Eastar0102/codeit-part3-team1">Code →</a></p>
-  </article>
+  </div>
 
-  <article class="card">
-    <div class="card-top"><h3>PillScope · Object detection for oral medication images</h3><span class="date">2026.04 – 2026.05</span></div>
-    <p class="meta">Project Manager (team of 5)</p>
-    <div class="tags"><span class="tag">Computer vision</span><span class="tag gray">YOLOv11</span><span class="tag gray">RT-DETRv2</span><span class="tag gray">RF-DETR</span><span class="tag gray">COCO</span></div>
-    <div class="metrics">
-      <div class="metric"><b>186 → 1,026</b> training images</div>
-      <div class="metric">val mAP@[.75:.95] <b>0.936</b></div>
-      <div class="metric">Kaggle <b>0.851 → 0.9355</b> (+8.5 pp)</div>
+  <div class="entry">
+    <div class="side"><b>PillScope</b>Apr – May 2026<br>Project manager · team of 5</div>
+    <div>
+      <h3>Object detection for oral medication images</h3>
+      <p class="tech">YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
+      <p>56 look-alike pill classes, only 186 training images, a 51× class imbalance, and up to 4 pills per image.</p>
+      <ul>
+        <li>Grouped near-duplicate shots into the same split to prevent leakage, then ran 7 staged experiments across 4 detectors.</li>
+        <li>Minority-class crop-and-paste grew the data from 186 to 1,026 images; YOLOv11l reached validation mAP@[0.75:0.95] 0.936, and a 3-model WBF ensemble lifted the Kaggle score from 0.851 to 0.9355.</li>
+      </ul>
+      <details><summary>More</summary><ul>
+        <li>Compositing web pill images onto the competition background raised mAP@[0.75:0.95] from 0.919 to 0.936 and made a never-detected rare class detectable.</li>
+        <li>YOLOv11l was ahead of RF-DETR v3 (0.882) and RT-DETRv2 (0.876).</li>
+        <li>Contributions: PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
+      </ul></details>
+      <p class="more"><a href="https://github.com/qja0707/OralMedicineImageDetection">GitHub</a></p>
     </div>
-    <p>56 look-alike pill classes, only 186 training images, a 51× class imbalance (153 vs. 3 annotations), and up to 4 pills per image.</p>
-    <details><summary>Details</summary><ul>
-      <li>Grouped near-duplicate shots into the same split to prevent train/validation leakage, then ran 7 staged experiments across YOLOv8l, YOLOv11l, RT-DETRv2 and RF-DETR v3, scored by mAP@[0.75:0.95].</li>
-      <li>Minority-class crop-and-paste grew the data from 186 to 1,026 images (mAP@0.5 0.886 → 0.964).</li>
-      <li>Compositing web pill images onto the competition background raised mAP@[0.75:0.95] from 0.919 to 0.936 and made a never-detected rare class detectable.</li>
-      <li>YOLOv11l outperformed RF-DETR v3 (0.882) and RT-DETRv2 (0.876); a 3-model WBF ensemble lifted the Kaggle score from 0.851 to 0.9355.</li>
-      <li>Contributions: PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
-    </ul></details>
-    <p class="links"><a href="https://github.com/qja0707/OralMedicineImageDetection">Code →</a></p>
-  </article>
+  </div>
 </div></section>
 
 <section id="publications"><div class="wrap">
   <h2>Publications</h2>
-  <p class="lead">Authorship role and status shown for each paper.</p>
-
-  <article class="card">
-    <div class="card-top"><h3>Design and Implementation of an Evidence-Grounded Evacuation Guidance Service for Disaster-Vulnerable Populations</h3><span class="date">2026.11</span></div>
-    <p class="meta">Proceedings of the Annual Conference of Korea Information Processing Society (ACK), Nov 2026 · KIPS_C2026B0142</p>
-    <div class="tags"><span class="tag">First author</span><span class="tag gray">Presented orally</span><span class="tag gray">Published</span><span class="tag gray">Korean</span></div>
-    <p>The SAVERS paper: safety decisions stay deterministic, the LLM only explains, and a claim-level verifier blocks unsupported statements. Evaluation set and scoring scripts released.</p>
-  </article>
-
-  <article class="card">
-    <div class="card-top"><h3>Multi-Well Analytical Solution for Coning Under Simultaneous Steady-State Flow of Three Phases</h3><span class="date">2018</span></div>
-    <p class="meta">SPE Improved Oil Recovery Conference, Tulsa, OK, USA · SPE-190182-MS</p>
-    <div class="tags"><span class="tag">First author</span><span class="tag gray">Published</span><span class="tag gray">English</span></div>
-    <p>Reduced three-phase steady flow to the Laplace equation using a potential function with capillary pressure and relative permeability, then derived a multi-well solution by superposition — a fast benchmark for validating simulators.</p>
-    <p class="links"><a href="https://doi.org/10.2118/190182-MS">doi.org/10.2118/190182-MS →</a></p>
-  </article>
+  <div class="pub">
+    <div class="t">Design and Implementation of an Evidence-Grounded Evacuation Guidance Service for Disaster-Vulnerable Populations</div>
+    <div class="m">First author, oral presentation · Proc. Annual Conference of KIPS (ACK 2026) · KIPS_C2026B0142</div>
+  </div>
+  <div class="pub">
+    <div class="t">Multi-Well Analytical Solution for Coning Under Simultaneous Steady-State Flow of Three Phases</div>
+    <div class="m">First author · SPE Improved Oil Recovery Conference, Tulsa, OK, USA, 2018 · <a href="https://doi.org/10.2118/190182-MS">doi.org/10.2118/190182-MS</a></div>
+  </div>
 </div></section>
 
 <section id="research"><div class="wrap">
-  <h2>Graduate Research · The Pennsylvania State University</h2>
-  <p class="lead">Ph.D. training (ABD) in mathematical modeling and validation — building a model, checking it against real data, and quantifying its uncertainty. That habit shapes how I evaluate LLM systems.</p>
-  <div class="card">
-    <div class="row"><div class="what"><b>Calibrating a reservoir model to production data under uncertainty</b><small>Ph.D. research · Extended a classical physics-based model (Muskat-type material balance) to capture water and gas inflow; fit it to observed production while quantifying uncertainty with Monte Carlo simulation and design of experiments, improving accuracy and cutting computation time; searched for oil-maximizing operating conditions with simulated annealing</small></div><span class="date">2021 – 2024</span></div>
-    <div class="row"><div class="what"><b>Forecasting oil-well production with LSTM</b><small>Ph.D. research · LSTM forecasting short-term production from past time series, for any number of wells · up to 23% more accurate than the industry-standard decline-curve method</small></div><span class="date">2019 – 2020</span></div>
-    <div class="row"><div class="what"><b>Exact math model of water and gas inflow into multiple oil wells</b><small>M.S. thesis · Advisor: Prof. Russell T. Johns · Numerical simulators misjudge coning because cells near the well are too coarse; turned three-phase flow into the Laplace equation and solved multiple wells exactly by superposition — a fast benchmark for checking simulators</small></div><span class="date">2015 – 2018</span></div>
+  <h2>Graduate Research</h2>
+  <div class="entry">
+    <div class="side"><b>Ph.D. research</b>2021 – 2024</div>
+    <div>
+      <h3>Calibrating a reservoir model to production data under uncertainty</h3>
+      <p class="tech">Monte Carlo simulation, design of experiments, simulated annealing (Python)</p>
+      <p>Fit a physics-based reservoir model (Muskat-type material balance) to observed production while quantifying uncertainty with Monte Carlo simulation and design of experiments, improving accuracy and cutting computation time. Searched for the operating conditions that maximize oil output with simulated annealing.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="side"><b>Ph.D. research</b>2019 – 2020</div>
+    <div>
+      <h3>Forecasting oil-well production with LSTM</h3>
+      <p class="tech">LSTM time-series modeling (Python)</p>
+      <p>An LSTM model that forecasts short-term production from past production and works for any number of wells, up to 23% more accurate than the industry-standard decline-curve method.</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="side"><b>M.S. thesis</b>2015 – 2018</div>
+    <div>
+      <h3>Exact math model of water and gas inflow into multiple oil wells</h3>
+      <p class="tech">Advisor: Prof. Russell T. Johns · PDEs, Laplace equation, superposition</p>
+      <p>Turned the flow equations for oil, water and gas into the Laplace equation with a potential function, so several wells could be solved exactly by superposition. Showed that capillary pressure lowers the maximum safe oil rate; the model serves as a fast benchmark for checking simulators.</p>
+    </div>
   </div>
 </div></section>
 
 <section id="education"><div class="wrap">
-  <h2>Education &amp; Activities</h2>
-  <div class="grid2">
-    <div class="card">
-      <h3 style="margin-bottom:6px">Education</h3>
-      <div class="row"><div class="what"><b>Penn State University</b><small>Ph.D. Candidate (ABD), Energy and Mineral Engineering · Advisor: Prof. Gregory R. King · Double minor in Statistics and Computational Science · GPA 3.72/4.00</small></div><span class="date">2018 – 2024</span></div>
-      <div class="row"><div class="what"><b>Penn State University</b><small>M.S., Petroleum and Natural Gas Engineering · Advisor: Prof. Russell T. Johns · GPA 3.71/4.00</small></div><span class="date">2015 – 2018</span></div>
-      <div class="row"><div class="what"><b>Hanyang University</b><small>B.S., Natural Resources and Environmental Engineering · GPA 4.28/4.50 (3.86/4.00) · Graduated 1st of 33 in the department and 2nd in the College of Engineering</small></div><span class="date">2009 – 2015</span></div>
-      <div class="row"><div class="what"><b>Codeit Sprint</b><small>AI Engineer Bootcamp, 10th cohort · 3 team projects (detection, RAG, generative AI); led 3 of 4 projects, incl. the SAVERS hackathon</small></div><span class="date">2026</span></div>
-    </div>
-    <div class="card">
-      <h3 style="margin-bottom:6px">Teaching &amp; Leadership</h3>
-      <div class="row"><div class="what"><b>Graduate Teaching Assistant</b><small>English-language undergraduate courses · EME TA of the Year (2017)</small></div><span class="date">2016 – 2024</span></div>
-      <div class="row"><div class="what"><b>Co-chair, EMS Graduate Student Council</b><small>College of Earth &amp; Mineral Sciences, Penn State</small></div><span class="date">2019 – 2024</span></div>
-      <h3 style="margin:16px 0 6px">Awards &amp; Certifications</h3>
-      <div class="row"><div class="what"><b>Minister of Employment &amp; Labor Award</b><small>8th K-Digital Training Hackathon (Excellence Prize)</small></div><span class="date">2026</span></div>
-      <div class="row"><div class="what"><b>TOEIC 985 / 990 · ADsP</b><small>Listening 490, Reading 495 · Advanced Data Analytics Semi-Professional, Korea Data Agency</small></div><span class="date">2026</span></div>
-      <div class="row"><div class="what"><b>Engineer in Training (EIT)</b><small>License Number ET 023429</small></div><span class="date"></span></div>
-      <div class="row"><div class="what"><b>Sergeant, Republic of Korea Army</b><small>Squad leader</small></div><span class="date">2010 – 2011</span></div>
-    </div>
-  </div>
+  <h2>Education</h2>
+  <ul class="list">
+    <li><span class="y">Aug 2018 – Dec 2024</span><span>The Pennsylvania State University<small>Ph.D. Candidate (ABD) in Energy and Mineral Engineering · Advisor: Prof. Gregory R. King · Double minor in Statistics and Computational Science · GPA 3.72/4.00</small></span></li>
+    <li><span class="y">Aug 2015 – Aug 2018</span><span>The Pennsylvania State University<small>M.S. in Petroleum and Natural Gas Engineering · Advisor: Prof. Russell T. Johns · GPA 3.71/4.00</small></span></li>
+    <li><span class="y">Mar 2009 – Feb 2015</span><span>Hanyang University<small>B.S. in Natural Resources and Environmental Engineering · GPA 4.28/4.50 (3.86/4.00) · Graduated 1st of 33 in the department and 2nd in the College of Engineering</small></span></li>
+    <li><span class="y">Feb 2026 – Aug 2026</span><span>Codeit Sprint · AI Engineer Bootcamp, 10th cohort<small>3 team projects (detection, RAG, generative AI); led 3 of 4 projects, including the SAVERS hackathon</small></span></li>
+  </ul>
+</div></section>
+
+<section id="activities"><div class="wrap">
+  <h2>Teaching, Honors &amp; Certifications</h2>
+  <ul class="list">
+    <li><span class="y">2016 – 2024</span><span>Teaching Assistant, The Pennsylvania State University<small>EME Graduate Teaching Assistant of the Year (2017)</small></span></li>
+    <li><span class="y">2019 – 2024</span><span>Co-chair, College of Earth and Mineral Sciences (EMS) Graduate Student Council</span></li>
+    <li><span class="y">2026</span><span>Minister of Employment and Labor Award (Encouragement Prize)<small>8th K-Digital Training Hackathon</small></span></li>
+    <li><span class="y">Jun 2026</span><span>Advanced Data Analytics Semi-Professional (ADsP)<small>Korea Data Agency, 49th exam</small></span></li>
+    <li><span class="y">Mar 2026</span><span>TOEIC 985 / 990<small>Listening 490, Reading 495</small></span></li>
+    <li><span class="y">Mar 2017</span><span>Engineer in Training (EIT)<small>NCEES FE exam, Pennsylvania · ET 023429</small></span></li>
+    <li><span class="y">2010 – 2011</span><span>Sergeant, Republic of Korea Army</span></li>
+  </ul>
 </div></section>
 
 <section id="skills"><div class="wrap">
   <h2>Skills</h2>
-  <dl class="skills">
-    <dt>AI · LLM</dt><dd>LangChain, LangGraph, RAG (FAISS, Chroma, BM25, reranker), OpenAI, HyperCLOVA X, SDXL · LoRA · ControlNet, YOLO, RT-DETR</dd>
-    <dt>Evaluation · Quality</dt><dd>Golden-set design, claim-level verification, Hit@k · MRR · refusal accuracy, RAGAS, pytest, GitHub Actions CI</dd>
-    <dt>Math · Statistics</dt><dd>PDE analytical solutions, Monte Carlo simulation, design of experiments, optimization (Simulated Annealing), time-series &amp; statistical modeling</dd>
+  <dl>
+    <dt>AI · LLM</dt><dd>LangChain, RAG (FAISS, Chroma, BM25, reranker), OpenAI, SDXL · ControlNet · IP-Adapter, YOLO, RT-DETR</dd>
+    <dt>Evaluation · Quality</dt><dd>Golden-set design, Hit@k · MRR · refusal accuracy, RAGAS, claim-level verification, pytest, GitHub Actions CI</dd>
     <dt>Backend · Infra</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, GCP, FCM web push</dd>
-    <dt>ML · Data</dt><dd>Pandas, NumPy, scikit-learn, TensorFlow, Matplotlib, OSMnx, NetworkX, MATLAB, R</dd>
+    <dt>ML · Data</dt><dd>Pandas, NumPy, Scikit-learn, TensorFlow, Matplotlib, OSMnx, NetworkX</dd>
     <dt>Collaboration</dt><dd>GitHub PRs and code review, ADR-based decision records</dd>
-    <dt>Languages</dt><dd>Korean (native), English (fluent — 9 years of US graduate school, 8 years teaching in English, first-author English paper)</dd>
+    <dt>Languages</dt><dd>Korean (native), English (fluent)</dd>
   </dl>
 </div></section>
 
 <section id="contact"><div class="wrap">
   <h2>Contact</h2>
-  <p>Open to AI engineer roles in LLM/RAG systems, evaluation, and applied modeling. Based in Busan, Korea.</p>
-  <div class="btns">
-    <a class="btn primary" href="mailto:baduk89@hanmail.net">baduk89@hanmail.net</a>
-    <a class="btn" href="https://github.com/eunnamahn">github.com/eunnamahn</a>
-  </div>
+  <p style="margin:0">Email <a href="mailto:baduk89@hanmail.net">baduk89@hanmail.net</a> · GitHub <a href="https://github.com/eunnamahn">github.com/eunnamahn</a></p>
 </div></section>
 </main>
 
-<footer><div class="wrap">© 2026 Eunnam Ahn · Last updated November 2026</div></footer>
+<footer><div class="wrap">Last updated November 2026</div></footer>
 </body>
 </html>
