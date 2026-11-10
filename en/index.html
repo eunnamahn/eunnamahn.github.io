@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eunnam Ahn · AI Engineer</title>
-<meta name="description" content="Eunnam Ahn, AI engineer who builds LLM systems around a pass/fail bar set before writing code.">
+<meta name="description" content="Eunnam Ahn, AI engineer who builds LLM systems that check their answers against evidence before anything reaches a user.">
 <link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,8 +100,8 @@
     <a href="mailto:baduk89@hanmail.net">Email</a>
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
-  <p class="about">I build LLM systems around a pass/fail bar that I set before writing code, and I let that bar decide the design. On SAVERS, a disaster-evacuation assistant, I built a verifier that checks every guardian answer, claim by claim, against the event log; the project won a national hackathon award and became my first-author paper at ACK 2026.</p>
-  <p class="about">Before moving into AI, I spent nine years in graduate school at Penn State building mathematical and statistical models, and I taught undergraduates in English for eight of them.</p>
+  <p class="about">I build LLM systems that check their answers against evidence before anything reaches a user. On SAVERS, a disaster-evacuation assistant, I wrote the verifier that compares every message sent to a guardian with the event log; the project won a national hackathon award and became my first-author conference paper.</p>
+  <p class="about">Before moving into AI, I built and validated mathematical and statistical models in my Ph.D. research at Penn State, while teaching undergraduates in English.</p>
 </header>
 
 <section id="projects">
@@ -113,12 +113,12 @@
       <h3>SAVERS · Evacuation guidance for disaster-vulnerable residents</h3>
       <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026</p>
       <ul>
-        <li>Kept shelter filtering and walking routes (OSMnx / NetworkX) in deterministic rules, so the LLM only explains fixed results; a claim-level verifier checks every guardian answer against the user's event log.</li>
-        <li>Set "zero claims not in the log" as the pass bar: 30/30 runtime answers matched the golden set, and 12/12 adversarial prompts were blocked.</li>
+        <li>Shelter choice and walking routes are computed by rule-based code (OSMnx / NetworkX), not the LLM; the LLM only explains results that are already fixed.</li>
+        <li>Pass bar: zero claims that are not in the event log. 30/30 runtime answers passed, and 12/12 adversarial prompts were blocked.</li>
         <li>In a 52-person survey, evacuation intent rose from 3.2 to 8.3 (p&lt;0.001); won the Minister of Employment and Labor Award (Encouragement Prize).</li>
       </ul>
       <details><summary>More</summary><ul>
-        <li>Measured refusal both ways: over-refusal only 3.6% (1/28), but all 6 out-of-scope chatbot questions got off-topic answers that grounding metrics miss; traced to lexical retrieval, not the verifier.</li>
+        <li>Tested both wrong refusals and missed refusals: the chatbot wrongly refused only 1 of 28 valid questions (3.6%), but answered all 6 out-of-scope questions from unrelated evidence, a failure grounding scores do not catch; traced it to the retrieval step, not the verifier.</li>
         <li>Contributions: built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
         <li>Stack: FastAPI, LangChain, AWS EC2</li>
       </ul></details>
@@ -138,7 +138,7 @@
       </ul>
       <details><summary>More</summary><ul>
         <li>OpenAI embeddings ranked last in the earlier 50-question round (MRR 0.65) and were dropped.</li>
-        <li>Traced a Hit@k stuck at 0.3 to a bug in the golden set and fixed it, found that Ollama's default 4,096-token context was quietly cutting off evidence (raised to 8,192), and dropped a reranker that added 21 s of latency for no gain.</li>
+        <li>Found that a score stuck at 0.3 came from errors in the golden set, not the model; raised Ollama's 4,096-token context limit to 8,192 after finding it cut off evidence; removed a reranker that added 21 s of latency for no gain.</li>
         <li>Contributions: ran the embedding comparison, designed the golden-set and RAGAS evaluation, and wrote the automated scoring scripts.</li>
       </ul></details>
       <p class="links"><a href="https://github.com/Eastar0102/codeit-part3-team1">GitHub ↗</a></p>
@@ -152,7 +152,7 @@
       <p class="role">Team Lead · PM · Generation &amp; Evaluation (team of 5) · SDXL, ControlNet, IP-Adapter, GCP L4</p>
       <ul>
         <li>Ad images had to be remade for every time slot and channel without changing the product.</li>
-        <li>Made product preservation the first gate, ahead of style: masked-region CLIP similarity ≥ 0.85, then visual review, across 4 brand tones × 6 times of day.</li>
+        <li>Built a two-step quality gate: an automatic check that the product was not altered (masked-region CLIP similarity ≥ 0.85), then human review, across 4 brand tones × 6 times of day.</li>
         <li>Cut background generation from 17.47 s to 1.72 s (~10×) with a 768-px, 4-step LCM-LoRA path (full pipeline 5.97 s per image on an L4); 4/4 representative combinations, all 8 test cases and 486 automated tests passed.</li>
       </ul>
       <details><summary>More</summary><ul>
@@ -178,6 +178,19 @@
         <li>Contributions: PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
       </ul></details>
       <p class="links"><a href="https://github.com/qja0707/OralMedicineImageDetection">GitHub ↗</a></p>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="meta">Fall 2019</div>
+    <div class="body">
+      <h3>Biomedical Abstract Sentence Classification · BERT vs. SciBERT Embeddings</h3>
+      <p class="role">Course project, Penn State IST 597 Foundations of Deep Learning · team of 2, equal contribution · advised by Dr. C. Lee Giles · TensorFlow</p>
+      <ul>
+        <li>Problem: most biomedical abstracts are unstructured, so readers cannot jump straight to the methods or results they need.</li>
+        <li>Extracted BERT/SciBERT token embeddings from model checkpoints to replace Word2Vec (5.4M entries → 31K) in a hierarchical BiLSTM-CRF sentence classifier (HSLN), and ran all five conditions, including the baseline re-run.</li>
+        <li>On PubMed 20k RCT (5 classes), matched the re-run baseline (test accuracy 92.43% vs. 92.35%, single run) with a ~175× smaller embedding table; identified low vocabulary overlap (16% vs. 68% for Word2Vec) as the bottleneck.</li>
+      </ul>
     </div>
   </article>
 </section>
@@ -209,7 +222,10 @@
     <div class="body">
       <h3>Calibrating a reservoir model to production data under uncertainty</h3>
       <p class="role">Ph.D. research · Monte Carlo simulation, design of experiments, simulated annealing (Python)</p>
-      <p>Fit a physics-based reservoir model (Muskat-type material balance) to observed production while quantifying uncertainty with Monte Carlo simulation and design of experiments, improving accuracy and cutting computation time. Searched for the operating conditions that maximize oil output with simulated annealing.</p>
+      <ul>
+        <li>Tuned a physics-based oil production model to match real production records, and used Monte Carlo simulation and design of experiments to show how far its forecasts could be off, with better accuracy and less computing time.</li>
+        <li>Used simulated annealing, an optimization algorithm, to find the operating conditions that maximize oil output.</li>
+      </ul>
     </div>
   </article>
   <article class="entry">
@@ -217,15 +233,32 @@
     <div class="body">
       <h3>Forecasting oil-well production with LSTM</h3>
       <p class="role">Ph.D. research · LSTM time-series modeling (Python)</p>
-      <p>An LSTM model that forecasts short-term production from past production and works for any number of wells, up to 23% more accurate than the industry-standard decline-curve method.</p>
+      <ul>
+        <li>Built an LSTM model that forecasts short-term production from past production records and works for any number of wells.</li>
+        <li>Improved forecast accuracy by up to 23% over the industry-standard decline-curve method.</li>
+      </ul>
     </div>
   </article>
   <article class="entry">
     <div class="meta">2015 – 2018</div>
     <div class="body">
-      <h3>Exact math model of water and gas inflow into multiple oil wells</h3>
+      <h3>Exact formula for water and gas inflow into multiple oil wells</h3>
       <p class="role">M.S. thesis · Advisor: Prof. Russell T. Johns · PDEs, Laplace equation, superposition</p>
-      <p>Turned the flow equations for oil, water and gas into the Laplace equation with a potential function, so several wells could be solved exactly by superposition. Showed that capillary pressure lowers the maximum safe oil rate; the model serves as a fast benchmark for checking simulators.</p>
+      <ul>
+        <li>Derived an exact formula, with no simulation needed, for how water and gas get pulled into producing oil wells, and extended it to several wells at once.</li>
+        <li>Gave a quick way to compute the highest oil rate before water or gas breaks through, useful as a benchmark for checking numerical simulators.</li>
+      </ul>
+    </div>
+  </article>
+  <article class="entry">
+    <div class="meta">Spring 2016</div>
+    <div class="body">
+      <h3>Oil–water–gas flow simulator, built from scratch</h3>
+      <p class="role">Course project, PNG 512 Numerical Reservoir Simulation · individual · MATLAB (~1,000 lines)</p>
+      <ul>
+        <li>Built a simulator that splits a field map into a 60×30 grid and computes how oil, water and gas move over time: Newton-Raphson iterations, a GMRES solver for large sparse systems, and fluid-property table interpolation.</li>
+        <li>Supported 1-D/2-D and one- to three-phase runs, automatic time-step control and restarts; mass-balance checks at every step catch numerical errors, and results matched the textbook reference case (Ertekin et al.).</li>
+      </ul>
     </div>
   </article>
 </section>
@@ -303,7 +336,7 @@
     <div><dt>AI · LLM</dt><dd>LangChain, LangGraph, RAG (FAISS, BM25, reranker), KURE-v1, EXAONE 3.5, OpenAI API, SDXL · ControlNet · IP-Adapter · LCM-LoRA, YOLO, RT-DETR, RF-DETR</dd></div>
     <div><dt>Evaluation</dt><dd>Golden-set design, claim-level verification, Hit@k · MRR · refusal accuracy, RAGAS, CLIP similarity, mAP, pytest, GitHub Actions CI</dd></div>
     <div><dt>Backend · Infra</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, GCP (L4 GPU), FCM web push</dd></div>
-    <div><dt>ML · Data</dt><dd>TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, OpenCV, OSMnx, NetworkX</dd></div>
+    <div><dt>ML · Data</dt><dd>PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, OpenCV, OSMnx, NetworkX</dd></div>
     <div><dt>Collaboration</dt><dd>GitHub PRs and code review, ADR-based decision records</dd></div>
   </dl>
 </section>
