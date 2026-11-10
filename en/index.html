@@ -20,7 +20,7 @@
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-weight:300;font-size:16px;line-height:1.65}
   a{color:var(--body);font-weight:500;text-decoration:none;border-bottom:1px solid var(--line)}
   a:hover{border-bottom-color:var(--mid)}
-  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
   .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:6px 10px;z-index:9}
 
   nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
@@ -46,7 +46,7 @@
   h2{font-family:var(--serif);font-size:30px;font-weight:500;margin:0 0 22px;letter-spacing:-.01em}
   .entry{display:flex;gap:20px;padding:4px 0 22px;margin-bottom:20px;border-bottom:.8px solid var(--line)}
   .entry:last-child{border-bottom:0;margin-bottom:0}
-  .meta{flex:0 0 108px;padding-top:4px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--sub);letter-spacing:.01em;line-height:1.5}
+  .meta{flex:0 0 132px;padding-top:4px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--sub);letter-spacing:.01em;line-height:1.5}
   .body{flex:1;min-width:0}
   h3{font-family:var(--serif);font-size:17px;font-weight:500;margin:0 0 4px;line-height:1.5}
   .role{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--sub);margin:0 0 8px}
@@ -63,7 +63,7 @@
   dl{margin:0}
   dl div{display:flex;gap:20px;padding:10px 0;border-bottom:.8px solid var(--line)}
   dl div:last-child{border-bottom:0}
-  dt{flex:0 0 108px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--sub);padding-top:3px}
+  dt{flex:0 0 132px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--sub);padding-top:3px}
   dd{margin:0;flex:1}
   footer{padding:48px 0 64px;text-align:center;font-family:var(--sans);font-size:12px;color:var(--sub)}
 
@@ -111,18 +111,16 @@
   <article class="entry">
     <div class="meta">Jul – Sep 2026</div>
     <div class="body">
-      <h3>SAVERS · Evacuation guidance for disaster-vulnerable residents</h3>
-      <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026</p>
+      <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
+      <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, AWS EC2</p>
       <ul>
+        <li><b>Problem:</b> official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</li>
+        <li><b>Contributions:</b> built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
         <li>Shelter choice and walking routes are computed by rule-based code (OSMnx / NetworkX), not the LLM; the LLM only explains results that are already fixed.</li>
         <li>Pass bar: zero claims that are not in the event log. <b>30/30</b> runtime answers passed, and <b>12/12</b> adversarial prompts were blocked.</li>
-        <li>In a 52-person survey, evacuation intent rose from <b>3.2 to 8.3</b> (p&lt;0.001); won the Minister of Employment and Labor Award (Encouragement Prize).</li>
+        <li>Tested both wrong refusals and missed refusals: the chatbot wrongly refused only 1 of 28 valid questions <b>(3.6%)</b>, but answered all 6 out-of-scope questions from unrelated evidence, a failure grounding scores do not catch; traced it to the retrieval step, not the verifier.</li>
+        <li>In a 52-person survey, evacuation intent rose <b>from 3.2 to 8.3</b> (p&lt;0.001); won the Minister of Employment and Labor Award (Encouragement Prize).</li>
       </ul>
-      <details><summary>More</summary><ul>
-        <li>Tested both wrong refusals and missed refusals: the chatbot wrongly refused only 1 of 28 valid questions (<b>3.6%</b>), but answered all 6 out-of-scope questions from unrelated evidence, a failure grounding scores do not catch; traced it to the retrieval step, not the verifier.</li>
-        <li><b>Contributions:</b> built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
-        <li>Stack: FastAPI, LangChain, AWS EC2</li>
-      </ul></details>
       <p class="links"><a href="https://github.com/team-savers/savers-project">GitHub ↗</a></p>
     </div>
   </article>
@@ -130,18 +128,15 @@
   <article class="entry">
     <div class="meta">Jun – Jul 2026</div>
     <div class="body">
-      <h3>BidMate · RAG Q&amp;A and summarization for public RFPs</h3>
+      <h3>BidMate · RAG Q&amp;A and Summarization for Public RFP Documents</h3>
       <p class="role">Evaluation (team of 5) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
       <ul>
-        <li>100 public RFPs in HWP and PDF; answers must cite the source and refuse unanswerable questions.</li>
-        <li>Built a 95-question golden set (5 types, 19 RFPs) with type-specific scorers; compared <b>708 configurations</b> in 3 stages (retrieval grid, answer eval, controlled re-test).</li>
-        <li>Final local stack (KURE-v1 + dense k=4 + EXAONE 3.5): <b>MRR 0.977</b>, Hit@k 1.0, refusal 1.0 (<b>19/19</b>), <b>3.6 s</b>, no API cost.</li>
-      </ul>
-      <details><summary>More</summary><ul>
-        <li>OpenAI embeddings ranked last in the earlier 50-question round (MRR 0.65) and were dropped.</li>
-        <li>Found that a score stuck at 0.3 came from errors in the golden set, not the model; raised Ollama's 4,096-token context limit to 8,192 after finding it cut off evidence; removed a reranker that added 21 s of latency for no gain.</li>
+        <li><b>Problem:</b> 100 public RFPs (HWP/PDF); answers must cite the source and refuse unanswerable questions.</li>
         <li><b>Contributions:</b> ran the embedding comparison, designed the golden-set and RAGAS evaluation, and wrote the automated scoring scripts.</li>
-      </ul></details>
+        <li>Built a 95-question golden set (5 types, 19 RFPs) with type-specific scorers; compared <b>708 configurations</b> in 3 stages (retrieval grid, answer eval, controlled re-test).</li>
+        <li>Final local stack (KURE-v1 + dense k=4 + EXAONE 3.5): <b>MRR 0.977</b>, Hit@k 1.0, refusal 1.0 <b>(19/19)</b>, <b>3.6 s</b>, no API cost; OpenAI embeddings ranked last in the earlier 50-question round (MRR 0.65) and were dropped.</li>
+        <li>Found that a score stuck at 0.3 came from errors in the golden set, not the model; raised Ollama's 4,096-token context limit to 8,192 after finding it cut off evidence; removed a reranker that added 21 s of latency for no gain.</li>
+      </ul>
       <p class="links"><a href="https://github.com/Eastar0102/codeit-part3-team1">GitHub ↗</a></p>
     </div>
   </article>
@@ -149,16 +144,14 @@
   <article class="entry">
     <div class="meta">Aug 2026</div>
     <div class="body">
-      <h3>AI Ad Studio · Ad image and copy generation for small businesses</h3>
+      <h3>AI Ad Studio · Ad Image and Copy Generation for Small Businesses</h3>
       <p class="role">Team Lead · PM · Generation &amp; Evaluation (team of 5) · SDXL, ControlNet, IP-Adapter, GCP L4</p>
       <ul>
-        <li>Ad images had to be remade for every time slot and channel without changing the product.</li>
-        <li>Built a <b>two-step quality gate</b>: an automatic check that the product was not altered (masked-region CLIP similarity ≥ 0.85), then human review, across 4 brand tones × 6 times of day.</li>
-        <li>Cut background generation from <b>17.47 s to 1.72 s (~10×)</b> with a 768-px, 4-step LCM-LoRA path (full pipeline 5.97 s per image on an L4); 4/4 representative combinations, all 8 test cases and <b>486</b> automated tests passed.</li>
-      </ul>
-      <details><summary>More</summary><ul>
+        <li><b>Problem:</b> ad images must be remade for every time slot and channel without changing the product.</li>
         <li><b>Contributions:</b> PM; built the SDXL / ControlNet generation pipeline, the CLIP preservation gate and eval harness; final report.</li>
-      </ul></details>
+        <li>Built a <b>two-step quality gate</b>: an automatic check that the product was not altered (masked-region CLIP similarity ≥ 0.85), then human review, across 4 brand tones × 6 times of day.</li>
+        <li>Cut background generation from <b>17.47 s to 1.72 s (~10×)</b> with a 768-px, 4-step LCM-LoRA path (full pipeline 5.97 s per image on an L4); 4/4 representative combinations and all 8 test cases passed; <b>486</b> automated tests passed.</li>
+      </ul>
       <p class="links"><a href="https://github.com/codeit-part4-team2/ad-creative-studio">GitHub ↗</a></p>
     </div>
   </article>
@@ -166,18 +159,15 @@
   <article class="entry">
     <div class="meta">Apr – May 2026</div>
     <div class="body">
-      <h3>PillScope · Object detection for oral medication images</h3>
+      <h3>PillScope · Object Detection for Oral Medication Images</h3>
       <p class="role">Team Lead · PM (team of 5) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
       <ul>
-        <li>56 look-alike pill classes, only 186 training images, a 51× class imbalance, and up to 4 pills per image.</li>
-        <li>Minority-class crop-and-paste grew the data from <b>186 to 1,026 images</b> (mAP@0.5 0.886 → 0.964).</li>
-        <li>YOLOv11l reached validation mAP@[0.75:0.95] <b>0.936</b>, ahead of RF-DETR v3 (0.882) and RT-DETRv2 (0.876); a 3-model WBF ensemble raised the in-course Kaggle score from <b>0.851 to 0.9355</b> (+8.5 pp).</li>
-      </ul>
-      <details><summary>More</summary><ul>
-        <li>Grouped near-duplicate shots into the same split to prevent train/validation leakage, then ran <b>7 staged experiments</b> across 4 detectors.</li>
-        <li>Compositing web pill images onto the competition background raised mAP@[0.75:0.95] from 0.919 to 0.936 and made a never-detected rare class detectable.</li>
+        <li><b>Problem:</b> 56 look-alike pill classes, only 186 training images, a 51× class imbalance (153 vs. 3 annotations), and up to 4 pills per image.</li>
         <li><b>Contributions:</b> PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
-      </ul></details>
+        <li>Grouped near-duplicate shots into the same split to prevent train/validation leakage, then ran <b>7 staged experiments</b> across YOLOv8l, YOLOv11l, RT-DETRv2 and RF-DETR v3, scored by mAP@[0.75:0.95].</li>
+        <li>Minority-class crop-and-paste grew the data from <b>186 to 1,026 images</b> (mAP@0.5 0.886 → 0.964); compositing web pill images onto the competition background raised mAP@[0.75:0.95] from <b>0.919 to 0.936</b> and made a never-detected rare class detectable.</li>
+        <li>YOLOv11l reached validation mAP@[0.75:0.95] 0.936, ahead of RF-DETR v3 (0.882) and RT-DETRv2 (0.876); a 3-model WBF ensemble raised the in-course Kaggle score <b>from 0.851 to 0.9355</b> (+8.5 pp).</li>
+      </ul>
       <p class="links"><a href="https://github.com/qja0707/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
   </article>
@@ -189,7 +179,7 @@
       <p class="role">Course project, Penn State IST 597 Foundations of Deep Learning · team of 2, equal contribution · advised by Dr. C. Lee Giles · TensorFlow</p>
       <ul>
         <li><b>Problem:</b> most biomedical abstracts are unstructured, so readers cannot jump straight to the methods or results they need.</li>
-        <li>Extracted BERT/SciBERT token embeddings from model checkpoints to replace Word2Vec (5.4M entries → 31K) in a hierarchical BiLSTM-CRF sentence classifier (HSLN), and ran all five conditions, including the baseline re-run.</li>
+        <li><b>Contributions:</b> extracted BERT/SciBERT token embeddings from model checkpoints to replace Word2Vec (5.4M entries → 31K) in a hierarchical BiLSTM-CRF sentence classifier (HSLN), and ran all five conditions, including the baseline re-run.</li>
         <li>On PubMed 20k RCT (5 classes), matched the re-run baseline (test accuracy 92.43% vs. 92.35%, single run) with a <b>~175× smaller</b> embedding table; identified low vocabulary overlap (16% vs. 68% for Word2Vec) as the bottleneck.</li>
       </ul>
     </div>
@@ -218,10 +208,11 @@
 <section id="research">
   <h2>Graduate Research</h2>
   <p class="lead">The Pennsylvania State University</p>
+
   <article class="entry">
     <div class="meta">2021 – 2024</div>
     <div class="body">
-      <h3>Calibrating a reservoir model to production data under uncertainty</h3>
+      <h3>Calibrating a Reservoir Model to Production Data under Uncertainty</h3>
       <p class="role">Ph.D. research · Monte Carlo simulation, design of experiments, simulated annealing (Python)</p>
       <ul>
         <li>Tuned a physics-based oil production model to match real production records, and used Monte Carlo simulation and design of experiments to show how far its forecasts could be off, with better accuracy and less computing time.</li>
@@ -229,10 +220,11 @@
       </ul>
     </div>
   </article>
+
   <article class="entry">
     <div class="meta">2019 – 2020</div>
     <div class="body">
-      <h3>Forecasting oil-well production with LSTM</h3>
+      <h3>Forecasting Oil-Well Production with LSTM</h3>
       <p class="role">Ph.D. research · LSTM time-series modeling (Python)</p>
       <ul>
         <li>Built an LSTM model that forecasts short-term production from past production records and works for any number of wells.</li>
@@ -240,10 +232,11 @@
       </ul>
     </div>
   </article>
+
   <article class="entry">
     <div class="meta">2015 – 2018</div>
     <div class="body">
-      <h3>Exact formula for water and gas inflow into multiple oil wells</h3>
+      <h3>Exact Formula for Water and Gas Inflow into Multiple Oil Wells</h3>
       <p class="role">M.S. thesis · Advisor: Prof. Russell T. Johns · PDEs, Laplace equation, superposition</p>
       <ul>
         <li>Derived an exact formula, with no simulation needed, for how water and gas get pulled into producing oil wells, and extended it to several wells at once.</li>
@@ -251,10 +244,11 @@
       </ul>
     </div>
   </article>
+
   <article class="entry">
     <div class="meta">Spring 2016</div>
     <div class="body">
-      <h3>Oil–water–gas flow simulator, built from scratch</h3>
+      <h3>Oil–Water–Gas Flow Simulator, Built from Scratch</h3>
       <p class="role">Course project, PNG 512 Numerical Reservoir Simulation · individual · MATLAB (~1,000 lines)</p>
       <ul>
         <li>Built a simulator that splits a field map into a 60×30 grid and computes how oil, water and gas move over time: Newton-Raphson iterations, a GMRES solver for large sparse systems, and fluid-property table interpolation.</li>
