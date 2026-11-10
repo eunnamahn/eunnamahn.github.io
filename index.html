@@ -39,6 +39,9 @@
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
   .btn:hover{text-decoration:none;border-color:var(--accent)}
 
+  .hero{display:flex;gap:32px;align-items:flex-start;justify-content:space-between}
+  .hero-text{flex:1;min-width:0}
+  .photo{width:150px;height:166px;object-fit:cover;border-radius:12px;border:1px solid var(--line);flex-shrink:0;margin-top:6px}
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
   .stat{background:var(--soft);border-radius:10px;padding:14px 16px}
   .stat b{display:block;font-size:22px;color:var(--accent)}
@@ -75,6 +78,7 @@
   @media (max-width:720px){
     header h1{font-size:32px} header h1 span{display:block;margin:4px 0 0}
     .stats{grid-template-columns:repeat(2,1fr)} .grid2{grid-template-columns:1fr}
+    .hero{flex-direction:column-reverse;gap:16px} .photo{width:104px;height:115px;margin-top:0}
   }
 </style>
 </head>
@@ -94,6 +98,7 @@
 
 <main id="main">
 <header id="top"><div class="wrap">
+  <div class="hero"><div class="hero-text">
   <h1>안은남 <span>Eunnam Ahn</span></h1>
   <p class="role">AI 엔지니어 · LLM / RAG 시스템 · 평가·품질 · 수리 모델링 · 영어 능통</p>
   <p class="tagline">평가 기준을 먼저 세우고, 그 기준으로 설계를 고릅니다. 결정은 결정론적 컴포넌트가 내리고, LLM은 결과를 설명만 하며, 모든 주장은 검증기를 거칩니다.</p>
@@ -102,6 +107,7 @@
     <a class="btn" href="https://github.com/eunnamahn">GitHub</a>
     <a class="btn" href="mailto:baduk89@hanmail.net">이메일</a>
   </div>
+  </div><img class="photo" src="profile.jpg" alt="안은남 프로필 사진"></div>
   <div class="stats">
     <div class="stat"><b>0건</b><small>근거 없는 주장 (SAVERS)</small></div>
     <div class="stat"><b>9년</b><small>미국 대학원 연구</small></div>
