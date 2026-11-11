@@ -215,11 +215,12 @@
   <article class="entry">
     <div class="meta">2021 – 2024</div>
     <div class="body">
-      <h3>원유 생산 모델을 실제 데이터에 맞추는 확률적 보정</h3>
-      <p class="role">박사 연구 · 몬테카를로 시뮬레이션, 실험계획법, Simulated Annealing (Python)</p>
+      <h3>시공간 저류층 데이터와 딥러닝(Seq2Seq-LSTM)을 활용한 원유 생산량 예측</h3>
+      <p class="role">박사 연구 · Seq2Seq-LSTM, 유전 알고리즘 (Python)</p>
       <ul>
-        <li>물리 법칙으로 만든 원유 생산 모델을 실제 생산 기록에 맞춰 보정하고, 예측이 얼마나 빗나갈 수 있는지를 몬테카를로 시뮬레이션과 실험계획법으로 범위로 제시(기존 방식보다 정확도는 높이고 계산 시간은 줄임)</li>
-        <li>최적화 알고리즘(Simulated Annealing)으로 생산량이 가장 많아지는 운영 조건 탐색</li>
+        <li>위치·시간 데이터를 입력으로 하는 시계열 딥러닝 모델(Seq2Seq-LSTM)을 만들어, 주입량이나 유정 간격 같은 운영 조건이 바뀔 때의 원유 생산량 예측</li>
+        <li>수평정과 수직정이 섞인 유정 배치를 "등가 유정 간격 밀도"라는 하나의 지표로 표준화해 여러 유전을 같은 기준으로 비교</li>
+        <li>유전 알고리즘으로 모델 설정을 최적화해 테스트 데이터에서 <b>R² 0.81 이상</b>, 기존 단일 유정 모델보다 높은 정확도</li>
       </ul>
     </div>
   </article>
@@ -227,11 +228,12 @@
   <article class="entry">
     <div class="meta">2019 – 2020</div>
     <div class="body">
-      <h3>과거 생산량으로 미래 생산량을 예측하는 LSTM 모델</h3>
-      <p class="role">박사 연구 · LSTM 시계열 모델링 (Python)</p>
+      <h3>실험계획법(DOE)을 결합한 인공신경망 대리 모델 개발</h3>
+      <p class="role">박사 연구 · 인공신경망, 실험계획법(완전요인·내접 중심합성 설계)</p>
       <ul>
-        <li>과거 생산 기록으로 단기 생산량을 예측하는 LSTM 모델을 만들고, 유정(원유를 뽑는 우물) 개수가 달라도 그대로 쓸 수 있게 설계</li>
-        <li>업계에서 표준으로 쓰는 예측 방식(감소곡선)보다 예측 정확도 <b>최대 23% 향상</b></li>
+        <li>오래 걸리는 저류층 시뮬레이션을 대신할 인공신경망 대리 모델을 만들어, 원유 회수 증진 공정의 생산 예측과 위험 평가를 빠르게 수행</li>
+        <li>실험계획법으로 지하의 불확실한 변수를 모두 반영하면서 필요한 시뮬레이션 횟수를 최소화</li>
+        <li>테스트 데이터 <b>평균 오차 2% 미만, 최대 오차 8% 미만</b>으로, 기존 시뮬레이터 대신 생산 예측과 위험 분석에 쓸 수 있음을 확인</li>
       </ul>
     </div>
   </article>
@@ -240,10 +242,10 @@
     <div class="meta">2015 – 2018</div>
     <div class="body">
       <h3>원유와 함께 물·가스가 딸려 나오는 현상의 수학 공식 유도</h3>
-      <p class="role">석사 논문 · 포텐셜 함수, 라플라스 방정식(방사형 정상류), 중첩 원리</p>
+      <p class="role">석사 논문 · 포텐셜 함수 기반 해석해 유도(라플라스 방정식, 중첩 원리), 수치 적분(Newton–Cotes)</p>
       <ul>
-        <li>원유를 뽑을 때 물·가스가 함께 올라오는 현상을, 시뮬레이션 없이 바로 계산할 수 있는 정확한 수학 공식(해석해)으로 유도하고 유정이 여러 개인 경우까지 확장</li>
-        <li>물·가스 없이 뽑을 수 있는 최대 생산량을 바로 계산할 수 있게 해, 수치 시뮬레이터 결과를 빠르게 검증하는 기준 제시(SPE 2018 제1저자 논문)</li>
+        <li>원유를 뽑을 때 물·가스가 함께 올라오는 현상을 시뮬레이션 없이 바로 계산할 수 있는 정확한 수학 공식(해석해)으로 유도하고, 물·원유·가스 3상이 동시에 흐르는 경우와 주입정·5점 패턴을 포함한 <b>6가지 유정 배치</b>로 확장</li>
+        <li>물·가스 없이 뽑을 수 있는 최대 생산량(임계 생산량)을 바로 계산할 수 있게 하고, 모세관압이 이를 크게 낮춘다는 점을 밝혀 수치 시뮬레이터 결과를 검증하는 기준 제시(SPE 2018 제1저자 논문)</li>
       </ul>
     </div>
   </article>
@@ -275,7 +277,7 @@
     <div class="meta">2015.08 – 2018.08</div>
     <div class="body">
       <h3>석사, The Pennsylvania State University</h3>
-      <p class="role">Petroleum and Natural Gas Engineering</p>
+      <p class="role">Energy and Mineral Engineering (Petroleum and Natural Gas Engineering option)</p>
       <p>지도교수 Russell T. Johns · 학점 3.71 / 4.00</p>
     </div>
   </article>
@@ -353,7 +355,7 @@
     <div><dt>AI · LLM</dt><dd>LangChain, LangGraph, RAG(FAISS·BM25·리랭커), KURE-v1 임베딩, EXAONE 3.5(Ollama), OpenAI API</dd></div>
     <div><dt>생성 · 비전</dt><dd>SDXL, ControlNet, IP-Adapter, LCM-LoRA, YOLO(Ultralytics), RT-DETR, RF-DETR, OpenCV, rembg</dd></div>
     <div><dt>평가 · 품질</dt><dd>골든셋 설계, 주장 단위 검증, Hit@k·MRR·거절 정확도, RAGAS, CLIP 유사도, mAP, pytest, GitHub Actions CI</dd></div>
-    <div><dt>수리 · 통계</dt><dd>해석해 유도(라플라스 방정식·중첩 원리), 몬테카를로 시뮬레이션, 실험계획법, 최적화(Simulated Annealing), LSTM 시계열 예측, 수치해석·시뮬레이션(MATLAB)</dd></div>
+    <div><dt>수리 · 통계</dt><dd>해석해 유도(라플라스 방정식·중첩 원리), 실험계획법(DOE), 인공신경망 대리 모델, 유전 알고리즘, Seq2Seq-LSTM 시계열 예측, 수치 적분, 수치해석·시뮬레이션(MATLAB)</dd></div>
     <div><dt>백엔드 · 인프라</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, GCP(L4 GPU), FCM 웹푸시</dd></div>
     <div><dt>ML · 데이터</dt><dd>PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, OSMnx, NetworkX</dd></div>
   </dl>
