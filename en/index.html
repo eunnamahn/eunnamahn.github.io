@@ -212,11 +212,12 @@
   <article class="entry">
     <div class="meta">2021 – 2024</div>
     <div class="body">
-      <h3>Calibrating a Reservoir Model to Production Data under Uncertainty</h3>
-      <p class="role">Ph.D. research · Monte Carlo simulation, design of experiments, simulated annealing (Python)</p>
+      <h3>Oil Production Forecasting Using Spatial-Temporal Reservoir Data and Deep Learning (Seq2Seq-LSTM)</h3>
+      <p class="role">Ph.D. research · Seq2Seq-LSTM, genetic algorithm (Python)</p>
       <ul>
-        <li>Tuned a physics-based oil production model to match real production records, and used Monte Carlo simulation and design of experiments to show how far its forecasts could be off, with better accuracy and less computing time.</li>
-        <li>Used simulated annealing, an optimization algorithm, to find the operating conditions that maximize oil output.</li>
+        <li>Built a Seq2Seq-LSTM time-series model on location and time data to forecast oil output when field operations change, such as injection rates and well spacing.</li>
+        <li>Turned mixed horizontal and vertical well layouts into a single equivalent well-spacing density, so different fields could be compared on the same basis.</li>
+        <li>Tuned hyperparameters with a genetic algorithm, reaching <b>R² above 0.81</b> on test data and outperforming conventional single-well models.</li>
       </ul>
     </div>
   </article>
@@ -224,11 +225,12 @@
   <article class="entry">
     <div class="meta">2019 – 2020</div>
     <div class="body">
-      <h3>Forecasting Oil-Well Production with LSTM</h3>
-      <p class="role">Ph.D. research · LSTM time-series modeling (Python)</p>
+      <h3>Artificial Neural Network Proxy Model with Design of Experiments (DOE)</h3>
+      <p class="role">Ph.D. research · artificial neural networks, design of experiments (full factorial, inscribed central composite)</p>
       <ul>
-        <li>Built an LSTM model that forecasts short-term production from past production records and works for any number of wells.</li>
-        <li>Improved forecast accuracy by <b>up to 23%</b> over the industry-standard decline-curve method.</li>
+        <li>Built an artificial neural network proxy that stands in for slow reservoir simulations, speeding up production forecasts and risk evaluation for enhanced oil recovery.</li>
+        <li>Used full factorial and inscribed central composite designs to cover every underground uncertainty variable with as few simulation runs as possible.</li>
+        <li><b>Average test error under 2% and maximum error under 8%</b>, accurate enough to replace the full simulator for forecasting and risk analysis.</li>
       </ul>
     </div>
   </article>
@@ -237,10 +239,10 @@
     <div class="meta">2015 – 2018</div>
     <div class="body">
       <h3>Exact Formula for Water and Gas Inflow into Multiple Oil Wells</h3>
-      <p class="role">M.S. thesis · Advisor: Prof. Russell T. Johns · potential function, radial Laplace equation, superposition</p>
+      <p class="role">M.S. thesis · Advisor: Prof. Russell T. Johns · potential-function analytical solution (Laplace equation, superposition), numerical integration (Newton–Cotes)</p>
       <ul>
-        <li>Derived an exact formula, with no simulation needed, for how water and gas get pulled into producing oil wells, and extended it to several wells at once.</li>
-        <li>Gave a quick way to compute the highest oil rate before water or gas breaks through, useful as a benchmark for checking numerical simulators.</li>
+        <li>Derived an exact formula, with no simulation needed, for how water and gas get pulled into producing oil wells when all three phases flow at once, and extended it to <b>six well layouts</b>, including injector–producer pairs and a five-spot pattern.</li>
+        <li>Gave a quick way to compute the critical oil rate before water or gas breaks through, showed that capillary pressure lowers it significantly, and proposed the solution as a benchmark for numerical simulators.</li>
       </ul>
     </div>
   </article>
@@ -272,7 +274,7 @@
     <div class="meta">Aug 2015 – Aug 2018</div>
     <div class="body">
       <h3>M.S., The Pennsylvania State University</h3>
-      <p class="role">Petroleum and Natural Gas Engineering</p>
+      <p class="role">Energy and Mineral Engineering (Petroleum and Natural Gas Engineering option)</p>
       <p>Advised by Prof. Russell T. Johns · GPA 3.71/4.00</p>
     </div>
   </article>
