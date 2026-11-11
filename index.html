@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>안은남 · AI 엔지니어</title>
-<meta name="description" content="LLM이 내놓은 답을 근거와 맞춰 보고, 근거가 없으면 내보내지 않는 시스템을 만드는 AI 엔지니어 안은남입니다.">
+<meta name="description" content="AI의 답변이 근거에 부합하는지 검증하는 시스템을 설계하는 AI 엔지니어 안은남입니다.">
 <link rel="alternate" hreflang="en" href="https://eunnamahn.github.io/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,8 +100,8 @@
     <a href="mailto:baduk89@hanmail.net">이메일</a>
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
-  <p class="about">LLM이 내놓은 답을 근거와 하나씩 맞춰 보고, 근거가 없으면 내보내지 않는 시스템을 만드는 AI 엔지니어입니다. 박사과정에서 수학·통계 모델을 실제 데이터로 검증하던 방식을 LLM에 그대로 가져왔습니다.</p>
-  <p class="about">재난 대피 안내 서비스 SAVERS에서는 보호자에게 가는 답변을 이벤트 기록과 문장 단위로 대조하는 검증기를 직접 만들었고, 실제 응답 30건과 오답 유도 질문 12건에서 기록에 없는 내용을 한 건도 내보내지 않았습니다. 이 프로젝트로 고용노동부장관상(장려상)을 받았고 제1저자로 학회 논문을 발표했습니다. 연구와 강의를 영어로 해 와서 영어로 일하는 환경도 익숙합니다.</p>
+  <p class="about">AI의 답변을 만드는 데서 그치지 않고, 답변이 근거에 부합하는지 검증하는 시스템을 설계합니다. Penn State 대학원에서 쌓은 수학적 모델링·통계적 검증 경험을 LLM/RAG 시스템 개발과 평가에 적용하고 있습니다.</p>
+  <p class="about">재난 대피 안내 서비스 SAVERS에서는 생성된 답변을 이벤트 기록과 문장 단위로 대조하는 검증기와 골든셋 기반 평가 체계를 구현했고, 이 프로젝트로 고용노동부장관상(장려상)을 받았으며 ACK 2026에서 제1저자로 구두발표했습니다. 연구와 강의를 영어로 해 와서 영어로 일하는 환경도 익숙합니다.</p>
 </header>
 
 <section id="projects">
@@ -116,9 +116,9 @@
         <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
         <li><b>담당 업무:</b> 검증기와 평가 데이터(골든셋) 설계·구현, AWS 배포와 자동 품질 검사(CI) 구축, 설계 결정 기록(ADR) 23건 관리, 논문 제1저자 집필</li>
         <li>대피소 선택과 도보 경로는 LLM에 맡기지 않고 규칙 기반 코드(OSMnx/NetworkX)로 계산해, LLM은 이미 정해진 결과를 설명만 하도록 설계</li>
-        <li>통과 기준을 "기록에 없는 내용 0건"으로 정하고 답변을 문장 단위로 기록과 대조하는 검증기 구현: 실제 응답 <b>30/30</b> 통과, 오답 유도 질문 <b>12/12</b> 차단</li>
+        <li>통과 기준을 "기록에 없는 내용 0건"으로 정하고 답변을 문장 단위로 기록과 대조하는 검증기 구현: 테스트 응답 <b>30/30</b> 통과, 오답 유도 질문 <b>12/12</b> 차단</li>
         <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 서비스 범위 밖 질문 6건에는 모두 엉뚱한 근거로 답하는 문제를 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 검색 단계에 있음을 확인</li>
-        <li>주민 52명 설문에서 대피 의향 점수가 <b>3.2점에서 8.3점으로 상승</b>(p&lt;0.001), 고용노동부장관상(장려상) 수상</li>
+        <li>주민 52명에게 재난문자와 SAVERS 화면을 차례로 보여 준 설문에서 행동 지침 명확성("지금 무엇을 해야 할지 분명한가", 0~10점) <b>3.2 → 8.3점</b>(p&lt;0.001), "5분 안에 대피하겠다" 응답 13% → 60%, 고용노동부장관상(장려상) 수상</li>
       </ul>
       <p class="links"><a href="https://github.com/team-savers/savers-project">GitHub ↗</a></p>
     </div>
@@ -284,7 +284,7 @@
     <div class="body">
       <h3>학사, 한양대학교</h3>
       <p class="role">자원환경공학과</p>
-      <p>학점 4.28 / 4.50 · 학과 수석(33명 중 1위), 제2공과대학 차석 졸업</p>
+      <p>학점 4.28 / 4.50 · 학과 수석(33명 중 1위), 제2공과대학 차석 졸업 · 졸업논문: 폴리머 공법 적용 시 원유 생산성·경제성 평가(CMG 시뮬레이션·NPV 분석)</p>
     </div>
   </article>
   <article class="entry">
@@ -314,6 +314,10 @@
     </div>
   </article>
   <article class="entry">
+    <div class="meta">2013.06 – 2013.08</div>
+    <div class="body"><h3>한국석유공사 베트남 사무소 해외 인턴십(8주)</h3><p class="role">산업통상자원부 자원개발특성화대학 사업 선발</p></div>
+  </article>
+  <article class="entry">
     <div class="meta">2026</div>
     <div class="body"><h3>고용노동부장관상(장려상)</h3><p class="role">제8회 K-디지털 트레이닝 해커톤</p></div>
   </article>
@@ -328,6 +332,10 @@
   <article class="entry">
     <div class="meta">2017.03</div>
     <div class="body"><h3>Engineer in Training (EIT)</h3><p class="role">미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429</p></div>
+  </article>
+  <article class="entry">
+    <div class="meta">2013 – 2014</div>
+    <div class="body"><h3>대학생 논문 공모전 3회 입상</h3><p class="role">GS에너지 3위, 한국광해관리공단·한국환경산업기술원 2위</p></div>
   </article>
   <article class="entry">
     <div class="meta">2013 – 2014</div>
