@@ -54,6 +54,9 @@
   .body b{font-weight:600;color:var(--ink)}
   ul{margin:6px 0 0;padding-left:18px}
   li{margin:3px 0}
+  .fig{margin:12px 0 10px}
+  .fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-family:var(--sans);font-size:12.5px;color:var(--sub);margin-top:6px;line-height:1.5}
   details{margin-top:6px}
   summary{cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--sub)}
   summary:hover{color:var(--ink)}
@@ -112,6 +115,7 @@
     <div class="body">
       <h3>SAVERS · 재난 취약계층 맞춤 대피 안내 서비스</h3>
       <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, NetworkX, AWS EC2</p>
+      <figure class="fig"><img src="assets/proj_savers.jpg" width="1600" height="870" loading="lazy" alt="SAVERS 시스템 구조도: 프론트엔드, 백엔드(대피소 선정·침수 회피 경로·폐루프·이벤트 로그), AI 엔진, FCM 웹푸시, 공공 데이터"><figcaption>대피소·경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다. 보라색 표시가 제가 맡은 부분입니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
         <li><b>담당 업무:</b> 검증기와 평가 데이터(골든셋) 설계·구현, AWS 배포와 자동 품질 검사(CI) 구축, 설계 결정 기록(ADR) 23건 관리, 논문 제1저자 집필</li>
@@ -129,6 +133,7 @@
     <div class="body">
       <h3>입찰메이트 · 공공 RFP 문서 RAG 질의응답·요약</h3>
       <p class="role">평가 담당 (5인 팀) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
+      <figure class="fig"><img src="assets/proj_bidmate.jpg" width="1600" height="872" loading="lazy" alt="입찰메이트 시스템 구조도: 프론트엔드, RAG 엔진(LangGraph 수퍼바이저·검색·생성), 로컬 LLM, 인덱싱·평가(골든셋 95문항·708개 조합 비교)"><figcaption>인덱싱 · 서빙 · 평가 루프 구조. 보라색 표시(전처리 실험 · 임베딩 비교 · 골든셋 · 평가 설계)가 제가 맡은 부분입니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> HWP/PDF가 섞인 공공 RFP 100건에서 출처를 인용하고, 문서로 답할 수 없는 질문은 거절해야 함</li>
         <li><b>담당 업무:</b> 임베딩 비교·KURE-v1 전환, 골든셋·RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
@@ -146,6 +151,7 @@
     <div class="body">
       <h3>AI 광고 스튜디오 · 소상공인용 광고 이미지·문구 생성</h3>
       <p class="role">팀장 · PM · 생성·평가 담당 (5인 팀) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
+      <figure class="fig"><img src="assets/proj_ad-studio.jpg" width="1600" height="981" loading="lazy" alt="원본 선풍기 제품 사진과, 제품은 그대로 두고 배경만 생성한 1:1 · 9:16 광고 시안"><figcaption>원본 제품 사진(왼쪽)은 바꾸지 않고 배경만 생성한 1:1 · 9:16 광고 시안</figcaption></figure>
       <ul>
         <li><b>문제:</b> 시간대·채널마다 광고 이미지를 새로 만들어야 하지만, 사진 속 제품은 절대 바뀌면 안 됨</li>
         <li><b>담당 업무:</b> 팀장·PM으로 4주 스프린트 운영, SDXL·ControlNet·IP-Adapter 생성 파이프라인 구현, CLIP 품질 관문·평가 하네스 설계, 최종 보고서 총괄</li>
@@ -164,6 +170,7 @@
     <div class="body">
       <h3>PillScope · 경구약제 이미지 객체 탐지</h3>
       <p class="role">팀장 · PM · 모델 실험 (5인 팀) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
+      <figure class="fig"><img src="assets/proj_pillscope.jpg" width="1600" height="564" loading="lazy" alt="알약 이미지의 정답 박스(왼쪽)와 모델 예측 박스(오른쪽) 비교"><figcaption>왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지</figcaption></figure>
       <ul>
         <li><b>문제:</b> 외형이 비슷한 56개 클래스, 학습 이미지 186장, 51배 클래스 불균형(153 vs 3), 이미지당 최대 4개 알약</li>
         <li><b>담당 업무:</b> PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습·튜닝, RT-DETR·RF-DETR 실험, Crop &amp; Paste 증강</li>

@@ -54,6 +54,9 @@
   .body b{font-weight:600;color:var(--ink)}
   ul{margin:6px 0 0;padding-left:18px}
   li{margin:3px 0}
+  .fig{margin:12px 0 10px}
+  .fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .fig figcaption{font-family:var(--sans);font-size:12.5px;color:var(--sub);margin-top:6px;line-height:1.5}
   details{margin-top:6px}
   summary{cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--sub)}
   summary:hover{color:var(--ink)}
@@ -113,6 +116,7 @@
     <div class="body">
       <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
       <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, AWS EC2</p>
+      <figure class="fig"><img src="../assets/proj_savers.jpg" width="1600" height="870" loading="lazy" alt="SAVERS architecture: frontend, backend (shelter selection, flood-avoiding routes, closed loop, event log), AI engine, FCM web push, public data"><figcaption>Shelters and routes are chosen by rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. Purple tags mark my parts. (Diagram labels are in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</li>
         <li><b>Contributions:</b> built the claim-level verifier, the golden-set evaluation and the AWS/CI deployment; first-authored the paper.</li>
@@ -130,6 +134,7 @@
     <div class="body">
       <h3>BidMate · RAG Q&amp;A and Summarization for Public RFP Documents</h3>
       <p class="role">Evaluation (team of 5) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
+      <figure class="fig"><img src="../assets/proj_bidmate.jpg" width="1600" height="872" loading="lazy" alt="BidMate architecture: frontend, RAG engine (LangGraph supervisor, retrieval, generation), local LLM, indexing and evaluation (95-question golden set, 708-config sweep)"><figcaption>Indexing, serving and evaluation loop. Purple tags mark my parts: preprocessing experiments, embedding comparison, golden set and evaluation design. (Diagram labels are in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> 100 public RFPs (HWP/PDF); answers must cite the source and refuse unanswerable questions.</li>
         <li><b>Contributions:</b> ran the embedding comparison, designed the golden-set and RAGAS evaluation, and wrote the automated scoring scripts.</li>
@@ -146,6 +151,7 @@
     <div class="body">
       <h3>AI Ad Studio · Ad Image and Copy Generation for Small Businesses</h3>
       <p class="role">Team Lead · PM · Generation &amp; Evaluation (team of 5) · SDXL, ControlNet, IP-Adapter, GCP L4</p>
+      <figure class="fig"><img src="../assets/proj_ad-studio.jpg" width="1600" height="981" loading="lazy" alt="Original fan product photo and generated 1:1 and 9:16 ads that keep the product unchanged"><figcaption>The original product photo (left) stays unchanged; only the background is generated for 1:1 and 9:16 ads.</figcaption></figure>
       <ul>
         <li><b>Problem:</b> ad images must be remade for every time slot and channel without changing the product.</li>
         <li><b>Contributions:</b> PM; built the SDXL / ControlNet generation pipeline, the CLIP preservation gate and eval harness; final report.</li>
@@ -161,6 +167,7 @@
     <div class="body">
       <h3>PillScope · Object Detection for Oral Medication Images</h3>
       <p class="role">Team Lead · PM (team of 5) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
+      <figure class="fig"><img src="../assets/proj_pillscope.jpg" width="1600" height="564" loading="lazy" alt="Ground-truth boxes (left) vs. model-predicted boxes (right) on pill images"><figcaption>Ground truth (left) vs. model prediction (right); the rare class is detected too.</figcaption></figure>
       <ul>
         <li><b>Problem:</b> 56 look-alike pill classes, only 186 training images, a 51× class imbalance (153 vs. 3 annotations), and up to 4 pills per image.</li>
         <li><b>Contributions:</b> PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
