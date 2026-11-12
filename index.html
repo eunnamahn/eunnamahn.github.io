@@ -105,7 +105,7 @@
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
   <p class="about">AI의 답변을 만드는 데서 그치지 않고, 답변이 근거에 부합하는지 검증하는 시스템을 설계합니다. Penn State 대학원에서 쌓은 수학적 모델링·통계적 검증 경험을 LLM/RAG 시스템 개발과 평가에 적용하고 있습니다.</p>
-  <p class="about">재난 대피 안내 서비스 SAVERS에서는 생성된 답변을 이벤트 기록과 문장 단위로 대조하는 검증기와 골든셋 기반 평가 체계를 구현했고, 이 프로젝트로 고용노동부장관상(장려상)을 받았으며 ACK 2026에서 제1저자로 구두발표했습니다. 연구와 강의를 영어로 해 와서 영어로 일하는 환경도 익숙합니다.</p>
+  <p class="about">재난 대피 안내 서비스 SAVERS에서는 생성된 답변을 이벤트 기록과 주장 단위로 대조하는 검증기를 검증할 골든셋과 채점 스크립트를 만들어 과소거절 100%라는 숨은 실패를 찾아냈고, 이 프로젝트로 고용노동부장관상(장려상)을 받았으며 ACK 2026에서 제1저자로 구두발표했습니다. 연구와 강의를 영어로 해 와서 영어로 일하는 환경도 익숙합니다.</p>
 </header>
 
 <section id="projects">
@@ -115,17 +115,19 @@
     <div class="meta">2026.07 – 2026.09</div>
     <div class="body">
       <h3>SAVERS · 재난 취약계층 맞춤 대피 안내 서비스</h3>
-      <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, NetworkX, AWS EC2</p>
+      <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2</p>
       <figure class="fig"><a href="assets/proj_savers.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers.jpg" width="1600" height="870" loading="lazy" alt="SAVERS 시스템 구조도: 프론트엔드, 백엔드(대피소 선정·침수 회피 경로·폐루프·이벤트 로그), AI 엔진, FCM 웹푸시, 공공 데이터"></a><figcaption>대피소·경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다. 보라색 표시가 제가 맡은 부분입니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
-        <li><b>담당 업무:</b> 검증기와 평가 데이터(골든셋) 설계·구현, AWS 배포와 자동 품질 검사(CI) 구축, 설계 결정 기록(ADR) 23건 관리, 논문 제1저자 집필</li>
+        <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건, 적대 회귀 12건, 채점 스크립트, 거절 측정)와 인프라 코드(FCM 실발송 연결, AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
         <li>대피소 선택과 도보 경로는 LLM에 맡기지 않고 규칙 기반 코드(OSMnx/NetworkX)로 계산해, LLM은 이미 정해진 결과를 설명만 하도록 설계</li>
-        <li>통과 기준을 "기록에 없는 내용 0건"으로 정하고 답변을 문장 단위로 기록과 대조하는 검증기 구현: 테스트 응답 <b>30/30</b> 통과, 오답 유도 질문 <b>12/12</b> 차단</li>
-        <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 서비스 범위 밖 질문 6건에는 모두 엉뚱한 근거로 답하는 문제를 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 검색 단계에 있음을 확인</li>
-        <li>주민 52명에게 재난문자와 SAVERS 화면을 차례로 보여 준 설문에서 행동 지침 명확성("지금 무엇을 해야 할지 분명한가", 0~10점) <b>3.2 → 8.3점</b>(p&lt;0.001), "5분 안에 대피하겠다" 응답 13% → 60%, 고용노동부장관상(장려상) 수상</li>
+        <li>검증기는 답변을 주장 단위로 쪼개 이벤트 기록과 대조하고, 통과 기준은 "기록에 없는 내용 0건". 구현을 맡지 않은 입장에서 명세만 보고 이 검증기를 검증할 평가셋을 작성: 정답 답변 <b>35/35</b> 통과, 오답 유도 프롬프트 <b>12/12</b> 차단(처음 8/12 → 뚫린 4건을 분석해 채점기 보강)</li>
+        <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 거절이 정답인 대조군 6건에는 모두 엉뚱한 근거로 답하는 <b>과소거절 100%</b>를 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 앞단 검색에 있음을 확인</li>
+        <li>지인 52명에게 재난문자와 SAVERS 화면을 차례로 보여 준 설문에서 행동 지침 명확성("지금 무엇을 해야 할지 분명한가", 10점 만점) <b>3.2 → 8.3점</b>(Wilcoxon p&lt;0.001), "5분 안에 집을 나서겠다" 13% → 60%</li>
+        <li>고용노동부장관상(장려상, 326팀 중 상위 2%), ACK 2026 논문 제1저자·구두발표</li>
+        <li><b>한계:</b> 측정 당시 생성기는 근거 문장을 그대로 옮기는 오프라인 스텁이라, 실제 생성 모델을 붙인 뒤 다시 측정해야 함</li>
       </ul>
-      <p class="links"><a href="https://github.com/team-savers/savers-project">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a></p>
     </div>
   </article>
 
@@ -137,13 +139,14 @@
       <figure class="fig"><a href="assets/proj_bidmate.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate.jpg" width="1600" height="872" loading="lazy" alt="입찰메이트 시스템 구조도: 프론트엔드, RAG 엔진(LangGraph 수퍼바이저·검색·생성), 로컬 LLM, 인덱싱·평가(골든셋 95문항·708개 조합 비교)"></a><figcaption>인덱싱 · 서빙 · 평가 루프 구조. 보라색 표시(전처리 실험 · 임베딩 비교 · 골든셋 · 평가 설계)가 제가 맡은 부분입니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> HWP/PDF가 섞인 공공 RFP 100건에서 출처를 인용하고, 문서로 답할 수 없는 질문은 거절해야 함</li>
-        <li><b>담당 업무:</b> 임베딩 비교·KURE-v1 전환, 골든셋·RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
-        <li>정답을 미리 정해 둔 평가용 질문 95개(골든셋, 5개 유형)와 유형별 자동 채점기를 만들고, 검색·답변 설정 <b>708개 조합</b>을 3단계로 비교</li>
-        <li>최종 선택한 무료 로컬 조합(KURE-v1 + EXAONE 3.5): 검색 정확도 <b>MRR 0.977</b>, 거절해야 할 질문 19/19 거절, <b>평균 응답 3.6초</b>, 외부 API 비용 0원</li>
-        <li>초기 50문항 실험에서 검색 정확도가 가장 낮았던 OpenAI 임베딩(MRR 0.65) 대신 무료 한국어 임베딩 KURE-v1 채택</li>
-        <li>점수가 0.3에서 멈춘 원인이 모델이 아니라 평가 데이터 오류였음을 찾아 수정했고, 입력 길이 제한(4,096토큰) 때문에 근거가 잘리던 문제를 8,192토큰으로 늘려 해결, 효과 없이 응답만 21초 늦추던 리랭커는 제거</li>
+        <li><b>담당 업무:</b> K-means 기반 골든셋 제작, 파싱·청킹 전처리 실험, 임베딩 비교·KURE-v1 전환, RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
+        <li>K-means 클러스터링으로 대표 문서를 골라 골든셋 50건을 만들고, 5개 유형 95문항(19개 RFP)으로 확장해 유형별 자동 채점기 구현</li>
+        <li>검색·답변 설정 <b>708개 조합</b>을 같은 골든셋으로 3단계 비교: 검색 정확도 <b>MRR 0.65 → 0.977</b>, Hit@4 1.0, 거절 정확도 0.91 → 1.0(19/19)</li>
+        <li>OpenAI 대신 무료 로컬 조합(KURE-v1 + dense k=4 + EXAONE 3.5)으로 평균 응답 <b>11.3초 → 3.6초</b>, 외부 API 비용 0원</li>
+        <li>점수가 0.3에서 멈춘 원인이 모델이 아니라 골든셋 오류였음을 찾아 수정했고, 입력 길이 제한(4,096토큰) 때문에 근거가 잘리던 문제를 8,192토큰으로 늘려 해결, 효과 없이 응답만 21초 늦추던 리랭커는 제거</li>
+        <li><b>한계:</b> 조합 선택과 평가에 같은 골든셋을 써서, 처음 보는 질문에서는 점수가 더 낮을 수 있음</li>
       </ul>
-      <p class="links"><a href="https://github.com/Eastar0102/codeit-part3-team1">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/bidmate-rfp-rag">GitHub ↗</a></p>
     </div>
   </article>
 
@@ -151,18 +154,16 @@
     <div class="meta">2026.08</div>
     <div class="body">
       <h3>AI 광고 스튜디오 · 소상공인용 광고 이미지·문구 생성</h3>
-      <p class="role">팀장 · PM · 생성·평가 담당 (5인 팀) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
+      <p class="role">팀장 · PM · 평가 기준 설계 (5인 팀) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
       <figure class="fig"><a href="assets/proj_ad-studio.jpg" target="_blank" rel="noopener"><img src="assets/proj_ad-studio.jpg" width="1600" height="981" loading="lazy" alt="원본 선풍기 제품 사진과, 제품은 그대로 두고 배경만 생성한 1:1 · 9:16 광고 시안"></a><figcaption>원본 제품 사진(왼쪽)은 바꾸지 않고 배경만 생성한 1:1 · 9:16 광고 시안</figcaption></figure>
       <ul>
         <li><b>문제:</b> 시간대·채널마다 광고 이미지를 새로 만들어야 하지만, 사진 속 제품은 절대 바뀌면 안 됨</li>
-        <li><b>담당 업무:</b> 팀장·PM으로 4주 스프린트 운영, SDXL·ControlNet·IP-Adapter 생성 파이프라인 구현, CLIP 품질 관문·평가 하네스 설계, 최종 보고서 총괄</li>
-        <li>제품이 바뀌지 않았는지 먼저 자동 검사(제품 영역 CLIP 유사도 0.85 이상)하고, 통과한 이미지만 사람이 보는 <b>2단계 품질 관문</b> 설계(브랜드 톤 4종 × 시간대 6종)</li>
-        <li>배경 생성 시간을 <b>17.47초에서 1.72초로 약 10배 단축</b>(LCM-LoRA 4단계 생성), 이미지 한 장 전체 처리 평균 5.97초</li>
-        <li>대표 조합 4/4와 테스트 8건(제품 2 × 채널 비율 4) 모두 통과, 자동화 테스트 <b>486건</b> 통과</li>
-        <li>생성 이미지로 13초 세로 쇼츠를 자동 제작하고, 사람이 승인한 경우에만 YouTube 예약 게시(실제 게시 확인)</li>
+        <li><b>담당 업무:</b> 팀장·PM으로 4주 스프린트 운영, 평가 기준(eval_criteria) 설계, 최종 보고서 총괄</li>
+        <li><b>제품 보존율을 1순위 지표</b>로 정의: 원본 제품을 생성한 배경 위에 합성해 보존을 보장하고, 제품 영역 CLIP 유사도 0.85 이상 자동 검사 후 사람이 재검수하는 2단계 관문 설계 → 대표 조합 <b>4/4</b> 통과</li>
+        <li>팀 성과: LCM-LoRA로 배경 생성 17.47초 → 1.72초(약 10배), 이미지 한 장 전체 처리 5.97초, 자동화 테스트 486건 통과, 사람이 승인한 이미지만 13초 쇼츠로 만들어 YouTube 예약 게시</li>
         <li><b>한계:</b> 정밀 이미지 비교(SSIM)와 블라인드 사람 평가는 하지 못해, 다음 단계 과제로 보고서에 명시</li>
       </ul>
-      <p class="links"><a href="https://github.com/codeit-part4-team2/ad-creative-studio">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/ad-creative-studio">GitHub ↗</a></p>
     </div>
   </article>
 
@@ -174,12 +175,12 @@
       <figure class="fig"><a href="assets/proj_pillscope.jpg" target="_blank" rel="noopener"><img src="assets/proj_pillscope.jpg" width="1600" height="564" loading="lazy" alt="알약 이미지의 정답 박스(왼쪽)와 모델 예측 박스(오른쪽) 비교"></a><figcaption>왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지</figcaption></figure>
       <ul>
         <li><b>문제:</b> 외형이 비슷한 56개 클래스, 학습 이미지 186장, 51배 클래스 불균형(153 vs 3), 이미지당 최대 4개 알약</li>
-        <li><b>담당 업무:</b> PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습·튜닝, RT-DETR·RF-DETR 실험, Crop &amp; Paste 증강</li>
-        <li>거의 같은 사진이 학습·검증 데이터에 나뉘어 들어가 점수가 부풀려지지 않도록 같은 그룹으로 묶은 뒤, 모델 4종(YOLOv8l·YOLOv11l·RT-DETRv2·RF-DETR)으로 <b>7단계 실험</b> 진행</li>
-        <li>데이터가 적은 알약을 오려 붙이는 증강으로 학습 이미지를 <b>186장에서 1,026장으로</b> 늘리고, 인터넷 알약 이미지를 대회 배경에 합성해 한 번도 찾지 못하던 희귀 알약까지 탐지</li>
-        <li>최종 모델 YOLOv11l이 비교 모델(RF-DETR 0.882, RT-DETRv2 0.876)보다 높은 정확도(mAP <b>0.936</b>)를 냈고, 모델 3개 앙상블로 수업 내 Kaggle 대회 점수 <b>0.851 → 0.9355</b> 달성</li>
+        <li><b>담당 업무:</b> PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습, DETR 계열 실험, Crop &amp; Paste 증강</li>
+        <li>촬영 옵션만 다른 비슷한 사진을 같은 split으로 묶어 점수가 부풀려지지 않도록 <b>데이터 누수 방지</b></li>
+        <li>데이터가 적은 알약을 오려 붙이는 증강으로 학습 이미지를 <b>186장 → 1,026장</b>으로 늘려 mAP@0.5 0.886 → 0.964, 인터넷 알약 이미지를 대회 배경에 합성해 한 번도 찾지 못하던 희귀 알약까지 탐지</li>
+        <li>모델 4종 <b>7단계 실험</b>에서 YOLOv11l이 Kaggle mAP@[0.75:0.95] <b>0.936</b>으로 RF-DETR(0.882)·RT-DETRv2(0.883)보다 높았고, conf 임계값 조정과 WBF 앙상블로 첫 제출 0.851에서 끌어올림</li>
       </ul>
-      <p class="links"><a href="https://github.com/qja0707/OralMedicineImageDetection">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
   </article>
 
