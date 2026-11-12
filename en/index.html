@@ -190,6 +190,7 @@
     <div class="body">
       <h3>Biomedical Abstract Sentence Classification · BERT vs. SciBERT Embeddings</h3>
       <p class="role">Course project, Penn State IST 597 Foundations of Deep Learning · team of 2, equal contribution · advised by Dr. C. Lee Giles · TensorFlow</p>
+      <figure class="fig"><a href="../assets/proj_scibert.png" target="_blank" rel="noopener"><img src="../assets/proj_scibert.png" width="1400" height="517" loading="lazy" alt="(a) HSLN with PubMed 20k RCT data and Word2Vec embeddings; (b) the same HSLN with SciBERT embeddings"></a><figcaption>The HSLN model and data stay the same; only the word embeddings change, from Word2Vec (a) to SciBERT (b). (Figure from the final paper.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> most biomedical abstracts are unstructured, so readers cannot jump straight to the methods or results they need.</li>
         <li><b>Contributions:</b> extracted BERT/SciBERT token embeddings from model checkpoints to replace Word2Vec (5.4M entries → 31K) in a hierarchical BiLSTM-CRF sentence classifier (HSLN), and ran all five conditions, including the baseline re-run.</li>
