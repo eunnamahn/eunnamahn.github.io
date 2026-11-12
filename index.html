@@ -116,7 +116,7 @@
     <div class="body">
       <h3>SAVERS · 재난 취약계층 맞춤 대피 안내 서비스</h3>
       <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2</p>
-      <figure class="fig"><a href="assets/proj_savers.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers.jpg" width="1600" height="870" loading="lazy" alt="SAVERS 시스템 구조도: 프론트엔드, 백엔드(대피소 선정·침수 회피 경로·폐루프·이벤트 로그), AI 엔진, FCM 웹푸시, 공공 데이터"></a><figcaption>대피소·경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다. 보라색 표시가 제가 맡은 부분입니다.</figcaption></figure>
+      <figure class="fig"><a href="assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="SAVERS 서비스 화면 3개: 긴급 재난 정보 링크 진입, 대피 단계와 추천 대피소 안내, 대피 경로 지도와 도착 확인"></a><figcaption>서비스 화면: 알림 링크 진입 → 대피소 안내 → 경로 확인·도착 확인. 대피소와 경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
         <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건, 적대 회귀 12건, 채점 스크립트, 거절 측정)와 인프라 코드(FCM 실발송 연결, AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
@@ -136,7 +136,7 @@
     <div class="body">
       <h3>입찰메이트 · 공공 RFP 문서 RAG 질의응답·요약</h3>
       <p class="role">평가 담당 (5인 팀) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
-      <figure class="fig"><a href="assets/proj_bidmate.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate.jpg" width="1600" height="872" loading="lazy" alt="입찰메이트 시스템 구조도: 프론트엔드, RAG 엔진(LangGraph 수퍼바이저·검색·생성), 로컬 LLM, 인덱싱·평가(골든셋 95문항·708개 조합 비교)"></a><figcaption>인덱싱 · 서빙 · 평가 루프 구조. 보라색 표시(전처리 실험 · 임베딩 비교 · 골든셋 · 평가 설계)가 제가 맡은 부분입니다.</figcaption></figure>
+      <figure class="fig"><a href="assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate_screen.jpg" width="1450" height="1141" loading="lazy" alt="입찰메이트 채팅 화면: "RFP 핵심 요약해줘" 질문에 대상 기관·예산·핵심 요구조건·제출 방식을 정리하고 근거 출처를 단 답변"></a><figcaption>서비스 화면: RFP 핵심 요약 질문에 대상 기관 · 예산 · 요구조건 · 제출 방식을 정리하고, 답변 아래에 근거 출처를 답니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> HWP/PDF가 섞인 공공 RFP 100건에서 출처를 인용하고, 문서로 답할 수 없는 질문은 거절해야 함</li>
         <li><b>담당 업무:</b> K-means 기반 골든셋 제작, 파싱·청킹 전처리 실험, 임베딩 비교·KURE-v1 전환, RAGAS 평가 설계, 자동 채점 스크립트 구현</li>

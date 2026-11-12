@@ -117,7 +117,7 @@
     <div class="body">
       <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
       <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2</p>
-      <figure class="fig"><a href="../assets/proj_savers.jpg" target="_blank" rel="noopener"><img src="../assets/proj_savers.jpg" width="1600" height="870" loading="lazy" alt="SAVERS architecture: frontend, backend (shelter selection, flood-avoiding routes, closed loop, event log), AI engine, FCM web push, public data"></a><figcaption>Shelters and routes are chosen by rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. Purple tags mark my parts. (Diagram labels are in Korean.)</figcaption></figure>
+      <figure class="fig"><a href="../assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="../assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="Three SAVERS screens: entering from the emergency alert link, evacuation stage and recommended shelter, route map with arrival check"></a><figcaption>Service screens: alert link → shelter guidance → route and arrival check. Shelters and routes come from rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. (UI in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</li>
         <li><b>Contributions:</b> owned the evaluation code (a 40-case golden set written independently from the spec, 12 adversarial regressions, the scoring script, the false-refusal probe) and the infrastructure code (real FCM sending, AWS deployment, CI); kept the decision records (ADRs); first-authored the paper.</li>
@@ -137,7 +137,7 @@
     <div class="body">
       <h3>BidMate · RAG Q&amp;A and Summarization for Public RFP Documents</h3>
       <p class="role">Evaluation (team of 5) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
-      <figure class="fig"><a href="../assets/proj_bidmate.jpg" target="_blank" rel="noopener"><img src="../assets/proj_bidmate.jpg" width="1600" height="872" loading="lazy" alt="BidMate architecture: frontend, RAG engine (LangGraph supervisor, retrieval, generation), local LLM, indexing and evaluation (95-question golden set, 708-config sweep)"></a><figcaption>Indexing, serving and evaluation loop. Purple tags mark my parts: preprocessing experiments, embedding comparison, golden set and evaluation design. (Diagram labels are in Korean.)</figcaption></figure>
+      <figure class="fig"><a href="../assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="../assets/proj_bidmate_screen.jpg" width="1450" height="1141" loading="lazy" alt="BidMate chat screen answering "summarize the RFP" with the agency, budget, key requirements and submission rules, plus a cited source"></a><figcaption>Service screen: asked to summarize an RFP, BidMate lists the agency, budget, requirements and submission rules, with the source cited under the answer. (UI in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> 100 public RFPs (HWP/PDF); answers must cite the source and refuse unanswerable questions.</li>
         <li><b>Contributions:</b> built the K-means golden set and preprocessing experiments, ran the embedding comparison, designed the RAGAS evaluation, and wrote the automated scoring scripts.</li>
