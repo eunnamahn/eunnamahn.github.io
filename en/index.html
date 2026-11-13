@@ -105,7 +105,7 @@
     <a href="mailto:baduk89@hanmail.net">Email</a>
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
-  <p class="about">I build AI systems that have to pass a test before anything reaches a user: a claim-level verifier for LLM answers, a golden set for RAG, a CLIP preservation check for generated images, and leakage-safe splits for detection. SAVERS, the evacuation assistant built around that verifier, won the Minister of Employment and Labor Award (3rd of 326 teams) and became my first-author paper at ACK 2026.</p>
+  <p class="about">I write the evaluation code that decides whether an AI system’s output can be trusted: test suites for an LLM answer verifier, a golden set and type-specific scorers for RAG, a CLIP preservation check for generated images, and leakage-safe splits for detection.</p>
   <p class="about">Before AI, I built and validated mathematical and statistical models in graduate research at Penn State, while teaching undergraduates in English.</p>
 </header>
 
@@ -116,14 +116,14 @@
     <div class="meta">Jul – Sep 2026</div>
     <div class="body">
       <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
-      <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
+      <p class="role">Evaluation &amp; Infra, Team Lead, PM (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
       <figure class="fig"><a href="../assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="../assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="Three SAVERS screens: entering from the emergency alert link, evacuation stage and recommended shelter, route map with arrival check"></a><figcaption>Service screens: alert link → shelter guidance → route and arrival check. Shelters and routes come from rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. (UI in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</li>
-        <li><b>Contributions:</b> owned the evaluation code (a 40-case golden set of 35 answer and 5 refusal cases, written independently from the spec; 12 adversarial regressions, the scoring script, the false-refusal probe) and the infrastructure code (real FCM sending, AWS deployment, CI); kept the decision records (ADRs); first-authored the paper.</li>
+        <li><b>Contributions:</b> owned the evaluation code (a 40-case golden set of 35 answer and 5 refusal cases, 12 adversarial regressions, a 34-case refusal probe, the scoring scripts) and the infrastructure code (real FCM sending, AWS deployment, CI); kept the decision records (ADRs); first-authored the paper.</li>
         <li>Shelter choice and walking routes are computed by rule-based code (OSMnx / NetworkX), not the LLM; the LLM only explains results that are already fixed.</li>
-        <li>The verifier splits each answer into claims and checks them against the event log, with a pass bar of zero unsupported claims: <b>35/35</b> golden answers passed, and <b>12/12</b> adversarial prompts were blocked (8/12 before the scorer was hardened).</li>
-        <li>Tested refusal in both directions: wrongly refused only 1 of 28 valid questions <b>(3.6%)</b>, but answered all 6 out-of-scope questions from unrelated evidence, a failure grounding scores miss; traced it to retrieval, not the verifier.</li>
+        <li>The verifier splits each answer into claims and checks them against the event log, with a pass bar of zero unsupported claims. Feeding pre-written answers straight into scoring, it wrongly blocked 0 of <b>35</b> correct answers; only 8 of 12 adversarial answers were caught at first, and after I analyzed the 4 misses and closed the gap, <b>12/12</b>. Of the 40 golden cases, 30 were finalized by adopting the system’s output and then checking it against the contract documents.</li>
+        <li>Tested refusal in both directions on the chatbot path (offline stub generator at the time): wrongly refused only 1 of 28 valid questions <b>(3.6%)</b>, but answered all 6 out-of-scope questions from unrelated evidence (6/6 under-refusal), a failure grounding scores miss; traced it to retrieval, not the verifier.</li>
         <li>User study (n = 52, acquaintances, within-subject): action clarity <b>3.2 → 8.3</b> out of 10 (Wilcoxon p&lt;0.001); "would leave within 5 minutes" 13% → 60%.</li>
         <li>Minister of Employment and Labor Award (3rd of 326 teams); first-author oral presentation at ACK 2026.</li>
         <li><b>Limitation:</b> the generator was an offline stub that copies evidence sentences at measurement time; the numbers must be re-measured with a real model.</li>
@@ -136,14 +136,14 @@
     <div class="meta">Jun – Jul 2026</div>
     <div class="body">
       <h3>BidMate · RAG Q&amp;A and Summarization for Public RFP Documents</h3>
-      <p class="role">Evaluation (team of 5) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
+      <p class="role">Evaluation (team of 5) · LangChain, FAISS, KURE-v1, EXAONE 3.5, RAGAS</p>
       <figure class="fig"><a href="../assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="../assets/proj_bidmate_screen.jpg" width="1450" height="571" loading="lazy" alt="BidMate chat screen: asked to summarize an RFP, it lists agency, budget, deadline and key requirements, with a cited source and agent buttons below"></a><figcaption>Service screen: asked to summarize an RFP, BidMate lists the agency, budget and requirements, with the source cited under the answer. (Middle trimmed; UI in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> 100 public RFPs (HWP/PDF); answers must cite the source and refuse unanswerable questions.</li>
         <li><b>Contributions:</b> built the K-means golden set and preprocessing experiments, ran the embedding comparison, designed the RAGAS evaluation, and wrote the automated scoring scripts.</li>
         <li>Picked representative documents with K-means for a 50-question golden set, then grew it to 95 questions (5 types, 19 RFPs) with type-specific scorers.</li>
-        <li>Compared <b>708 configurations</b> on the same golden set in 3 stages: <b>MRR 0.65 → 0.977</b>, Hit@4 1.0, refusal accuracy 0.91 → 1.0 <b>(19/19)</b>.</li>
-        <li>Replaced OpenAI with a free local stack (KURE-v1 + dense k=4 + EXAONE 3.5): mean latency <b>11.3 s → 3.6 s</b>, no external API cost.</li>
+        <li>Compared <b>708 configurations</b> in 3 stages on a 95-question dev set; the final setup reached <b>MRR 0.977</b>, Hit@4 1.0 and refusal <b>19/19</b> on that same set, so scores on unseen questions may be lower.</li>
+        <li>Replaced OpenAI with a free local stack (KURE-v1 + dense k=4 + EXAONE 3.5, Ollama on a GCP VM): mean latency <b>3.6 s</b>, no external API cost.</li>
         <li>Found that a score stuck at 0.3 came from errors in the golden set, not the model; raised Ollama's 4,096-token context to 8,192 after finding it cut off evidence; removed a reranker that added 21 s of latency for no gain.</li>
         <li><b>Limitation:</b> the same golden set was used to choose and to evaluate the configuration, so scores on unseen questions may be lower.</li>
       </ul>
@@ -179,7 +179,7 @@
         <li><b>Contributions:</b> PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
         <li>Grouped near-duplicate shots into the same split to prevent <b>train/validation leakage</b>.</li>
         <li>Minority-class crop-and-paste grew the data from <b>186 to 1,026 images</b> (mAP@0.5 0.886 → 0.964); compositing web pill images onto the competition background made a never-detected rare class detectable.</li>
-        <li>Across <b>7 staged experiments</b> with 4 models, YOLOv11l led on validation mAP@[0.75:0.95] with <b>0.936</b>, ahead of RF-DETR (0.882) and RT-DETRv2 (0.883); on Kaggle, confidence tuning and a 3-model WBF ensemble raised the score from a first submission of 0.851 to 0.936.</li>
+        <li>Across <b>7 staged experiments</b> with 4 models, YOLOv11l led on the competition metric, validation mAP@[0.75:0.95], with <b>0.936</b>, ahead of RF-DETR (0.882) and RT-DETRv2 (0.883), though training-set sizes differed, so this is not a controlled comparison; on Kaggle, confidence tuning and a 3-model WBF ensemble raised the score from a first submission of 0.851 to 0.936.</li>
       </ul>
       <p class="links"><a href="https://github.com/eunnamahn/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
@@ -194,7 +194,7 @@
       <ul>
         <li><b>Problem:</b> most biomedical abstracts are unstructured, so readers cannot jump straight to the methods or results they need.</li>
         <li><b>Contributions:</b> extracted BERT/SciBERT token embeddings from model checkpoints to replace Word2Vec (5.4M entries → 31K) in a hierarchical BiLSTM-CRF sentence classifier (HSLN), and ran all five conditions, including the baseline re-run.</li>
-        <li>On PubMed 20k RCT (5 classes), matched the re-run baseline (test accuracy 92.43% vs. 92.35%, single run) with a <b>~175× smaller</b> embedding table; identified low vocabulary overlap (16% vs. 68% for Word2Vec) as the bottleneck.</li>
+        <li>On PubMed 20k RCT (5 classes), matched the re-run baseline (test accuracy 92.43% vs. 92.35%, single run) with a <b>~175× smaller</b> vocabulary; identified low vocabulary coverage (16% of dataset tokens vs. 68% for Word2Vec) as the bottleneck.</li>
       </ul>
     </div>
   </article>
@@ -353,7 +353,7 @@
 <section id="skills">
   <h2>Skills</h2>
   <dl>
-    <div><dt>AI · LLM</dt><dd>LangChain, LangGraph, RAG (FAISS, BM25, reranker), KURE-v1, EXAONE 3.5, OpenAI API, SDXL · ControlNet · IP-Adapter · LCM-LoRA, YOLO, RT-DETR, RF-DETR</dd></div>
+    <div><dt>AI · LLM</dt><dd>LangChain, RAG (FAISS, BM25, reranker), KURE-v1, EXAONE 3.5, OpenAI API, YOLO, RT-DETR, RF-DETR</dd></div>
     <div><dt>Evaluation</dt><dd>Golden-set design, claim-level verification, Hit@k · MRR · refusal accuracy, RAGAS, CLIP similarity, mAP, pytest, GitHub Actions CI</dd></div>
     <div><dt>Backend · Infra</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, GCP (L4 GPU), FCM web push</dd></div>
     <div><dt>ML · Data</dt><dd>PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, OpenCV, OSMnx, NetworkX, MATLAB</dd></div>

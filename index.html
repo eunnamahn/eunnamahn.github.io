@@ -104,8 +104,8 @@
     <a href="mailto:baduk89@hanmail.net">이메일</a>
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
-  <p class="about">편미분방정식 해석해 유도, 인공신경망 대리 모델, 시계열 예측 모델을 직접 만들고 검증하며 수학적 모델링 연구를 해 왔습니다. 이 경험을 살려 재난 대피 안내 서비스 SAVERS에서 LLM 답변이 근거에 맞는지 측정하는 골든셋 평가 체계를 설계했습니다. 이 서비스로 고용노동부장관상(장려상, 326팀 중 3위)을 받았고, ACK 2026에서 제1저자로 구두발표했습니다.</p>
-  <p class="about">미국 대학원에서 영어로 연구하고 논문을 쓰고 학부 수업을 가르쳐, 영어로 발표 · 토론 · 문서 작성이 자유롭습니다 (TOEIC 985).</p>
+  <p class="about">미국 대학원에서 편미분방정식 해석해, 인공신경망 대리 모델, 시계열 예측 모델을 직접 만들고 검증하며 수학적 모델링 연구를 해 왔습니다. 지금은 LLM 서비스의 답변을 근거와 대조해 검증하는 평가 코드를 만듭니다. SAVERS에서는 답변을 막는 검증기의 평가셋과 채점 스크립트를, 입찰메이트에서는 95문항 골든셋과 유형별 자동 채점기를 직접 작성했습니다.</p>
+  <p class="about">미국 대학원에서 영어로 연구하고 논문을 쓰고 학부 수업을 가르쳐, 영어로 발표, 토론, 문서 작성이 자유롭습니다 (TOEIC 985).</p>
 </header>
 
 <section id="projects">
@@ -115,17 +115,17 @@
     <div class="meta">2026.07 – 2026.09</div>
     <div class="body">
       <h3>SAVERS · 재난 취약계층 맞춤 대피 안내 서비스</h3>
-      <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
+      <p class="role">평가 · 인프라 담당(팀장, PM) (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
       <figure class="fig"><a href="assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="SAVERS 서비스 화면 3개: 긴급 재난 정보 링크 진입, 대피 단계와 추천 대피소 안내, 대피 경로 지도와 도착 확인"></a><figcaption>서비스 화면: 알림 링크 진입 → 대피소 안내 → 경로 확인·도착 확인. 대피소와 경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
-        <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건(답변 35·거절 5), 적대 회귀 12건, 채점 스크립트, 거절 측정)와 인프라 코드(FCM 실발송 연결, AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
+        <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건(답변 35·거절 5), 적대 회귀 12건, 거절 프로브 34건, 채점 스크립트)와 인프라 코드(FCM 실발송 연결, AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
         <li>대피소 선택과 도보 경로는 LLM에 맡기지 않고 규칙 기반 코드(OSMnx/NetworkX)로 계산해, LLM은 이미 정해진 결과를 설명만 하도록 설계</li>
-        <li>검증기는 답변을 주장 단위로 쪼개 이벤트 기록과 대조하고, 통과 기준은 "기록에 없는 내용 0건". 구현을 맡지 않은 입장에서 명세만 보고 이 검증기를 검증할 평가셋을 작성: 정답 답변 <b>35/35</b> 통과, 오답 유도 프롬프트 <b>12/12</b> 차단(처음 8/12 → 뚫린 4건을 분석해 채점기 보강)</li>
-        <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 거절이 정답인 대조군 6건에는 모두 엉뚱한 근거로 답하는 <b>과소거절 100%</b>를 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 앞단 검색에 있음을 확인</li>
+        <li>검증기는 답변을 주장 단위로 쪼개 이벤트 기록과 대조하고, 통과 기준은 "기록에 없는 내용 0건". 이 검증기를 검증할 평가셋을 작성해, 미리 쓴 정답 문장 <b>35/35</b>가 잘못 막히지 않았고 오답 유도 문장은 처음 8/12만 걸러져 놓친 4건을 분석하고 보강해 <b>12/12</b>. 골든셋 40건 중 30건은 시스템 출력을 먼저 채택한 뒤 계약 문서와 대조해 확정</li>
+        <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 거절 프로브(답해야 할 질문 28건, 거절 대조군 6건)에서 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 대조군 6건에는 모두 엉뚱한 근거로 답하는 <b>과소거절 6/6(100%)</b>을 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 앞단 검색에 있음을 확인</li>
         <li>지인 52명에게 재난문자와 SAVERS 화면을 차례로 보여 준 설문에서 행동 지침 명확성("지금 무엇을 해야 할지 분명한가", 10점 만점) <b>3.2 → 8.3점</b>(Wilcoxon p&lt;0.001), "5분 안에 집을 나서겠다" 13% → 60%</li>
         <li>고용노동부장관상(장려상, 326팀 중 3위), ACK 2026 논문 제1저자·구두발표</li>
-        <li><b>한계:</b> 측정 당시 생성기는 근거 문장을 그대로 옮기는 오프라인 스텁이라, 실제 생성 모델을 붙인 뒤 다시 측정해야 함</li>
+        <li><b>한계:</b> 35/35와 12/12는 정답·오답 문장을 채점에 직접 넣어 잰 값이고, 거절 프로브 측정 당시 생성기는 근거 문장을 그대로 옮기는 오프라인 스텁이라, 실제 생성 모델을 붙인 뒤 다시 측정해야 함</li>
       </ul>
       <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a></p>
     </div>
@@ -135,14 +135,14 @@
     <div class="meta">2026.06 – 2026.07</div>
     <div class="body">
       <h3>입찰메이트 · 공공 RFP 문서 RAG 질의응답·요약</h3>
-      <p class="role">평가 담당 (5인 팀) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
+      <p class="role">평가 담당 (5인 팀) · LangChain, FAISS, KURE-v1, EXAONE 3.5, RAGAS</p>
       <figure class="fig"><a href="assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate_screen.jpg" width="1450" height="571" loading="lazy" alt="입찰메이트 채팅 화면: "RFP 핵심 요약해줘" 질문에 대상 기관·예산·마감일·핵심 요구조건을 정리하고, 아래에 근거 출처와 요약·적격성 판정·리스크 탐지 등 기능 버튼"></a><figcaption>서비스 화면: RFP 핵심 요약 질문에 대상 기관 · 예산 · 요구조건을 정리하고, 답변 아래에 근거 출처를 답니다. (가운데 일부 생략)</figcaption></figure>
       <ul>
         <li><b>문제:</b> HWP/PDF가 섞인 공공 RFP 100건에서 출처를 인용하고, 문서로 답할 수 없는 질문은 거절해야 함</li>
         <li><b>담당 업무:</b> K-means 기반 골든셋 제작, 파싱·청킹 전처리 실험, 임베딩 비교·KURE-v1 전환, RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
         <li>K-means 클러스터링으로 대표 문서를 골라 골든셋 50건을 만들고, 5개 유형 95문항(19개 RFP)으로 확장해 유형별 자동 채점기 구현</li>
-        <li>검색·답변 설정 <b>708개 조합</b>을 같은 골든셋으로 3단계 비교: 검색 정확도 <b>MRR 0.65 → 0.977</b>, Hit@4 1.0, 거절 정확도 0.91 → 1.0(19/19)</li>
-        <li>OpenAI 대신 무료 로컬 조합(KURE-v1 + dense k=4 + EXAONE 3.5)으로 평균 응답 <b>11.3초 → 3.6초</b>, 외부 API 비용 0원</li>
+        <li>검색·답변 설정 <b>708개 조합</b>을 95문항 개발셋으로 3단계 비교해 최종 설정 <b>MRR 0.977</b>, Hit@4 1.0, 거절 19/19 (설정 선택과 평가에 같은 셋을 써서 새 질문에서는 낮을 수 있음)</li>
+        <li>OpenAI 대신 무료 로컬 조합(KURE-v1 + dense k=4 + EXAONE 3.5, GCP VM의 Ollama)으로 전환해 평균 응답 <b>3.6초</b>, 외부 API 호출 비용 0원</li>
         <li>점수가 0.3에서 멈춘 원인이 모델이 아니라 골든셋 오류였음을 찾아 수정했고, 입력 길이 제한(4,096토큰) 때문에 근거가 잘리던 문제를 8,192토큰으로 늘려 해결, 효과 없이 응답만 21초 늦추던 리랭커는 제거</li>
         <li><b>한계:</b> 조합 선택과 평가에 같은 골든셋을 써서, 처음 보는 질문에서는 점수가 더 낮을 수 있음</li>
       </ul>
@@ -178,7 +178,7 @@
         <li><b>담당 업무:</b> PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습, DETR 계열 실험, Crop &amp; Paste 증강</li>
         <li>촬영 옵션만 다른 비슷한 사진을 같은 split으로 묶어 점수가 부풀려지지 않도록 <b>데이터 누수 방지</b></li>
         <li>데이터가 적은 알약을 오려 붙이는 증강으로 학습 이미지를 <b>186장 → 1,026장</b>으로 늘려 mAP@0.5 0.886 → 0.964, 인터넷 알약 이미지를 대회 배경에 합성해 한 번도 찾지 못하던 희귀 알약까지 탐지</li>
-        <li>모델 4종 <b>7단계 실험</b>에서 YOLOv11l이 검증 mAP@[0.75:0.95] <b>0.936</b>으로 RF-DETR(0.882)·RT-DETRv2(0.883)보다 높았고, Kaggle 제출은 conf 임계값 조정과 3모델 WBF 앙상블로 첫 제출 0.851 → 0.936</li>
+        <li>모델 4종 <b>7단계 실험</b>에서 YOLOv11l이 대회 지표인 검증 mAP@[0.75:0.95] <b>0.936</b>으로 RF-DETR(0.882)·RT-DETRv2(0.883)보다 높았고(모델별 학습 이미지 수가 달라 통제 비교는 아님), Kaggle 제출은 conf 임계값 조정과 3모델 WBF 앙상블로 첫 제출 0.851 → 0.936</li>
       </ul>
       <p class="links"><a href="https://github.com/eunnamahn/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
@@ -193,7 +193,7 @@
       <ul>
         <li><b>문제:</b> 생의학 논문 초록 대부분이 비구조화되어 있어, 연구자가 방법·결과 등 필요한 정보만 골라 읽기 어려움</li>
         <li><b>담당 업무:</b> BERT·SciBERT에서 단어 임베딩을 추출해 기존 문장 분류 모델(HSLN)의 Word2Vec을 대체하고, 기준선 재현을 포함한 5가지 조건 실험 수행</li>
-        <li>임베딩 크기를 <b>약 1/175</b>로 줄이고도 기존과 같은 수준의 정확도 유지(92.35% → 92.43%, PubMed 20k RCT, 단일 실행), 사전학습 어휘와 데이터 단어의 낮은 일치율(16%)을 성능의 한계 요인으로 분석</li>
+        <li>어휘 수가 <b>약 1/175</b>인 임베딩으로 기존과 같은 수준의 정확도 유지(92.35% → 92.43%, PubMed 20k RCT, 단일 실행), 데이터 토큰 중 사전학습 어휘에 있는 비율이 낮은 점(16%, Word2Vec 68%)을 성능의 한계 요인으로 분석</li>
       </ul>
     </div>
   </article>
@@ -361,8 +361,8 @@
 <section id="skills">
   <h2>기술</h2>
   <dl>
-    <div><dt>AI · LLM</dt><dd>LangChain, LangGraph, RAG(FAISS·BM25·리랭커), KURE-v1 임베딩, EXAONE 3.5(Ollama), OpenAI API</dd></div>
-    <div><dt>생성 · 비전</dt><dd>SDXL, ControlNet, IP-Adapter, LCM-LoRA, YOLO(Ultralytics), RT-DETR, RF-DETR, OpenCV, rembg</dd></div>
+    <div><dt>AI · LLM</dt><dd>LangChain, RAG(FAISS·BM25·리랭커), KURE-v1 임베딩, EXAONE 3.5(Ollama), OpenAI API</dd></div>
+    <div><dt>비전</dt><dd>YOLO(Ultralytics), RT-DETR, RF-DETR, COCO 데이터 파이프라인, WBF 앙상블</dd></div>
     <div><dt>평가 · 품질</dt><dd>골든셋 설계, 주장 단위 검증, Hit@k·MRR·거절 정확도, RAGAS, CLIP 유사도, mAP, pytest, GitHub Actions CI</dd></div>
     <div><dt>수리 · 통계</dt><dd>해석해 유도(라플라스 방정식·중첩 원리), 실험계획법(DOE), 인공신경망 대리 모델, 유전 알고리즘, Seq2Seq-LSTM 시계열 예측, 수치 적분, 편미분방정식(PDE) 수치해석·시뮬레이션(MATLAB)</dd></div>
     <div><dt>백엔드 · 인프라</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, GCP(L4 GPU), FCM 웹푸시</dd></div>
