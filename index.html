@@ -136,7 +136,7 @@
     <div class="body">
       <h3>입찰메이트 · 공공 RFP 문서 RAG 질의응답·요약</h3>
       <p class="role">평가 담당 (5인 팀) · LangChain, LangGraph, FAISS, KURE-v1, EXAONE 3.5</p>
-      <figure class="fig"><a href="assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate_screen.jpg" width="1450" height="1141" loading="lazy" alt="입찰메이트 채팅 화면: "RFP 핵심 요약해줘" 질문에 대상 기관·예산·핵심 요구조건·제출 방식을 정리하고 근거 출처를 단 답변"></a><figcaption>서비스 화면: RFP 핵심 요약 질문에 대상 기관 · 예산 · 요구조건 · 제출 방식을 정리하고, 답변 아래에 근거 출처를 답니다.</figcaption></figure>
+      <figure class="fig"><a href="assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate_screen.jpg" width="1450" height="571" loading="lazy" alt="입찰메이트 채팅 화면: "RFP 핵심 요약해줘" 질문에 대상 기관·예산·마감일·핵심 요구조건을 정리하고, 아래에 근거 출처와 요약·적격성 판정·리스크 탐지 등 기능 버튼"></a><figcaption>서비스 화면: RFP 핵심 요약 질문에 대상 기관 · 예산 · 요구조건을 정리하고, 답변 아래에 근거 출처를 답니다. (가운데 일부 생략)</figcaption></figure>
       <ul>
         <li><b>문제:</b> HWP/PDF가 섞인 공공 RFP 100건에서 출처를 인용하고, 문서로 답할 수 없는 질문은 거절해야 함</li>
         <li><b>담당 업무:</b> K-means 기반 골든셋 제작, 파싱·청킹 전처리 실험, 임베딩 비교·KURE-v1 전환, RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
@@ -155,7 +155,7 @@
     <div class="body">
       <h3>AI 광고 스튜디오 · 소상공인용 광고 이미지·문구 생성</h3>
       <p class="role">팀장 · PM · 평가 기준 설계 (5인 팀) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
-      <figure class="fig"><a href="assets/proj_ad-studio_screens.jpg" target="_blank" rel="noopener"><img src="assets/proj_ad-studio_screens.jpg" width="2000" height="532" loading="lazy" alt="AI 광고 스튜디오 서비스 화면 3개: 생성 이력 대시보드, 생성 결과와 광고 문구 편집, 쇼츠 승인 후 YouTube 예약 게시"></a><figcaption>서비스 화면: 대시보드 → 생성 결과 · 문구 편집 → 사람이 승인한 쇼츠만 YouTube 예약 게시. 원본 제품은 바꾸지 않고 배경만 생성합니다.</figcaption></figure>
+      <figure class="fig"><a href="assets/proj_ad-studio_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_ad-studio_screen.jpg" width="1118" height="756" loading="lazy" alt="AI 광고 스튜디오 생성 결과 화면: 같은 선풍기 제품으로 감성·모던 톤 광고 이미지 2장과 헤드라인·서브카피 편집칸"></a><figcaption>서비스 화면: 원본 제품은 그대로 두고 배경만 바꾼 톤별 광고 시안과 문구 편집. 사람이 승인한 결과만 쇼츠로 만들어 YouTube에 예약 게시합니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> 시간대·채널마다 광고 이미지를 새로 만들어야 하지만, 사진 속 제품은 절대 바뀌면 안 됨</li>
         <li><b>담당 업무:</b> 팀장·PM으로 4주 스프린트 운영, 평가 기준(eval_criteria) 설계, 최종 보고서 총괄</li>
