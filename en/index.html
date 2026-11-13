@@ -116,7 +116,7 @@
     <div class="meta">Jul – Sep 2026</div>
     <div class="body">
       <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
-      <p class="role">Evaluation &amp; Infra, Team Lead, PM (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
+      <p class="role">Team Lead · PM · Evaluation &amp; Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
       <figure class="fig"><a href="../assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="../assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="Three SAVERS screens: entering from the emergency alert link, evacuation stage and recommended shelter, route map with arrival check"></a><figcaption>Service screens: alert link → shelter guidance → route and arrival check. Shelters and routes come from rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. (UI in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</li>
@@ -160,7 +160,7 @@
       <ul>
         <li><b>Problem:</b> ad images must be remade for every time slot and channel without changing the product.</li>
         <li><b>Contributions:</b> PM for a 4-week sprint; defined the evaluation criteria; owned the final report.</li>
-        <li>Made <b>product preservation the top metric</b>: the original product is composited onto generated backgrounds, then checked with masked-region CLIP similarity ≥ 0.85 plus human review; <b>4/4</b> representative cases passed.</li>
+        <li>Made <b>product preservation the top metric</b>: the original product is composited onto generated backgrounds, then checked with masked-region CLIP similarity ≥ 0.85 plus human review; <b>4/4</b> representative cases passed (no large-scale evaluation).</li>
         <li>Team results: LCM-LoRA cut background generation from 17.47 s to 1.72 s (~10×), 5.97 s per image end to end on an L4; 486 automated tests passed; human-approved images become 13-s Shorts scheduled to YouTube.</li>
         <li><b>Limitation:</b> no pixel-level comparison (SSIM) or blind human evaluation yet; listed as next steps in the report.</li>
       </ul>
