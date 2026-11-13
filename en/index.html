@@ -116,11 +116,11 @@
     <div class="meta">Jul – Sep 2026</div>
     <div class="body">
       <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
-      <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2</p>
+      <p class="role">Team Lead · PM · QA · Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
       <figure class="fig"><a href="../assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="../assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="Three SAVERS screens: entering from the emergency alert link, evacuation stage and recommended shelter, route map with arrival check"></a><figcaption>Service screens: alert link → shelter guidance → route and arrival check. Shelters and routes come from rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. (UI in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</li>
-        <li><b>Contributions:</b> owned the evaluation code (a 40-case golden set written independently from the spec, 12 adversarial regressions, the scoring script, the false-refusal probe) and the infrastructure code (real FCM sending, AWS deployment, CI); kept the decision records (ADRs); first-authored the paper.</li>
+        <li><b>Contributions:</b> owned the evaluation code (a 40-case golden set of 35 answer and 5 refusal cases, written independently from the spec; 12 adversarial regressions, the scoring script, the false-refusal probe) and the infrastructure code (real FCM sending, AWS deployment, CI); kept the decision records (ADRs); first-authored the paper.</li>
         <li>Shelter choice and walking routes are computed by rule-based code (OSMnx / NetworkX), not the LLM; the LLM only explains results that are already fixed.</li>
         <li>The verifier splits each answer into claims and checks them against the event log, with a pass bar of zero unsupported claims: <b>35/35</b> golden answers passed, and <b>12/12</b> adversarial prompts were blocked (8/12 before the scorer was hardened).</li>
         <li>Tested refusal in both directions: wrongly refused only 1 of 28 valid questions <b>(3.6%)</b>, but answered all 6 out-of-scope questions from unrelated evidence, a failure grounding scores miss; traced it to retrieval, not the verifier.</li>
@@ -172,14 +172,14 @@
     <div class="meta">Apr – May 2026</div>
     <div class="body">
       <h3>PillScope · Object Detection for Oral Medication Images</h3>
-      <p class="role">Team Lead · PM (team of 5) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
+      <p class="role">Team Lead · PM · Model Experiments (team of 5) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
       <figure class="fig"><a href="../assets/proj_pillscope.jpg" target="_blank" rel="noopener"><img src="../assets/proj_pillscope.jpg" width="1600" height="564" loading="lazy" alt="Ground-truth boxes (left) vs. model-predicted boxes (right) on pill images"></a><figcaption>Ground truth (left) vs. model prediction (right); the rare class is detected too.</figcaption></figure>
       <ul>
         <li><b>Problem:</b> 56 look-alike pill classes, only 186 training images, a 51× class imbalance (153 vs. 3 annotations), and up to 4 pills per image.</li>
         <li><b>Contributions:</b> PM; built the COCO → YOLO pipeline, YOLOv11l training, DETR experiments and crop-and-paste augmentation.</li>
         <li>Grouped near-duplicate shots into the same split to prevent <b>train/validation leakage</b>.</li>
         <li>Minority-class crop-and-paste grew the data from <b>186 to 1,026 images</b> (mAP@0.5 0.886 → 0.964); compositing web pill images onto the competition background made a never-detected rare class detectable.</li>
-        <li>Across <b>7 staged experiments</b> with 4 models, YOLOv11l reached Kaggle mAP@[0.75:0.95] <b>0.936</b>, ahead of RF-DETR (0.882) and RT-DETRv2 (0.883), up from a first submission of 0.851 via confidence tuning and WBF ensembling.</li>
+        <li>Across <b>7 staged experiments</b> with 4 models, YOLOv11l led on validation mAP@[0.75:0.95] with <b>0.936</b>, ahead of RF-DETR (0.882) and RT-DETRv2 (0.883); on Kaggle, confidence tuning and a 3-model WBF ensemble raised the score from a first submission of 0.851 to 0.936.</li>
       </ul>
       <p class="links"><a href="https://github.com/eunnamahn/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
@@ -321,7 +321,7 @@
   </article>
   <article class="entry">
     <div class="meta">Jun – Aug 2013</div>
-    <div class="body"><h3>Overseas Internship, Korea National Oil Corporation (KNOC) Vietnam Office</h3></div>
+    <div class="body"><h3>Overseas Internship, Korea National Oil Corporation (KNOC) Vietnam Office</h3><p class="role">Selected through the Ministry of Trade, Industry and Energy resource-development university program</p></div>
   </article>
   <article class="entry">
     <div class="meta">2026</div>
@@ -340,8 +340,16 @@
     <div class="body"><h3>Engineer in Training (EIT)</h3><p class="role">NCEES FE exam, Pennsylvania · ET 023429</p></div>
   </article>
   <article class="entry">
-    <div class="meta">2010 – 2011</div>
-    <div class="body"><h3>Sergeant, Republic of Korea Army</h3></div>
+    <div class="meta">2013 – 2014</div>
+    <div class="body"><h3>Student Paper Competitions, 3 Awards</h3><p class="role">GS Energy 3rd; Mine Reclamation Corporation and Korea Environmental Industry &amp; Technology Institute 2nd</p></div>
+  </article>
+  <article class="entry">
+    <div class="meta">2013 – 2014</div>
+    <div class="body"><h3>National Science &amp; Engineering Scholarship</h3><p class="role">Full tuition, 4 semesters</p></div>
+  </article>
+  <article class="entry">
+    <div class="meta">Jan 2010 – Nov 2011</div>
+    <div class="body"><h3>Sergeant, Republic of Korea Army</h3><p class="role">Honorable discharge</p></div>
   </article>
 </section>
 

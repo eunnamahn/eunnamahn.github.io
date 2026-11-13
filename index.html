@@ -115,11 +115,11 @@
     <div class="meta">2026.07 – 2026.09</div>
     <div class="body">
       <h3>SAVERS · 재난 취약계층 맞춤 대피 안내 서비스</h3>
-      <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2</p>
+      <p class="role">팀장 · PM · QA/보안 · 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, LangChain, OSMnx, NetworkX, AWS EC2, FCM</p>
       <figure class="fig"><a href="assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="SAVERS 서비스 화면 3개: 긴급 재난 정보 링크 진입, 대피 단계와 추천 대피소 안내, 대피 경로 지도와 도착 확인"></a><figcaption>서비스 화면: 알림 링크 진입 → 대피소 안내 → 경로 확인·도착 확인. 대피소와 경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
-        <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건, 적대 회귀 12건, 채점 스크립트, 거절 측정)와 인프라 코드(FCM 실발송 연결, AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
+        <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건(답변 35·거절 5), 적대 회귀 12건, 채점 스크립트, 거절 측정)와 인프라 코드(FCM 실발송 연결, AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
         <li>대피소 선택과 도보 경로는 LLM에 맡기지 않고 규칙 기반 코드(OSMnx/NetworkX)로 계산해, LLM은 이미 정해진 결과를 설명만 하도록 설계</li>
         <li>검증기는 답변을 주장 단위로 쪼개 이벤트 기록과 대조하고, 통과 기준은 "기록에 없는 내용 0건". 구현을 맡지 않은 입장에서 명세만 보고 이 검증기를 검증할 평가셋을 작성: 정답 답변 <b>35/35</b> 통과, 오답 유도 프롬프트 <b>12/12</b> 차단(처음 8/12 → 뚫린 4건을 분석해 채점기 보강)</li>
         <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 거절이 정답인 대조군 6건에는 모두 엉뚱한 근거로 답하는 <b>과소거절 100%</b>를 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 앞단 검색에 있음을 확인</li>
@@ -178,7 +178,7 @@
         <li><b>담당 업무:</b> PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습, DETR 계열 실험, Crop &amp; Paste 증강</li>
         <li>촬영 옵션만 다른 비슷한 사진을 같은 split으로 묶어 점수가 부풀려지지 않도록 <b>데이터 누수 방지</b></li>
         <li>데이터가 적은 알약을 오려 붙이는 증강으로 학습 이미지를 <b>186장 → 1,026장</b>으로 늘려 mAP@0.5 0.886 → 0.964, 인터넷 알약 이미지를 대회 배경에 합성해 한 번도 찾지 못하던 희귀 알약까지 탐지</li>
-        <li>모델 4종 <b>7단계 실험</b>에서 YOLOv11l이 Kaggle mAP@[0.75:0.95] <b>0.936</b>으로 RF-DETR(0.882)·RT-DETRv2(0.883)보다 높았고, conf 임계값 조정과 WBF 앙상블로 첫 제출 0.851에서 끌어올림</li>
+        <li>모델 4종 <b>7단계 실험</b>에서 YOLOv11l이 검증 mAP@[0.75:0.95] <b>0.936</b>으로 RF-DETR(0.882)·RT-DETRv2(0.883)보다 높았고, Kaggle 제출은 conf 임계값 조정과 3모델 WBF 앙상블로 첫 제출 0.851 → 0.936</li>
       </ul>
       <p class="links"><a href="https://github.com/eunnamahn/OralMedicineImageDetection">GitHub ↗</a></p>
     </div>
@@ -304,7 +304,7 @@
     <div class="meta">2026.02 – 2026.08</div>
     <div class="body">
       <h3>코드잇 스프린트 AI 엔지니어 10기 수료</h3>
-      <p>팀 프로젝트 3회(객체 탐지·RAG·생성형 AI)와 해커톤 1회 참여 · 팀장 3회 역임</p>
+      <p>팀 프로젝트 3회(객체 탐지·RAG·생성형 AI) + 해커톤 1회 · 팀장 3회 역임</p>
     </div>
   </article>
 </section>
