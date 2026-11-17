@@ -105,7 +105,7 @@
     <a href="mailto:baduk89@hanmail.net">Email</a>
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
-  <p class="about">I write evaluation code that measures whether LLM and RAG answers are right, then trace failures to their cause and fix them. On SAVERS, which won a national award (3rd of 326 teams), I built the test sets and scorer for an LLM answer verifier and traced a refusal failure to retrieval. On BidMate, I built a 95-question golden set with type-specific scorers and fixed the golden-set errors and context truncation that were holding scores down.</p>
+  <p class="about">I write evaluation code that measures whether LLM and RAG answers are right, then trace failures to their cause and fix them. On SAVERS, which won a national award (joint 3rd of 326 teams), I built the test sets and scorer for an LLM answer verifier and traced a refusal failure to retrieval. On BidMate, I built a 95-question golden set with type-specific scorers and fixed the golden-set errors and context truncation that were holding scores down.</p>
   <p class="about">Before AI, I built and validated mathematical and statistical models in graduate research at Penn State, while teaching undergraduates in English.</p>
 </header>
 
@@ -125,7 +125,7 @@
         <li>The verifier splits each answer into claims and checks them against the event log, with a pass bar of zero unsupported claims. Feeding pre-written answers straight into scoring, it wrongly blocked 0 of <b>35</b> correct answers; only 8 of 12 adversarial answers were caught at first, and after I analyzed the 4 misses and closed the gap, <b>12/12</b>. Of the 40 golden cases, 30 were finalized by adopting the system’s output and then checking it against the contract documents.</li>
         <li>Tested refusal in both directions on the chatbot path (offline stub generator at the time): wrongly refused only 1 of 28 valid questions <b>(3.6%)</b>, but answered all 6 out-of-scope questions from unrelated evidence (6/6 under-refusal), a failure grounding scores miss; traced it to retrieval, not the verifier.</li>
         <li>User study (n = 52, acquaintances, within-subject): action clarity <b>3.2 → 8.3</b> out of 10 (Wilcoxon p&lt;0.001); "would leave within 5 minutes" 13% → 60%.</li>
-        <li>Minister of Employment and Labor Award (3rd of 326 teams); first-author oral presentation at ACK 2026.</li>
+        <li>Minister of Employment and Labor Award (joint 3rd of 326 teams); first-author oral presentation at ACK 2026.</li>
         <li><b>Limitation:</b> the generator was an offline stub that copies evidence sentences at measurement time; the numbers must be re-measured with a real model.</li>
       </ul>
       <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a> · <a href="https://youtube.com/shorts/yv6POI7o4R8">Demo video (46 s) ↗</a></p>
@@ -318,7 +318,7 @@
   </article>
   <article class="entry">
     <div class="meta">2026</div>
-    <div class="body"><h3>Minister of Employment and Labor Award (3rd of 326 teams)</h3><p class="role">8th K-Digital Training Hackathon</p></div>
+    <div class="body"><h3>Minister of Employment and Labor Award (joint 3rd of 326 teams)</h3><p class="role">8th K-Digital Training Hackathon</p></div>
   </article>
   <article class="entry">
     <div class="meta">Feb – Aug 2026</div>
