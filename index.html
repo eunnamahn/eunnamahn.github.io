@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>안은남 · AI 엔지니어</title>
-<meta name="description" content="LLM과 RAG의 답이 맞는지 측정하는 평가 코드를 만드는 AI 엔지니어 안은남입니다.">
+<meta name="description" content="수학적 모델링 연구를 바탕으로, LLM과 RAG의 답이 맞는지 측정하고 틀리면 원인을 찾아 고치는 AI 엔지니어 안은남입니다.">
 <link rel="alternate" hreflang="en" href="https://eunnamahn.github.io/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,7 +104,7 @@
     <a href="mailto:baduk89@hanmail.net">이메일</a>
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
-  <p class="about">미국 대학원에서 편미분방정식 해석해, 인공신경망 대리 모델, 시계열 예측 모델을 직접 만들고 검증하며 수학적 모델링 연구를 했습니다. 이후 AI 엔지니어로 전환해, <b>LLM과 RAG가 내놓은 답을 측정하는 평가 코드</b>를 만들어 왔습니다. SAVERS에서는 답변을 걸러내는 검증기를 시험하는 평가셋과 채점 스크립트를, 입찰메이트에서는 95문항 골든셋과 유형별 자동 채점기를 직접 작성했습니다.</p>
+  <p class="about">미국 대학원에서 편미분방정식 해석해, 인공신경망 대리 모델, 시계열 예측 모델을 직접 만들고 검증하며 수학적 모델링 연구를 했습니다. 이후 AI 엔지니어로 전환해, <b>LLM과 RAG가 내놓은 답을 측정하는 평가 코드</b>를 만들어 왔습니다. 고용노동부장관상을 받은 SAVERS에서는 답변을 걸러내는 검증기를 시험하는 평가셋과 채점 스크립트를 직접 작성했고, 챗봇이 거절해야 할 질문에 답해 버리는 결함을 찾아 원인을 검색 단계까지 추적했습니다. 입찰메이트에서는 95문항 골든셋과 유형별 자동 채점기를 만들어, 점수를 떨어뜨리던 골든셋 오류와 근거 잘림을 찾아 고쳤습니다.</p>
   <p class="about">영어로 논문을 쓰고 학부 수업을 가르쳐서 영어 발표, 토론, 문서 작성이 자유롭습니다 (TOEIC 985).</p>
 </header>
 
@@ -127,7 +127,7 @@
         <li>고용노동부장관상(장려상, 326팀 중 3위), ACK 2026 논문 제1저자·구두발표</li>
         <li><b>한계:</b> 35/35와 12/12는 정답·오답 문장을 채점에 직접 넣어 잰 값이고, 거절 프로브 측정 당시 생성기는 근거 문장을 그대로 옮기는 오프라인 스텁이라, 실제 생성 모델을 붙인 뒤 다시 측정해야 함</li>
       </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a> · <a href="https://youtube.com/shorts/yv6POI7o4R8">시연 영상(46초) ↗</a></p>
     </div>
   </article>
 
@@ -146,7 +146,7 @@
         <li>점수가 0.3에서 멈춘 원인이 모델이 아니라 골든셋 오류였음을 찾아 수정했고, 입력 길이 제한(4,096토큰) 때문에 근거가 잘리던 문제를 8,192토큰으로 늘려 해결, 효과 없이 응답만 21초 늦추던 리랭커는 제거</li>
         <li><b>한계:</b> 조합 선택과 평가에 같은 골든셋을 써서, 처음 보는 질문에서는 점수가 더 낮을 수 있음</li>
       </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/bidmate-rfp-rag">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/bidmate-rfp-rag">GitHub ↗</a> · <a href="https://youtu.be/vdpqzdG4k2I">시연 영상(2분) ↗</a></p>
     </div>
   </article>
 
@@ -163,7 +163,7 @@
         <li>팀 성과: LCM-LoRA로 배경 생성 17.47초 → 1.72초(약 10배), 이미지 한 장 전체 처리 5.97초, 자동화 테스트 486건 통과, 사람이 승인한 이미지만 13초 쇼츠로 만들어 YouTube 예약 게시</li>
         <li><b>한계:</b> 정밀 이미지 비교(SSIM)와 블라인드 사람 평가는 하지 못해, 다음 단계 과제로 보고서에 명시</li>
       </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/ad-creative-studio">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/ad-creative-studio">GitHub ↗</a> · <a href="https://youtu.be/dgjC8w8YQi8">시연 영상(3분 38초) ↗</a> · <a href="https://youtu.be/k3lqPzKlClQ">생성 쇼츠 예시(13초) ↗</a></p>
     </div>
   </article>
 

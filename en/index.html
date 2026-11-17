@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eunnam Ahn · AI Engineer</title>
-<meta name="description" content="Eunnam Ahn, AI engineer trained in mathematical modeling, measuring whether LLM and RAG answers can be trusted.">
+<meta name="description" content="Eunnam Ahn, AI engineer trained in mathematical modeling, measuring whether LLM and RAG answers are right and fixing what goes wrong.">
 <link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,7 +105,7 @@
     <a href="mailto:baduk89@hanmail.net">Email</a>
     <a href="https://github.com/eunnamahn">GitHub</a>
   </div>
-  <p class="about">I design and build evaluations that show whether an AI system’s output can be trusted: test suites for an LLM answer verifier, a golden set and type-specific scorers for RAG, a CLIP-based product-preservation criterion for generated images, and leakage-safe splits for detection.</p>
+  <p class="about">I write evaluation code that measures whether LLM and RAG answers are right, then trace failures to their cause and fix them. On SAVERS, which won a national award (3rd of 326 teams), I built the test sets and scorer for an LLM answer verifier and traced a refusal failure to retrieval. On BidMate, I built a 95-question golden set with type-specific scorers and fixed the golden-set errors and context truncation that were holding scores down.</p>
   <p class="about">Before AI, I built and validated mathematical and statistical models in graduate research at Penn State, while teaching undergraduates in English.</p>
 </header>
 
@@ -128,7 +128,7 @@
         <li>Minister of Employment and Labor Award (3rd of 326 teams); first-author oral presentation at ACK 2026.</li>
         <li><b>Limitation:</b> the generator was an offline stub that copies evidence sentences at measurement time; the numbers must be re-measured with a real model.</li>
       </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a> · <a href="https://youtube.com/shorts/yv6POI7o4R8">Demo video (46 s) ↗</a></p>
     </div>
   </article>
 
@@ -147,7 +147,7 @@
         <li>Found that a score stuck at 0.3 came from errors in the golden set, not the model; raised Ollama's 4,096-token context to 8,192 after finding it cut off evidence; removed a reranker that added 21 s of latency for no gain.</li>
         <li><b>Limitation:</b> the same golden set was used to choose and to evaluate the configuration, so scores on unseen questions may be lower.</li>
       </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/bidmate-rfp-rag">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/bidmate-rfp-rag">GitHub ↗</a> · <a href="https://youtu.be/vdpqzdG4k2I">Demo video (2 min) ↗</a></p>
     </div>
   </article>
 
@@ -164,7 +164,7 @@
         <li>Team results: LCM-LoRA cut background generation from 17.47 s to 1.72 s (~10×), 5.97 s per image end to end on an L4; 486 automated tests passed; human-approved images become 13-s Shorts scheduled to YouTube.</li>
         <li><b>Limitation:</b> no pixel-level comparison (SSIM) or blind human evaluation yet; listed as next steps in the report.</li>
       </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/ad-creative-studio">GitHub ↗</a></p>
+      <p class="links"><a href="https://github.com/eunnamahn/ad-creative-studio">GitHub ↗</a> · <a href="https://youtu.be/dgjC8w8YQi8">Demo video (3:38) ↗</a> · <a href="https://youtu.be/k3lqPzKlClQ">Generated Short (13 s) ↗</a></p>
     </div>
   </article>
 
