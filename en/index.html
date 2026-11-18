@@ -116,11 +116,11 @@
     <div class="meta">Jul – Sep 2026</div>
     <div class="body">
       <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
-      <p class="role">Team Lead · PM · Evaluation &amp; Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, ChromaDB, OSMnx, NetworkX, AWS EC2, FCM</p>
+      <p class="role">Team Lead · PM · Evaluation &amp; Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, ChromaDB, OSMnx, NetworkX, AWS EC2, Vercel, FCM</p>
       <figure class="fig"><a href="../assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="../assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="Three SAVERS screens: entering from the emergency alert link, evacuation stage and recommended shelter, route map with arrival check"></a><figcaption>Service screens: alert link → shelter guidance → route and arrival check. Shelters and routes come from rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. (UI in Korean.)</figcaption></figure>
       <ul>
         <li><b>Problem:</b> official flood alerts send the same text to everyone, but residents who cannot judge or evacuate alone need personal guidance, with no app install and no constant location tracking.</li>
-        <li><b>Contributions:</b> owned the evaluation code (a 40-case golden set of 35 answer and 5 refusal cases, 12 adversarial regressions, a 34-case refusal probe, the scoring scripts) and the infrastructure code (real FCM sending, AWS deployment, CI); kept the decision records (ADRs); first-authored the paper.</li>
+        <li><b>Contributions:</b> owned the evaluation code (a 40-case golden set of 35 answer and 5 refusal cases, 12 adversarial regressions, a 34-case refusal probe, the scoring scripts) and the infrastructure code (real FCM sending, AWS and Vercel deployment, CI); kept the decision records (ADRs); first-authored the paper.</li>
         <li>Shelter choice and walking routes are computed by rule-based code (OSMnx / NetworkX), not the LLM; the LLM only explains results that are already fixed.</li>
         <li>The verifier splits each answer into claims and checks them against the event log, with a pass bar of zero unsupported claims. Feeding pre-written answers straight into scoring, it wrongly blocked 0 of <b>35</b> correct answers; only 8 of 12 adversarial answers were caught at first, and after I analyzed the 4 misses and closed the gap, <b>12/12</b>. Of the 40 golden cases, 30 were finalized by adopting the system’s output and then checking it against the contract documents.</li>
         <li>Tested refusal in both directions on the chatbot path (offline stub generator at the time): wrongly refused only 1 of 28 valid questions <b>(3.6%)</b>, but answered all 6 out-of-scope questions from unrelated evidence (6/6 under-refusal), a failure grounding scores miss; traced it to retrieval, not the verifier.</li>
@@ -355,7 +355,7 @@
   <dl>
     <div><dt>AI · LLM</dt><dd>LangChain, RAG (FAISS, BM25, reranker), KURE-v1, EXAONE 3.5, OpenAI API, YOLO, RT-DETR, RF-DETR</dd></div>
     <div><dt>Evaluation</dt><dd>Golden-set design, claim-level verification, Hit@k · MRR · refusal accuracy, RAGAS, CLIP similarity, mAP, pytest, GitHub Actions CI</dd></div>
-    <div><dt>Backend · Infra</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, GCP (L4 GPU), FCM web push</dd></div>
+    <div><dt>Backend · Infra</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, Vercel, GCP (L4 GPU), FCM web push</dd></div>
     <div><dt>ML · Data</dt><dd>PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, OpenCV, OSMnx, NetworkX, MATLAB</dd></div>
     <div><dt>Collaboration</dt><dd>GitHub PRs and code review, ADR-based decision records</dd></div>
   </dl>

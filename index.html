@@ -115,11 +115,11 @@
     <div class="meta">2026.07 – 2026.09</div>
     <div class="body">
       <h3>SAVERS · 재난 취약계층 맞춤 대피 안내 서비스</h3>
-      <p class="role">팀장 · PM · 평가와 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, ChromaDB, OSMnx, NetworkX, AWS EC2, FCM</p>
+      <p class="role">팀장 · PM · 평가와 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, ChromaDB, OSMnx, NetworkX, AWS EC2, Vercel, FCM</p>
       <figure class="fig"><a href="assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers_screens.jpg" width="1560" height="1057" loading="lazy" alt="SAVERS 서비스 화면 3개: 긴급 재난 정보 링크 진입, 대피 단계와 추천 대피소 안내, 대피 경로 지도와 도착 확인"></a><figcaption>서비스 화면: 알림 링크 진입 → 대피소 안내 → 경로 확인·도착 확인. 대피소와 경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다.</figcaption></figure>
       <ul>
         <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
-        <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건(답변 35·거절 5), 적대 회귀 12건, 거절 프로브 34건, 채점 스크립트)와 인프라 코드(FCM 실발송 연결, AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
+        <li><b>담당 업무:</b> 평가 코드(보호자 응답 골든셋 40건(답변 35·거절 5), 적대 회귀 12건, 거절 프로브 34건, 채점 스크립트)와 인프라 코드(FCM 실발송 연결, Vercel과 AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
         <li>대피소 선택과 도보 경로는 LLM에 맡기지 않고 규칙 기반 코드(OSMnx/NetworkX)로 계산해, LLM은 이미 정해진 결과를 설명만 하도록 설계</li>
         <li>검증기는 답변을 주장 단위로 쪼개 이벤트 기록과 대조하고, 통과 기준은 "기록에 없는 내용 0건". 이 검증기를 검증할 평가셋을 작성해, 미리 쓴 정답 문장 <b>35/35</b>가 잘못 막히지 않았고 오답 유도 문장은 처음 8/12만 걸러져 놓친 4건을 분석하고 보강해 <b>12/12</b>. 골든셋 40건 중 30건은 시스템 출력을 먼저 채택한 뒤 계약 문서와 대조해 확정</li>
         <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 거절 프로브(답해야 할 질문 28건, 거절 대조군 6건)에서 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 대조군 6건에는 모두 엉뚱한 근거로 답하는 <b>과소거절 6/6(100%)</b>을 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 앞단 검색에 있음을 확인</li>
@@ -365,7 +365,7 @@
     <div><dt>비전</dt><dd>YOLO(Ultralytics), RT-DETR, RF-DETR, COCO 데이터 파이프라인, WBF 앙상블</dd></div>
     <div><dt>평가 · 품질</dt><dd>골든셋 설계, 주장 단위 검증, Hit@k·MRR·거절 정확도, RAGAS, CLIP 유사도, mAP, pytest, GitHub Actions CI</dd></div>
     <div><dt>수리 · 통계</dt><dd>해석해 유도(라플라스 방정식·중첩 원리), 실험계획법(DOE), 인공신경망 대리 모델, 유전 알고리즘, Seq2Seq-LSTM 시계열 예측, 수치 적분, 편미분방정식(PDE) 수치해석·시뮬레이션(MATLAB)</dd></div>
-    <div><dt>백엔드 · 인프라</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, GCP(L4 GPU), FCM 웹푸시</dd></div>
+    <div><dt>백엔드 · 인프라</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, Vercel, GCP(L4 GPU), FCM 웹푸시</dd></div>
     <div><dt>ML · 데이터</dt><dd>PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, OSMnx, NetworkX</dd></div>
   </dl>
 </section>
