@@ -80,6 +80,22 @@
     .entry,dl div{flex-direction:column;gap:4px}
     .meta,dt{flex:none;padding:0}
   }
+
+  /* 이력서 색상 (남색 #1F4E8C · 회청색 #5B6B80) */
+  :root{--accent:#1F4E8C;--slate:#5B6B80;--sub:#667180;--mid:#4B5563;--line:#dfe5ee}
+  a{color:var(--accent);border-bottom-color:rgba(31,78,140,.25)}
+  a:hover{border-bottom-color:var(--accent)}
+  nav a:hover,nav .lang .on{color:var(--accent)}
+  .subtitle{color:var(--accent);font-weight:500}
+  .btns a:hover{color:var(--accent);border-color:var(--accent)}
+  h2{color:var(--accent);padding-bottom:8px;border-bottom:2px solid var(--accent)}
+  h3 .name{color:var(--accent);font-weight:600}
+  .meta,dt{color:var(--ink);font-weight:600}
+  .role{color:var(--slate)}
+  .body b{color:var(--accent)}
+  li::marker{color:var(--accent)}
+  .links a{color:var(--accent)}
+  summary:hover{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -114,7 +130,7 @@
   <article class="entry">
     <div class="meta">Jul – Sep 2026</div>
     <div class="body">
-      <h3>SAVERS · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
+      <h3><span class="name">SAVERS</span> · Evacuation Guidance for Disaster-Vulnerable Residents</h3>
       <p class="role">Team Lead · PM · Evaluation &amp; Infra (team of 4) · K-Digital Training Hackathon 2026 · FastAPI, ChromaDB, OSMnx, NetworkX, AWS EC2, Vercel, FCM</p>
       <figure class="fig"><a href="../assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="../assets/proj_savers_screens.jpg" width="2400" height="1680" loading="lazy" alt="Three SAVERS screens: entering from the emergency alert link, evacuation stage and recommended shelter, route map with arrival check"></a><figcaption>Service screens: alert link → shelter guidance → route and arrival check. Shelters and routes come from rule-based code (OSMnx / NetworkX); the LLM only explains the fixed result. (UI in Korean.)</figcaption></figure>
       <ul>
@@ -134,7 +150,7 @@
   <article class="entry">
     <div class="meta">Jun – Jul 2026</div>
     <div class="body">
-      <h3>BidMate · RAG Q&amp;A and Summarization for Public RFP Documents</h3>
+      <h3><span class="name">BidMate</span> · RAG Q&amp;A and Summarization for Public RFP Documents</h3>
       <p class="role">Evaluation (team of 5) · LangChain, FAISS, KURE-v1, EXAONE 3.5, RAGAS</p>
       <figure class="fig"><a href="../assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="../assets/proj_bidmate_screen.jpg" width="1106" height="777" loading="lazy" alt="BidMate chat screen: asked to summarize an RFP, it lists agency, budget, deadline and key requirements, with a cited source and agent buttons below"></a><figcaption>Service screen: asked to summarize an RFP, BidMate lists the agency, budget and requirements, with the source cited under the answer. (Middle trimmed; UI in Korean.)</figcaption></figure>
       <ul>
@@ -153,7 +169,7 @@
   <article class="entry">
     <div class="meta">Aug 2026</div>
     <div class="body">
-      <h3>AI Ad Studio · Ad Image and Copy Generation for Small Businesses</h3>
+      <h3><span class="name">AI Ad Studio</span> · Ad Image and Copy Generation for Small Businesses</h3>
       <p class="role">Team Lead · PM · Evaluation (team of 5) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
       <figure class="fig"><a href="../assets/proj_ad-studio_screen.jpg" target="_blank" rel="noopener"><img src="../assets/proj_ad-studio_screen.jpg" width="1118" height="756" loading="lazy" alt="AI Ad Studio result screen: two ad images of the same fan in different tones, with headline and sub-copy editing"></a><figcaption>Service screen: tone-specific ad drafts that keep the original product and change only the background, with copy editing. Only human-approved results become Shorts scheduled to YouTube. (UI in Korean.)</figcaption></figure>
       <ul>
@@ -170,7 +186,7 @@
   <article class="entry">
     <div class="meta">Apr – May 2026</div>
     <div class="body">
-      <h3>PillScope · Object Detection for Oral Medication Images</h3>
+      <h3><span class="name">PillScope</span> · Object Detection for Oral Medication Images</h3>
       <p class="role">Team Lead · PM · Model Experiments (team of 5) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
       <figure class="fig"><a href="../assets/proj_pillscope.jpg" target="_blank" rel="noopener"><img src="../assets/proj_pillscope.jpg" width="1600" height="564" loading="lazy" alt="Ground-truth boxes (left) vs. model-predicted boxes (right) on pill images"></a><figcaption>Ground truth (left) vs. model prediction (right); the rare class is detected too.</figcaption></figure>
       <ul>
@@ -187,7 +203,7 @@
   <article class="entry">
     <div class="meta">Fall 2019</div>
     <div class="body">
-      <h3>Biomedical Abstract Sentence Classification · BERT vs. SciBERT Embeddings</h3>
+      <h3><span class="name">Biomedical Abstract Sentence Classification</span> · BERT vs. SciBERT Embeddings</h3>
       <p class="role">Course project, Penn State IST 597 Foundations of Deep Learning · team of 2, equal contribution · advised by Dr. C. Lee Giles · TensorFlow</p>
       <figure class="fig"><a href="../assets/proj_scibert.jpg" target="_blank" rel="noopener"><img src="../assets/proj_scibert.jpg" width="2000" height="729" loading="lazy" alt="Diagram comparing the Word2Vec embedding + HSLN baseline (accuracy 92.35%) with SciBERT embedding + the same HSLN (accuracy 92.43%) on PubMed 20k RCT"></a><figcaption>Same HSLN classifier and data; only the embedding changes from Word2Vec to SciBERT. With 16% token coverage (vs. 68%) and 1/175 of the entries, accuracy held at 92.35% → 92.43%. (Labels in Korean.)</figcaption></figure>
       <ul>

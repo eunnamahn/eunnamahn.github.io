@@ -79,6 +79,22 @@
     .entry,dl div{flex-direction:column;gap:4px}
     .meta,dt{flex:none;padding:0}
   }
+
+  /* 이력서 색상 (남색 #1F4E8C · 회청색 #5B6B80) */
+  :root{--accent:#1F4E8C;--slate:#5B6B80;--sub:#667180;--mid:#4B5563;--line:#dfe5ee}
+  a{color:var(--accent);border-bottom-color:rgba(31,78,140,.25)}
+  a:hover{border-bottom-color:var(--accent)}
+  nav a:hover,nav .lang .on{color:var(--accent)}
+  .subtitle{color:var(--accent);font-weight:500}
+  .btns a:hover{color:var(--accent);border-color:var(--accent)}
+  h2{color:var(--accent);padding-bottom:8px;border-bottom:2px solid var(--accent)}
+  h3 .name{color:var(--accent);font-weight:600}
+  .meta,dt{color:var(--ink);font-weight:600}
+  .role{color:var(--slate)}
+  .body b{color:var(--accent)}
+  li::marker{color:var(--accent)}
+  .links a{color:var(--accent)}
+  summary:hover{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -113,7 +129,7 @@
   <article class="entry">
     <div class="meta">2026.07 – 2026.09</div>
     <div class="body">
-      <h3>SAVERS · 재난 취약계층 맞춤 대피 안내 서비스</h3>
+      <h3><span class="name">SAVERS</span> · 재난 취약계층 맞춤 대피 안내 서비스</h3>
       <p class="role">팀장 · PM · 평가와 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, ChromaDB, OSMnx, NetworkX, AWS EC2, Vercel, FCM</p>
       <figure class="fig"><a href="assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers_screens.jpg" width="2400" height="1680" loading="lazy" alt="SAVERS 서비스 화면 3개: 긴급 재난 정보 링크 진입, 대피 단계와 추천 대피소 안내, 대피 경로 지도와 도착 확인"></a><figcaption>서비스 화면: 알림 링크 진입 → 대피소 안내 → 경로 확인·도착 확인. 대피소와 경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다.</figcaption></figure>
       <ul>
@@ -133,7 +149,7 @@
   <article class="entry">
     <div class="meta">2026.06 – 2026.07</div>
     <div class="body">
-      <h3>입찰메이트 · 공공 RFP 문서 RAG 질의응답·요약</h3>
+      <h3><span class="name">입찰메이트</span> · 공공 RFP 문서 RAG 질의응답·요약</h3>
       <p class="role">평가 담당 (5인 팀) · LangChain, FAISS, KURE-v1, EXAONE 3.5, RAGAS</p>
       <figure class="fig"><a href="assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate_screen.jpg" width="1106" height="777" loading="lazy" alt="입찰메이트 채팅 화면: "RFP 핵심 요약해줘" 질문에 대상 기관·예산·마감일·핵심 요구조건을 정리하고, 아래에 근거 출처와 요약·적격성 판정·리스크 탐지 등 기능 버튼"></a><figcaption>서비스 화면: RFP 핵심 요약 질문에 대상 기관 · 예산 · 요구조건을 정리하고, 답변 아래에 근거 출처를 답니다. (가운데 일부 생략)</figcaption></figure>
       <ul>
@@ -152,7 +168,7 @@
   <article class="entry">
     <div class="meta">2026.08</div>
     <div class="body">
-      <h3>AI 광고 스튜디오 · 소상공인용 광고 이미지·문구 생성</h3>
+      <h3><span class="name">AI 광고 스튜디오</span> · 소상공인용 광고 이미지·문구 생성</h3>
       <p class="role">팀장 · PM · 평가 기준 설계 (5인 팀) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
       <figure class="fig"><a href="assets/proj_ad-studio_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_ad-studio_screen.jpg" width="1118" height="756" loading="lazy" alt="AI 광고 스튜디오 생성 결과 화면: 같은 선풍기 제품으로 감성·모던 톤 광고 이미지 2장과 헤드라인·서브카피 편집칸"></a><figcaption>서비스 화면: 원본 제품은 그대로 두고 배경만 바꾼 톤별 광고 시안과 문구 편집. 사람이 승인한 결과만 쇼츠로 만들어 YouTube에 예약 게시합니다.</figcaption></figure>
       <ul>
@@ -169,7 +185,7 @@
   <article class="entry">
     <div class="meta">2026.04 – 2026.05</div>
     <div class="body">
-      <h3>PillScope · 경구약제 이미지 객체 탐지</h3>
+      <h3><span class="name">PillScope</span> · 경구약제 이미지 객체 탐지</h3>
       <p class="role">팀장 · PM · 모델 실험 (5인 팀) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
       <figure class="fig"><a href="assets/proj_pillscope.jpg" target="_blank" rel="noopener"><img src="assets/proj_pillscope.jpg" width="1600" height="564" loading="lazy" alt="알약 이미지의 정답 박스(왼쪽)와 모델 예측 박스(오른쪽) 비교"></a><figcaption>왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지</figcaption></figure>
       <ul>
@@ -186,7 +202,7 @@
   <article class="entry">
     <div class="meta">2019.09 – 2019.12</div>
     <div class="body">
-      <h3>생의학 초록 문장 분류 · BERT·SciBERT 임베딩 비교</h3>
+      <h3><span class="name">생의학 초록 문장 분류</span> · BERT·SciBERT 임베딩 비교</h3>
       <p class="role">Penn State IST 597 딥러닝 수업 프로젝트 · 2인 팀(동일 기여) · 지도: C. Lee Giles 교수 · TensorFlow</p>
       <figure class="fig"><a href="assets/proj_scibert.jpg" target="_blank" rel="noopener"><img src="assets/proj_scibert.jpg" width="2000" height="729" loading="lazy" alt="PubMed 20k RCT 데이터로 기존 Word2Vec 임베딩 + HSLN(정확도 92.35%)과 SciBERT 임베딩 + 같은 HSLN(정확도 92.43%)을 비교한 구조도"></a><figcaption>HSLN 분류기와 데이터는 그대로 두고 임베딩만 Word2Vec에서 SciBERT로 교체: 데이터 토큰 일치율 16%(Word2Vec 68%), 항목 수 1/175로도 정확도 92.35% → 92.43%.</figcaption></figure>
       <ul>
