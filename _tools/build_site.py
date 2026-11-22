@@ -10,6 +10,7 @@ from html import escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMAIL = "baduk89@hanmail.net"
 GITHUB = "https://github.com/eunnamahn"
+LINKEDIN = "https://www.linkedin.com/in/eunnamahn/"
 SITE = "https://eunnamahn.github.io"
 
 ICON = {
@@ -33,7 +34,7 @@ ICON = {
 LINKS = {
     "savers": [("gh", "https://github.com/eunnamahn/savers-project"), ("play", "https://youtube.com/shorts/yv6POI7o4R8")],
     "bidmate": [("gh", "https://github.com/eunnamahn/bidmate-rfp-rag"), ("play", "https://youtu.be/vdpqzdG4k2I")],
-    "adstudio": [("gh", "https://github.com/eunnamahn/ad-creative-studio"), ("play", "https://youtu.be/dgjC8w8YQi8")],
+    "adstudio": [("gh", "https://github.com/eunnamahn/ad-creative-studio"), ("play", "https://youtu.be/dgjC8w8YQi8"), ("play", "https://youtu.be/k3lqPzKlClQ", "video2")],
     "pillscope": [("gh", "https://github.com/eunnamahn/OralMedicineImageDetection")],
     "scibert": [],
 }
@@ -54,6 +55,15 @@ THUMB = {
 SHOT = {"savers": "proj_savers_screens.jpg", "bidmate": "proj_bidmate_screen.jpg", "adstudio": "proj_ad-studio_screen.jpg",
         "pillscope": "proj_pillscope.jpg", "scibert": "proj_scibert.jpg"}
 ARCH = {"savers": "arch_savers.jpg", "bidmate": "arch_bidmate.jpg", "adstudio": "arch_adstudio.jpg", "pillscope": "arch_pillscope.jpg"}
+CODE = {  # (KO label, EN label, url) — same links as the GitHub profile README
+    "savers": [("평가 코드 (apps/ai-engine/eval)", "Evaluation code (apps/ai-engine/eval)", "https://github.com/eunnamahn/savers-project/tree/main/apps/ai-engine/eval"),
+               ("FCM 실발송 PR #214", "Real FCM sending PR #214", "https://github.com/team-savers/savers-project/pull/214"),
+               ("#215", "#215", "https://github.com/team-savers/savers-project/pull/215")],
+    "bidmate": [("골든셋·전처리 실험 (experiments/)", "Golden set and preprocessing experiments (experiments/)", "https://github.com/eunnamahn/bidmate-rfp-rag/tree/main/experiments"),
+                ("공고 추천 API (src/recommender.py)", "Recommendation API (src/recommender.py)", "https://github.com/eunnamahn/bidmate-rfp-rag/blob/main/src/recommender.py")],
+    "adstudio": [("평가 기준 문서 (eval/eval_criteria.md)", "Evaluation criteria (eval/eval_criteria.md)", "https://github.com/eunnamahn/ad-creative-studio/blob/main/eval/eval_criteria.md")],
+    "pillscope": [("COCO → YOLO 파이프라인, EDA·전처리·증강 노트북 (members/eunnam)", "COCO → YOLO pipeline, EDA, preprocessing and augmentation notebooks (members/eunnam)", "https://github.com/eunnamahn/OralMedicineImageDetection/tree/main/members/eunnam")],
+}
 ORDER = ["savers", "bidmate", "adstudio", "pillscope", "scibert"]
 
 # ---------------------------------------------------------------- Korean
@@ -62,7 +72,7 @@ KO = {
     "desc": "수학적 모델링 연구를 바탕으로, LLM과 RAG의 답이 맞는지 측정하고 틀리면 원인을 찾아 고치는 AI 엔지니어 안은남입니다.",
     "skip": "본문으로 건너뛰기",
     "hello": "안녕하세요, 안은남입니다",
-    "tagline": "LLM과 RAG의 답이 맞는지 측정하고, 틀리면 원인을 찾아 고치는 AI 엔지니어",
+    "tagline": "수학적 모델링 연구를 바탕으로, LLM과 RAG의 답이 맞는지 측정하고 틀리면 원인을 찾아 고치는 AI 엔지니어",
     "resume": ("이력서", "resume.pdf"), "other_lang": ("English", "en/"), "other_code": "EN",
     "photo_alt": "안은남 프로필 사진",
     "about_h": "소개",
@@ -102,15 +112,21 @@ KO = {
         ("데이터분석 준전문가(ADsP)", "2026.06", "한국데이터산업진흥원(제49회)"),
         ("TOEIC 985 / 990", "2026.03", "Listening 490, Reading 495"),
         ("Engineer in Training (EIT)", "2017.03", "미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429"),
+        ("대학생 논문 공모전 3회 입상", "2013 – 2014", "GS에너지 3위, 한국광해관리공단·한국환경산업기술원 2위"),
+        ("국가 이공계 장학금", "2013 – 2014", "4학기 전액"),
+        ("육군 병장", "2010.01 – 2011.11", "만기제대"),
     ],
     "skills_h": "기술",
-    "skills": ["Python", "LangChain", "RAG (FAISS, BM25)", "KURE-v1", "EXAONE 3.5 (Ollama)", "OpenAI API", "Claude Code", "골든셋 설계", "Hit@k · MRR", "거절 정확도", "RAGAS", "pytest", "GitHub Actions CI", "PyTorch", "TensorFlow", "YOLO", "RT-DETR", "실험계획법(DOE)", "FastAPI", "Docker Compose", "AWS EC2", "Vercel", "GCP", "FCM"],
+    "skills": [("AI · LLM", ["LangChain", "RAG (FAISS, BM25)", "KURE-v1", "EXAONE 3.5 (Ollama)", "OpenAI API", "Claude Code"]),
+               ("평가", ["골든셋 설계", "Hit@k", "MRR", "거절 정확도", "RAGAS", "mAP", "pytest", "GitHub Actions CI"]),
+               ("ML · 비전", ["PyTorch", "TensorFlow", "Scikit-learn", "YOLO", "RT-DETR", "실험계획법(DOE)", "MATLAB"]),
+               ("백엔드 · 인프라", ["Python", "FastAPI", "Docker Compose", "AWS EC2", "Vercel", "GCP", "FCM", "Git"])],
     "contact_tag": "연락", "contact_h": "연락하기",
-    "contact": f'채용이나 협업 제안은 <a href="mailto:{EMAIL}">{EMAIL}</a>으로 편하게 메일 주세요. 코드는 <a href="{GITHUB}">GitHub</a>에서 볼 수 있습니다.',
+    "contact": f'채용이나 협업 제안은 <a href="mailto:{EMAIL}">{EMAIL}</a>으로 편하게 메일 주세요. 코드는 <a href="{GITHUB}">GitHub</a>, 경력은 <a href="{LINKEDIN}">LinkedIn</a>에서 볼 수 있습니다.',
     "footer": "© 2026 안은남 · 최종 업데이트 2026년 11월",
     "dock": {"home": "홈", "projects": "프로젝트", "papers": "논문", "email": "이메일", "theme": "밝기 전환", "lang": "English"},
     "link_label": {"gh": "GitHub", "play": "시연 영상"},
-    "back": "프로젝트 목록", "prev": "이전", "next": "다음",
+    "back": "프로젝트 목록", "code_h": "직접 작성한 코드", "prev": "이전", "next": "다음",
     "h_work": "내가 맡은 일", "h_mets": "성과", "h_shot": "화면", "h_arch": "시스템 구조", "h_decs": "구조 결정", "h_limit": "한계",
     "kv": ("역할", "기간", "팀"), "dec_k": ("왜:", "바꾼 구조:", "결과:"),
     "arch_note": "보라색 배지가 제가 맡은 부분입니다. 이미지를 누르면 크게 볼 수 있습니다.",
@@ -132,7 +148,7 @@ KO = {
                   dict(v="12/12", l="막아 낸 오답 유도 문장", s="처음 8/12만 걸러져 놓친 4건을 분석하고 보강. 정답 문장 35/35는 잘못 막지 않음")],
             decs=[("판단은 규칙 코드, LLM은 설명만", "LLM이 대피소나 경로를 만들면 환각이 곧 안전 사고가 됩니다.", "위험 판정은 기상청과 홍수통제소의 공식 판정을 그대로 쓰고, 대피소와 침수 회피 경로는 OSMnx·NetworkX 규칙 코드가 정합니다. LLM은 정해진 결과를 설명만 하고, 보호자 응답은 이벤트 기록만 근거로 씁니다.", "팀원이 만든 검증기는 답변을 주장 단위로 쪼개 기록과 대조합니다. 저는 이 검증기를 검증하는 평가셋을 만들었고, 통과 기준은 기록에 없는 내용 0건입니다."),
                   ("답할 때와 거절할 때를 모두 잰다", "근거 일치 지표만 보면 엉뚱한 근거로 답하는 실패가 드러나지 않습니다.", "답해야 할 질문 28건과 거절해야 할 대조군 6건으로 거절 프로브를 만들어 양쪽을 따로 쟀습니다.", "불필요한 거절은 1/28로 낮았지만 대조군 6건에는 모두 답했습니다. 원인이 검증기가 아니라 앞단 검색에 있음을 추적하고 재현 방법과 함께 문서로 남겼습니다."),
-                  ("팀원이 빠진 뒤 최소 기능부터", "6명으로 시작한 팀에서 개발 도중 2명이 이탈했습니다.", "웹푸시 실발송, 침수 회피 경로, 보호자 확인을 먼저 만들고 공공 API 실시간 수집은 대회 이후 과제로 미뤘습니다.", "리뷰를 거친 코드 변경 240여 건을 합쳐 기간 안에 완성했고, 326팀 중 공동 3위로 고용노동부장관상을 받았습니다.")],
+                  ("팀원이 빠진 뒤 최소 기능부터", "개발 도중 팀원이 중도 하차해, 남은 4명이 맡은 일을 다시 나눠야 했습니다.", "웹푸시 실발송, 침수 회피 경로, 보호자 확인을 먼저 만들고 공공 API 실시간 수집은 대회 이후 과제로 미뤘습니다.", "리뷰를 거친 코드 변경 240여 건을 합쳐 기간 안에 완성했고, 326팀 중 공동 3위로 고용노동부장관상을 받았습니다.")],
             limit="35/35와 12/12는 미리 쓴 정답·오답 문장을 채점에 직접 넣어 잰 값입니다. 거절 프로브를 잴 때 생성기는 근거 문장을 그대로 옮기는 오프라인 스텁이었으므로, 실제 생성 모델을 붙인 뒤 다시 재야 합니다."),
         "bidmate": dict(title="입찰메이트", sub="공공 RFP 문서 RAG 질의응답", when="2026.06 – 2026.07", org="코드잇 스프린트 팀 프로젝트", team="5인 팀", role="평가 담당",
             desc="공공기관 제안요청서 100건에서 근거를 달아 답하고 문서에 없는 질문은 거절하는 RAG 챗봇입니다. 95문항 골든셋과 채점기를 만들고, 점수를 막던 골든셋 오류와 근거 잘림을 찾아 고쳤습니다.",
@@ -154,7 +170,7 @@ KO = {
         "adstudio": dict(title="AI 광고 스튜디오", sub="소상공인용 광고 이미지·문구 생성", when="2026.08", org="코드잇 스프린트 팀 프로젝트", team="5인 팀", role="팀장 · PM · 평가 기준 설계",
             desc="제품 사진 한 장으로 배경과 문구를 생성해 광고 이미지와 쇼츠를 만드는 서비스입니다. 사진 속 제품이 바뀌지 않았는지를 1순위 지표로 정하고 판정 기준을 설계했습니다.",
             lead="시간대와 채널마다 광고 이미지를 새로 만들기 어려운 소상공인을 위해, 제품 사진 한 장으로 배경과 문구를 만들고 사람이 승인한 결과만 쇼츠로 만들어 예약 게시하는 서비스입니다.",
-            video="시연 영상 3분 38초",
+            video="시연 영상 3분 38초", video2="생성 쇼츠 예시 13초",
             shot="서비스 화면: 원본 제품은 그대로 두고 배경만 바꾼 톤별 광고 시안과 문구 편집", arch_title="생성 파이프라인과 제품 보존 검사 구조",
             work=[("팀 운영", "팀장이자 PM으로 4주 스프린트 운영, 최종 보고서 총괄"), ("평가 기준", "제품 보존율을 1순위 지표로 정의하고 판정 기준(eval_criteria) 설계")],
             mets=[dict(v="4/4", l="제품 보존 판정 통과", s="제품 영역 CLIP 유사도 0.85 이상 + 사람 확인 · 대표 조합 4건 (대규모 평가는 미실시)"),
@@ -191,7 +207,7 @@ EN = {
     "desc": "AI engineer trained in mathematical modeling, measuring whether LLM and RAG answers are right and fixing them when they are not.",
     "skip": "Skip to content",
     "hello": "Hi, I'm Eunnam Ahn",
-    "tagline": "AI engineer who measures whether LLM and RAG answers are right, and traces and fixes them when they are not",
+    "tagline": "AI engineer trained in mathematical modeling, measuring whether LLM and RAG answers are right and fixing them when they are not",
     "resume": ("Curriculum Vitae", "../resume_en.pdf"), "other_lang": ("한국어", "../"), "other_code": "KO",
     "photo_alt": "Photo of Eunnam Ahn",
     "about_h": "About",
@@ -231,15 +247,21 @@ EN = {
         ("Advanced Data Analytics Semi-Professional (ADsP)", "Jun 2026", "Korea Data Agency (49th exam)"),
         ("TOEIC 985 / 990", "Mar 2026", "Listening 490, Reading 495"),
         ("Engineer in Training (EIT)", "Mar 2017", "NCEES FE exam, Pennsylvania · ET 023429"),
+        ("Student paper competitions, 3 awards", "2013 – 2014", "GS Energy 3rd; Mine Reclamation Corporation and Korea Environmental Industry &amp; Technology Institute 2nd"),
+        ("National Science &amp; Engineering Scholarship", "2013 – 2014", "Full tuition, 4 semesters"),
+        ("Sergeant, Republic of Korea Army", "Jan 2010 – Nov 2011", "Honorable discharge"),
     ],
     "skills_h": "Skills",
-    "skills": ["Python", "LangChain", "RAG (FAISS, BM25)", "KURE-v1", "EXAONE 3.5 (Ollama)", "OpenAI API", "Claude Code", "Golden-set design", "Hit@k · MRR", "Refusal accuracy", "RAGAS", "pytest", "GitHub Actions CI", "PyTorch", "TensorFlow", "YOLO", "RT-DETR", "Design of experiments", "FastAPI", "Docker Compose", "AWS EC2", "Vercel", "GCP", "FCM"],
+    "skills": [("AI · LLM", ["LangChain", "RAG (FAISS, BM25)", "KURE-v1", "EXAONE 3.5 (Ollama)", "OpenAI API", "Claude Code"]),
+               ("Evaluation", ["Golden-set design", "Hit@k", "MRR", "Refusal accuracy", "RAGAS", "mAP", "pytest", "GitHub Actions CI"]),
+               ("ML · Vision", ["PyTorch", "TensorFlow", "Scikit-learn", "YOLO", "RT-DETR", "Design of experiments", "MATLAB"]),
+               ("Backend · Infra", ["Python", "FastAPI", "Docker Compose", "AWS EC2", "Vercel", "GCP", "FCM", "Git"])],
     "contact_tag": "Contact", "contact_h": "Get in touch",
-    "contact": f'For roles or collaboration, email me at <a href="mailto:{EMAIL}">{EMAIL}</a>. My code is on <a href="{GITHUB}">GitHub</a>.',
+    "contact": f'For roles or collaboration, email me at <a href="mailto:{EMAIL}">{EMAIL}</a>. My code is on <a href="{GITHUB}">GitHub</a> and my profile is on <a href="{LINKEDIN}">LinkedIn</a>.',
     "footer": "© 2026 Eunnam Ahn · Last updated November 2026",
     "dock": {"home": "Home", "projects": "Projects", "papers": "Publications", "email": "Email", "theme": "Toggle theme", "lang": "한국어"},
     "link_label": {"gh": "GitHub", "play": "Demo video"},
-    "back": "All projects", "prev": "Previous", "next": "Next",
+    "back": "All projects", "code_h": "Code I wrote", "prev": "Previous", "next": "Next",
     "h_work": "What I did", "h_mets": "Results", "h_shot": "Screens", "h_arch": "System architecture", "h_decs": "Key decisions", "h_limit": "Limitations",
     "kv": ("Role", "Period", "Team"), "dec_k": ("Why:", "What changed:", "Result:"),
     "arch_note": "Purple badges mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)",
@@ -261,7 +283,7 @@ EN = {
                   dict(v="12/12", l="Adversarial answers blocked", s="Only 8/12 were caught at first; I analyzed the 4 misses and closed the gap. 0 of 35 correct answers wrongly blocked")],
             decs=[("Rule-based code decides, the LLM only explains", "If an LLM produced shelters or routes, a hallucination would become a safety incident.", "Risk levels come straight from the official KMA and flood-control alerts; shelters and flood-avoiding routes come from OSMnx / NetworkX rule-based code. The LLM only explains fixed results, and guardian replies use the event log as their only evidence.", "A teammate's verifier splits each answer into claims and checks them against the log. I built the evaluation set that tests the verifier, with a pass bar of zero unsupported claims."),
                   ("Measure both answering and refusing", "Grounding scores alone miss answers built on unrelated evidence.", "A refusal probe with 28 questions that should be answered and 6 controls that should be refused measured both directions separately.", "Wrong refusals were low at 1/28, but all 6 controls were answered. I traced the cause to retrieval rather than the verifier and documented it with steps to reproduce."),
-                  ("After losing two teammates, ship the minimum first", "The team started with six people and lost two during development.", "Real web-push sending, flood-avoiding routes and guardian check-in came first; real-time public-API ingestion was moved to after the competition.", "We merged about 240 reviewed code changes, finished on time and won the Minister of Employment and Labor Award, joint 3rd of 326 teams.")],
+                  ("After teammates left, ship the minimum first", "Teammates left mid-development, and the remaining four had to split the work again.", "Real web-push sending, flood-avoiding routes and guardian check-in came first; real-time public-API ingestion was moved to after the competition.", "We merged about 240 reviewed code changes, finished on time and won the Minister of Employment and Labor Award, joint 3rd of 326 teams.")],
             limit="35/35 and 12/12 come from feeding pre-written correct and adversarial answers straight into scoring. During the refusal probe the generator was an offline stub that copies evidence sentences, so the numbers must be re-measured with a real model."),
         "bidmate": dict(title="BidMate", sub="RAG Q&amp;A for public RFP documents", when="Jun – Jul 2026", org="Codeit Sprint team project", team="Team of 5", role="Evaluation",
             desc="A RAG chatbot that answers questions about 100 public RFPs with cited evidence and refuses what the documents cannot answer. I built the 95-question golden set and scorers, and found and fixed the golden-set errors and evidence truncation holding scores down.",
@@ -283,7 +305,7 @@ EN = {
         "adstudio": dict(title="AI Ad Studio", sub="Ad images and copy for small businesses", when="Aug 2026", org="Codeit Sprint team project", team="Team of 5", role="Team lead · PM · Evaluation criteria",
             desc="A service that turns one product photo into ad images and Shorts with generated backgrounds and copy. I made product preservation the top metric and designed the pass criteria.",
             lead="Small businesses cannot remake ad images for every time slot and channel. AI Ad Studio generates backgrounds and copy from one product photo, and only human-approved results become Shorts scheduled to YouTube.",
-            video="Demo video (3:38)",
+            video="Demo video (3:38)", video2="Generated Short (13 s)",
             shot="Service screen: tone-specific drafts that keep the original product and change only the background, with copy editing (UI in Korean)", arch_title="Generation pipeline with a product-preservation check",
             work=[("Team", "Ran a 4-week sprint as team lead and PM; owned the final report"), ("Evaluation criteria", "Defined product preservation as the top metric and designed the pass criteria (eval_criteria)")],
             mets=[dict(v="4/4", l="Passed the preservation check", s="Masked-region CLIP similarity ≥ 0.85 plus human review · 4 representative cases (no large-scale evaluation)"),
@@ -382,9 +404,11 @@ def flow_html(p, tag=True):
     return f'<div class="flow"><div class="st">{nodes}</div>{t}</div>'
 
 
-def link_label(L, pid, kind):
+def link_label(L, pid, link):
     p = L["P"][pid]
-    return p.get("video", L["link_label"]["play"]) if kind == "play" else L["link_label"]["gh"]
+    if len(link) > 2:
+        return p[link[2]]
+    return p.get("video", L["link_label"]["play"]) if link[0] == "play" else L["link_label"]["gh"]
 
 
 def card(L, pid, depth):
@@ -395,7 +419,8 @@ def card(L, pid, depth):
         vis = flow_html(p, tag=False)
     else:
         vis = f'<div class="vis img {style}" style="position:absolute;inset:0;height:auto"><img src="{up}assets/{img}" alt="{p["title"]}" loading="lazy"></div>'
-    minis = "".join(f'<span class="mini">{ICON[k]}{"GitHub" if k=="gh" else ("시연" if L["lang"]=="ko" else "Demo")}</span>' for k, _ in LINKS[pid])
+    kinds = list(dict.fromkeys(l[0] for l in LINKS[pid]))
+    minis = "".join(f'<span class="mini">{ICON[k]}{"GitHub" if k=="gh" else ("시연" if L["lang"]=="ko" else "Demo")}</span>' for k in kinds)
     award = f'<span class="award">{p["award"]}</span>' if p.get("award") else ""
     tags = "".join(f'<span class="chip">{t}</span>' for t in TAGS[pid])
     return f"""<a class="card" href="projects/{pid}.html">
@@ -427,7 +452,7 @@ def home(L, prefix):
     others = oi(1, sp["title"], sp["short"], sp["year"], f"projects/scibert.html")
     papers = "".join(oi(i + 1, *p[:2], p[3], p[2]) for i, p in enumerate(L["papers"]))
     research = "".join(oi(i + 1, *r) for i, r in enumerate(L["research"]))
-    skills = "".join(f'<span class="chip">{s}</span>' for s in L["skills"])
+    skills = "".join(f'<div class="skrow"><b>{g}</b><div class="chips">' + "".join(f'<span class="chip">{s}</span>' for s in items) + "</div></div>" for g, items in L["skills"])
     about = "".join(f"<p>{x}</p>" for x in L["about"])
     rname, rhref = L["resume"]
     # only show the CV button when the PDF exists (resume_en.pdf is not uploaded yet)
@@ -441,6 +466,7 @@ def home(L, prefix):
       <p>{L['tagline']}</p>
       <div class="links">
 {resume_pill}        <a class="pill" href="{GITHUB}">GitHub</a>
+        <a class="pill" href="{LINKEDIN}">LinkedIn</a>
         <a class="pill" href="mailto:{EMAIL}">{EMAIL}</a>
         <a class="pill" href="{lang_href}">{L['other_lang'][0]}</a>
       </div>
@@ -482,7 +508,7 @@ def home(L, prefix):
 <div class="wrap" style="margin-top:70px">
   <section class="blk" id="education"><h2>{L['edu_h']}</h2><div>{rows(L['edu'])}</div></section>
   <section class="blk"><h2>{L['misc_h']}</h2><div>{rows(L['misc'])}</div></section>
-  <section class="blk" id="skills"><h2>{L['skills_h']}</h2><div class="chips">{skills}</div></section>
+  <section class="blk" id="skills"><h2>{L['skills_h']}</h2><div>{skills}</div></section>
 </div>
 
 <section class="sec" id="contact">
@@ -516,7 +542,11 @@ def detail(L, pid):
     i = ORDER.index(pid)
     pv = ORDER[i - 1] if i > 0 else None
     nx = ORDER[i + 1] if i + 1 < len(ORDER) else None
-    links = "".join(f'<a class="pill{" dark" if k=="gh" else ""}" href="{h}">{ICON[k]}{link_label(L, pid, k)}</a>' for k, h in LINKS[pid])
+    links = "".join(f'<a class="pill{" dark" if l[0]=="gh" else ""}" href="{l[1]}">{ICON[l[0]]}{link_label(L, pid, l)}</a>' for l in LINKS[pid])
+    code = ""
+    if pid in CODE:
+        i_lab = 0 if L["lang"] == "ko" else 1
+        code = f'<h3>{L["code_h"]}</h3><p>' + ", ".join(f'<a href="{c[2]}">{c[i_lab]}</a>' for c in CODE[pid]) + "</p>"
     award = f'<span class="award">{p["award"]}</span>' if p.get("award") else ""
     vis = f'<div class="dvis">{flow_html(p)}</div>' if p.get("flow") else ""
     work = "".join(f"<h3>{a}</h3><p>{b}</p>" for a, b in p["work"])
@@ -549,6 +579,7 @@ def detail(L, pid):
  <h2>{L['h_work']}</h2>
  <dl class="kv"><dt>{k1}</dt><dd>{p['role']}</dd><dt>{k2}</dt><dd class="num">{p['when']}</dd><dt>{k3}</dt><dd>{p['team']} · {p['org']}</dd></dl>
  {work}
+ {code}
  <h2>{L['h_mets']}</h2>
  <div class="mets">{mets}</div>
  <h2>{L['h_shot']}</h2>

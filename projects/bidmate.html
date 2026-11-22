@@ -33,6 +33,7 @@
  <h2>내가 맡은 일</h2>
  <dl class="kv"><dt>역할</dt><dd>평가 담당</dd><dt>기간</dt><dd class="num">2026.06 – 2026.07</dd><dt>팀</dt><dd>5인 팀 · 코드잇 스프린트 팀 프로젝트</dd></dl>
  <h3>골든셋</h3><p>K-means로 대표 문서를 골라 50건을 만들고, 5개 유형 95문항(19개 RFP)으로 확장</p><h3>전처리 실험</h3><p>표와 서식이 뒤섞인 HWP·PDF의 파싱과 청킹 48개 조합을 비교하는 실험 코드</p><h3>평가</h3><p>RAGAS 평가 설계, 문항 유형별 자동 채점기, 임베딩 비교와 KURE-v1 전환</p><h3>추천 API</h3><p>회사 프로필에 맞는 공고를 고르는 규칙 기반 추천 API(FastAPI, src/recommender.py)</p>
+ <h3>직접 작성한 코드</h3><p><a href="https://github.com/eunnamahn/bidmate-rfp-rag/tree/main/experiments">골든셋·전처리 실험 (experiments/)</a>, <a href="https://github.com/eunnamahn/bidmate-rfp-rag/blob/main/src/recommender.py">공고 추천 API (src/recommender.py)</a></p>
  <h2>성과</h2>
  <div class="mets"><div class="met full"><div class="v num">0.3 → 1.0</div><div class="l">정답 문서 검색 비율 Hit@k</div><div class="bars"><div class="bar"><span>수정 전</span><i style="width:30%"></i><em>0.3</em></div><div class="bar now"><span>수정 후</span><i style="width:100%"></i><em>1.0</em></div></div><div class="s">모델이 아니라 골든셋의 정답 파일명이 틀려 있던 것을 찾아 고친 결과</div></div><div class="met"><div class="v num">0.977</div><div class="l">최종 설정 MRR</div><div class="s">검색·답변 설정 708개 조합을 95문항 개발셋으로 3단계 비교 · Hit@4 1.0</div></div><div class="met"><div class="v num">3.6초</div><div class="l">평균 응답, API 비용 0원</div><div class="s">GCP VM의 Ollama로 KURE-v1 + EXAONE 3.5 로컬 실행 · 문서에 없는 질문 19/19 거절</div></div></div>
  <h2>화면</h2>
