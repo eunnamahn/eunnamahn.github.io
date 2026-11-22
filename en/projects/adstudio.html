@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Ad Studio · Ad images and copy for small businesses | Eunnam Ahn</title>
+<meta name="description" content="A service that turns one product photo into ad images and Shorts with generated backgrounds and copy. I made product preservation the top metric and designed the pass criteria.">
+<link rel="canonical" href="https://eunnamahn.github.io/en/projects/adstudio.html">
+<link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/projects/adstudio.html">
+<meta property="og:title" content="AI Ad Studio · Ad images and copy for small businesses | Eunnam Ahn">
+<meta property="og:description" content="A service that turns one product photo into ad images and Shorts with generated backgrounds and copy. I made product preservation the top metric and designed the pass criteria.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eunnamahn.github.io/en/projects/adstudio.html">
+<meta property="og:image" content="https://eunnamahn.github.io/profile.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="dots"></div>
+<main id="main"><div class="wrap dt">
+ <div class="back"><a class="pill" href="../../#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>All projects</a></div>
+ <h1>AI Ad Studio · Ad images and copy for small businesses</h1>
+ <div class="meta"><span class="num">Aug 2026</span> · Codeit Sprint team project</div>
+ 
+ <p class="lead">Small businesses cannot remake ad images for every time slot and channel. AI Ad Studio generates backgrounds and copy from one product photo, and only human-approved results become Shorts scheduled to YouTube.</p>
+ <div class="links"><a class="pill dark" href="https://github.com/eunnamahn/ad-creative-studio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</a><a class="pill" href="https://youtu.be/dgjC8w8YQi8"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Demo video (3:38)</a></div>
+ <div class="hr"></div>
+ 
+ <h2>What I did</h2>
+ <dl class="kv"><dt>Role</dt><dd>Team lead · PM · Evaluation criteria</dd><dt>Period</dt><dd class="num">Aug 2026</dd><dt>Team</dt><dd>Team of 5 · Codeit Sprint team project</dd></dl>
+ <h3>Team</h3><p>Ran a 4-week sprint as team lead and PM; owned the final report</p><h3>Evaluation criteria</h3><p>Defined product preservation as the top metric and designed the pass criteria (eval_criteria)</p>
+ <h2>Results</h2>
+ <div class="mets"><div class="met"><div class="v num">4/4</div><div class="l">Passed the preservation check</div><div class="s">Masked-region CLIP similarity ≥ 0.85 plus human review · 4 representative cases (no large-scale evaluation)</div></div><div class="met"><div class="v num">17.47 → 1.72 s</div><div class="l">Background generation (team result)</div><div class="s">About 10× faster with LCM-LoRA · 5.97 s per image end to end</div></div></div>
+ <h2>Screens</h2>
+ <figure class="shot"><img src="../../assets/proj_ad-studio_screen.jpg" alt="Service screen: tone-specific drafts that keep the original product and change only the background, with copy editing (UI in Korean)" loading="lazy"><figcaption>Service screen: tone-specific drafts that keep the original product and change only the background, with copy editing (UI in Korean)</figcaption></figure>
+ <h2>System architecture</h2><p class="archcap">Generation pipeline with a product-preservation check</p>
+ <div class="arch"><img src="../../assets/arch_adstudio.jpg" alt="AI Ad Studio system architecture; purple badges mark the parts I owned" loading="lazy"></div>
+ <p class="archnote">Purple badges mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)</p>
+ <h2>Key decisions</h2>
+ <div class="dec"><h3>1. If the product changes, it is not an ad</h3><p><b>Why:</b> Generative models can alter a product's shape or label while changing the background.</p><p><b>What changed:</b> The original product is composited onto the generated background, checked for masked-region CLIP similarity ≥ 0.85, then reviewed by a person.</p><p><b>Result:</b> All 4 representative cases passed.</p></div><div class="dec"><h3>2. Publish only what a person approved</h3><p><b>Why:</b> Posting generated results automatically could put out a wrong ad.</p><p><b>What changed:</b> Only human-approved images become 13-second Shorts scheduled to YouTube.</p><p><b>Result:</b> The team's 486 automated tests passed.</p></div>
+ <h2>Limitations</h2>
+ <p class="limit">No pixel-level comparison (SSIM) or blind human evaluation yet; both are listed as next steps in the report.</p>
+ <div class="chips out" style="margin-top:28px"><span class="chip">SDXL</span><span class="chip">ControlNet</span><span class="chip">IP-Adapter</span><span class="chip">FastAPI</span><span class="chip">GCP L4</span></div>
+ <div class="pn"><a href="bidmate.html"><small>Previous</small><b>BidMate</b></a><a class="nx" href="pillscope.html"><small>Next</small><b>PillScope</b></a></div>
+</div></main>
+<footer>© 2026 Eunnam Ahn · Last updated November 2026</footer>
+<nav class="dock" aria-label="Navigation">
+  <a href="../../" title="Home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></a>
+  <a href="../../#projects" title="Projects" aria-label="Projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><rect x="13" y="13" width="8" height="7" rx="2"/></svg></a>
+  <span class="sep"></span>
+  <a href="https://github.com/eunnamahn" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></a>
+  <a href="../../#papers" title="Publications" aria-label="Publications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 012 2v12a2 2 0 00-2-2H4zM20 5h-6a2 2 0 00-2 2v12a2 2 0 012-2h6z"/></svg></a>
+  <a href="mailto:baduk89@hanmail.net" title="Email" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+  <span class="sep"></span>
+  <a class="lang" href="../../projects/adstudio.html" title="한국어" aria-label="한국어" lang="ko">KO</a>
+  <button type="button" id="theme" title="Toggle theme" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg></button>
+</nav>
+<script>
+(function(){
+  var b=document.getElementById('theme');
+  b.addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches,n=dark?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+  document.addEventListener('click',function(e){var box=e.target.closest('.arch');if(!box)return;var lb=document.createElement('div');lb.className='lb';lb.innerHTML=box.innerHTML;lb.addEventListener('click',function(){lb.remove()});document.body.appendChild(lb)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=document.querySelector('.lb');if(lb)lb.remove()}});
+})();
+</script>
+</body>
+</html>

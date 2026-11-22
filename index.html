@@ -2,391 +2,132 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>안은남 · AI 엔지니어</title>
 <meta name="description" content="수학적 모델링 연구를 바탕으로, LLM과 RAG의 답이 맞는지 측정하고 틀리면 원인을 찾아 고치는 AI 엔지니어 안은남입니다.">
+<link rel="canonical" href="https://eunnamahn.github.io/">
 <link rel="alternate" hreflang="en" href="https://eunnamahn.github.io/en/">
+<meta property="og:title" content="안은남 · AI 엔지니어">
+<meta property="og:description" content="수학적 모델링 연구를 바탕으로, LLM과 RAG의 답이 맞는지 측정하고 틀리면 원인을 찾아 고치는 AI 엔지니어 안은남입니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eunnamahn.github.io/">
+<meta property="og:image" content="https://eunnamahn.github.io/profile.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#f4f7fc; --ink:#141413; --body:#3d3d3a; --sub:#87867f; --mid:#5e5d59; --line:#e8e6dc;
-    --serif:"Lora","Noto Serif KR",Georgia,serif;
-    --sans:"Inter Tight","Noto Sans KR",-apple-system,"Helvetica Neue",Arial,sans-serif;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-weight:300;font-size:16px;line-height:1.65;word-break:keep-all}
-  a{color:var(--body);font-weight:500;text-decoration:none;border-bottom:1px solid var(--line)}
-  a:hover{border-bottom-color:var(--mid)}
-  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
-  .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:6px 10px;z-index:9}
-
-  nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;justify-content:center;align-items:center;gap:26px;height:56px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
-  nav .wrap::-webkit-scrollbar{display:none}
-  nav a{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--mid);border:0}
-  nav a:hover{color:var(--ink)}
-  nav .lang{display:flex;gap:12px;padding-left:22px;border-left:1px solid var(--line)}
-  nav .lang .on{color:var(--ink)}
-
-  header{padding:64px 0 52px;text-align:center}
-  .photo{width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:50% 12%;border:4px solid #fff;box-shadow:0 0 0 1px var(--line);background:#e9edf4}
-  h1{font-family:var(--serif);font-size:26px;font-weight:500;margin:22px 0 6px;letter-spacing:-.01em}
-  h1 span{font-weight:400;color:var(--mid);font-size:20px}
-  .subtitle{color:var(--sub);margin:0 0 18px;font-size:15px}
-  .btns{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:34px}
-  .btns a{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--mid);border:1.2px solid var(--line);border-radius:8px;padding:6px 14px;background:rgba(255,255,255,.5)}
-  .btns a:hover{color:var(--ink);border-color:#d6d3c4}
-  .about{text-align:left;margin:0 0 14px}
-  .about:last-child{margin:0}
-
-  section{padding:52px 0 8px}
-  h2{font-family:var(--serif);font-size:30px;font-weight:500;margin:0 0 22px;letter-spacing:-.01em}
-  .entry{display:flex;gap:20px;padding:4px 0 22px;margin-bottom:20px;border-bottom:.8px solid var(--line)}
-  .entry:last-child{border-bottom:0;margin-bottom:0}
-  .meta{flex:0 0 132px;padding-top:4px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--sub);letter-spacing:.01em;line-height:1.5}
-  .body{flex:1;min-width:0}
-  h3{font-family:var(--serif);font-size:17px;font-weight:500;margin:0 0 4px;line-height:1.5}
-  .role{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--sub);margin:0 0 8px}
-  .body p{margin:0 0 6px}
-  .body b{font-weight:600;color:var(--ink)}
-  ul{margin:6px 0 0;padding-left:18px}
-  li{margin:3px 0}
-  .fig{margin:12px 0 10px}
-  .fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
-  .fig a{border:0;display:block}
-  .fig figcaption{font-family:var(--sans);font-size:12.5px;color:var(--sub);margin-top:6px;line-height:1.5}
-  details{margin-top:6px}
-  summary{cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--sub)}
-  summary:hover{color:var(--ink)}
-  .links{font-family:var(--sans);font-size:13px;margin-top:8px}
-  .links a{font-weight:500;color:var(--mid)}
-  .lead{color:var(--mid);margin:-8px 0 22px}
-  dl{margin:0}
-  dl div{display:flex;gap:20px;padding:10px 0;border-bottom:.8px solid var(--line)}
-  dl div:last-child{border-bottom:0}
-  dt{flex:0 0 132px;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--sub);padding-top:3px}
-  dd{margin:0;flex:1}
-  footer{padding:48px 0 64px;text-align:center;font-family:var(--sans);font-size:12px;color:var(--sub)}
-
-  @media (max-width:600px){
-    header{padding:44px 0 40px}
-    .photo{width:140px;height:140px}
-    nav .wrap{justify-content:flex-start;gap:16px}
-    nav a{font-size:13px} nav .lang{padding-left:14px}
-    .entry,dl div{flex-direction:column;gap:4px}
-    .meta,dt{flex:none;padding:0}
-  }
-
-  /* 이력서 색상 (남색 #1F4E8C · 회청색 #5B6B80) */
-  :root{--accent:#1F4E8C;--slate:#5B6B80;--sub:#667180;--mid:#4B5563;--line:#dfe5ee}
-  a{color:var(--accent);border-bottom-color:rgba(31,78,140,.25)}
-  a:hover{border-bottom-color:var(--accent)}
-  nav a:hover,nav .lang .on{color:var(--accent)}
-  .subtitle{color:var(--accent);font-weight:500}
-  .btns a:hover{color:var(--accent);border-color:var(--accent)}
-  h2{color:var(--accent);padding-bottom:8px;border-bottom:2px solid var(--accent)}
-  h3 .name{color:var(--accent);font-weight:600}
-  .meta,dt{color:var(--ink);font-weight:600}
-  .role{color:var(--slate)}
-  .body b{color:var(--accent)}
-  li::marker{color:var(--accent)}
-  .links a{color:var(--accent)}
-  summary:hover{color:var(--accent)}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="dots"></div>
+<main id="main">
+<div class="wrap">
+  <header class="hero" id="top">
+    <div>
+      <h1>안녕하세요, 안은남입니다 <span class="wave" aria-hidden="true">👋</span></h1>
+      <p>LLM과 RAG의 답이 맞는지 측정하고, 틀리면 원인을 찾아 고치는 AI 엔지니어</p>
+      <div class="links">
+        <a class="pill dark" href="resume.pdf">이력서</a>
+        <a class="pill" href="https://github.com/eunnamahn">GitHub</a>
+        <a class="pill" href="mailto:baduk89@hanmail.net">baduk89@hanmail.net</a>
+        <a class="pill" href="en/">English</a>
+      </div>
+    </div>
+    <img class="avatar" src="profile.jpg" alt="안은남 프로필 사진">
+  </header>
+  <section class="blk"><h2>소개</h2><div><p>미국 대학원에서 석유공학을 연구하며 해석해, 인공신경망 대리 모델, 시계열 예측 모델을 만들고 검증했고, 지금은 <b>LLM과 RAG의 답을 측정하는 평가 코드</b>를 만듭니다.</p><p>SAVERS에서는 챗봇이 거절해야 할 질문에 답하는 결함을 찾아 검색 단계까지 추적했고, 입찰메이트에서는 점수를 막던 골든셋 오류와 근거 잘림을 찾아 고쳤습니다. 영어 발표와 문서 작성이 자유롭습니다 (TOEIC 985).</p></div></section>
+</div>
 
-<nav><div class="wrap">
-  <a href="#top">소개</a>
-  <a href="#projects">프로젝트</a>
-  <a href="#publications">논문</a>
-  <a href="#research">연구</a>
-  <a href="#education">학력</a>
-  <a href="#skills">기술</a>
-  <span class="lang"><a class="on" href="./">KO</a><a href="en/">EN</a></span>
-</div></nav>
-
-<main id="main" class="wrap">
-<header id="top">
-  <img class="photo" src="profile.jpg" alt="안은남 사진">
-  <h1>안은남 <span>(Eunnam Ahn)</span></h1>
-  <p class="subtitle">AI 엔지니어 · LLM / RAG · 평가 설계</p>
-  <div class="btns">
-    <a href="resume.pdf">이력서 ↗</a>
-    <a href="mailto:baduk89@hanmail.net">이메일</a>
-    <a href="https://github.com/eunnamahn">GitHub</a>
+<section class="sec" id="projects">
+  <div class="wide">
+    <span class="tag">프로젝트</span>
+    <h2>만들고 검증한 것들</h2>
+    <p>수상한 해커톤 프로젝트와 부트캠프 팀 프로젝트입니다. 카드를 누르면 문제와 결정, 결과를 정리한 글로 이어집니다.</p>
+    <div class="grid">
+<a class="card" href="projects/savers.html">
+ <div class="vis"><div class="top"><small>K-디지털 트레이닝 해커톤 2026</small><span class="acts"><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</span><span class="mini"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>시연</span></span></div><div class="vis img phones" style="position:absolute;inset:0;height:auto"><img src="assets/proj_savers_screens.jpg" alt="SAVERS" loading="lazy"></div></div>
+ <div class="body"><h3><span>SAVERS <em>· 재난 취약계층 맞춤 대피 안내</em></span><span aria-hidden="true">↗</span></h3>
+ <div class="meta"><span class="num">2026.07 – 2026.09</span> · 4인 팀, 팀장 · PM · 평가와 인프라</div>
+ <span class="award">고용노동부장관상 · 326팀 중 공동 3위 · ACK 2026 제1저자</span>
+ <p class="desc">호우·홍수 특보 때 위치와 이동 능력에 맞는 대피소와 도보 경로를 알려 주는 웹 앱입니다. 대피소와 경로는 규칙 코드가 정하고 LLM은 설명만 하게 나눴고, 그 경계가 지켜지는지 재는 평가 코드를 만들었습니다.</p>
+ <div class="chips out"><span class="chip">FastAPI</span><span class="chip">ChromaDB</span><span class="chip">OSMnx</span><span class="chip">NetworkX</span><span class="chip">AWS EC2</span><span class="chip">Vercel</span><span class="chip">FCM</span></div></div></a>
+<a class="card" href="projects/bidmate.html">
+ <div class="vis"><div class="top"><small>코드잇 스프린트 팀 프로젝트</small><span class="acts"><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</span><span class="mini"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>시연</span></span></div><div class="flow"><div class="st"><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#2f55d4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><b>RFP 100건</b><span>HWP·PDF 전처리</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#2f55d4" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/></svg><b>검색</b><span>KURE-v1 · k=4</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><b>근거 달린 답</b><span>없으면 거절</span></div></div></div></div>
+ <div class="body"><h3><span>입찰메이트 <em>· 공공 RFP 문서 RAG 질의응답</em></span><span aria-hidden="true">↗</span></h3>
+ <div class="meta"><span class="num">2026.06 – 2026.07</span> · 5인 팀, 평가 담당</div>
+ 
+ <p class="desc">공공기관 제안요청서 100건에서 근거를 달아 답하고 문서에 없는 질문은 거절하는 RAG 챗봇입니다. 95문항 골든셋과 채점기를 만들고, 점수를 막던 골든셋 오류와 근거 잘림을 찾아 고쳤습니다.</p>
+ <div class="chips out"><span class="chip">LangChain</span><span class="chip">FAISS</span><span class="chip">KURE-v1</span><span class="chip">EXAONE 3.5</span><span class="chip">RAGAS</span><span class="chip">FastAPI</span></div></div></a>
+<a class="card" href="projects/adstudio.html">
+ <div class="vis"><div class="top"><small>코드잇 스프린트 팀 프로젝트</small><span class="acts"><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</span><span class="mini"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>시연</span></span></div><div class="vis img phones" style="position:absolute;inset:0;height:auto"><img src="assets/proj_ad-studio_screen.jpg" alt="AI 광고 스튜디오" loading="lazy"></div></div>
+ <div class="body"><h3><span>AI 광고 스튜디오 <em>· 소상공인용 광고 이미지·문구 생성</em></span><span aria-hidden="true">↗</span></h3>
+ <div class="meta"><span class="num">2026.08</span> · 5인 팀, 팀장 · PM · 평가 기준 설계</div>
+ 
+ <p class="desc">제품 사진 한 장으로 배경과 문구를 생성해 광고 이미지와 쇼츠를 만드는 서비스입니다. 사진 속 제품이 바뀌지 않았는지를 1순위 지표로 정하고 판정 기준을 설계했습니다.</p>
+ <div class="chips out"><span class="chip">SDXL</span><span class="chip">ControlNet</span><span class="chip">IP-Adapter</span><span class="chip">FastAPI</span><span class="chip">GCP L4</span></div></div></a>
+<a class="card" href="projects/pillscope.html">
+ <div class="vis"><div class="top"><small>코드잇 스프린트 팀 프로젝트</small><span class="acts"><span class="mini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</span></span></div><div class="vis img fit" style="position:absolute;inset:0;height:auto"><img src="assets/proj_pillscope_pred.jpg" alt="PillScope" loading="lazy"></div></div>
+ <div class="body"><h3><span>PillScope <em>· 경구약제 이미지 객체 탐지</em></span><span aria-hidden="true">↗</span></h3>
+ <div class="meta"><span class="num">2026.04 – 2026.05</span> · 5인 팀, 팀장 · PM · 모델 실험</div>
+ 
+ <p class="desc">생김새가 비슷한 알약 56종을 사진에서 찾아 구별하는 객체 탐지 모델입니다. 학습 이미지 186장과 51배 클래스 불균형을 증강과 누수 방지 split으로 풀었습니다.</p>
+ <div class="chips out"><span class="chip">YOLOv11</span><span class="chip">RT-DETRv2</span><span class="chip">RF-DETR</span><span class="chip">COCO</span><span class="chip">WBF</span></div></div></a>
+    </div>
+    <div class="others"><h3>그 밖의 프로젝트</h3><a class="oi" href="projects/scibert.html"><span class="n">01.</span><div><b>생의학 초록 문장 분류</b><span>BERT·SciBERT 임베딩으로 바꿔 어휘 수 1/175로 정확도 유지 (92.35% → 92.43%)</span></div><span class="y num">2019</span></a></div>
   </div>
-  <p class="about">미국 대학원에서 석유공학을 연구하며 해석해, 인공신경망 대리 모델, 시계열 예측 모델을 만들고 검증했고, 지금은 <b>LLM과 RAG의 답을 측정하는 평가 코드</b>를 만듭니다. SAVERS에서는 챗봇이 거절해야 할 질문에 답하는 결함을 찾아 검색 단계까지 추적했고, 입찰메이트에서는 점수를 막던 골든셋 오류와 근거 잘림을 찾아 고쳤습니다. <b>영어 발표와 문서 작성이 자유롭습니다</b> (TOEIC 985).</p>
-</header>
-
-<section id="projects">
-  <h2>프로젝트</h2>
-
-  <article class="entry">
-    <div class="meta">2026.07 – 2026.09</div>
-    <div class="body">
-      <h3><span class="name">SAVERS</span> · 재난 취약계층 맞춤 대피 안내 서비스</h3>
-      <p class="role">팀장 · PM · 평가와 인프라 (4인 팀) · K-디지털 트레이닝 해커톤 2026 · FastAPI, ChromaDB, OSMnx, NetworkX, AWS EC2, Vercel, FCM</p>
-      <figure class="fig"><a href="assets/proj_savers_screens.jpg" target="_blank" rel="noopener"><img src="assets/proj_savers_screens.jpg" width="2400" height="1680" loading="lazy" alt="SAVERS 서비스 화면 3개: 긴급 재난 정보 링크 진입, 대피 단계와 추천 대피소 안내, 대피 경로 지도와 도착 확인"></a><figcaption>서비스 화면: 알림 링크 진입 → 대피소 안내 → 경로 확인·도착 확인. 대피소와 경로는 규칙 코드(OSMnx·NetworkX)가 정하고, LLM은 정해진 결과를 설명만 합니다.</figcaption></figure>
-      <ul>
-        <li><b>문제:</b> 홍수 경보는 모두에게 같은 문자를 보내지만, 혼자 판단·대피하기 어려운 주민에게는 앱 설치나 상시 위치 추적 없이 개인별 안내가 필요</li>
-        <li><b>담당 업무:</b> 중도 하차한 팀원의 QA와 인프라를 이어받아 역할과 일정을 다시 정하고, 평가 코드(보호자 응답 골든셋 40건(답변 35·거절 5), 적대 회귀 12건, 거절 프로브 34건, 채점 스크립트)와 인프라 코드(FCM 실발송 연결, Vercel과 AWS 배포, 자동 품질 검사 CI) 담당, 설계 결정 기록(ADR) 관리, 논문 제1저자 집필</li>
-        <li>대피소 선택과 도보 경로는 LLM에 맡기지 않고 규칙 기반 코드(OSMnx/NetworkX)로 계산해, LLM은 이미 정해진 결과를 설명만 하도록 설계</li>
-        <li>검증기는 답변을 주장 단위로 쪼개 이벤트 기록과 대조하고, 통과 기준은 "기록에 없는 내용 0건". 이 검증기를 검증할 평가셋을 작성해, 미리 쓴 정답 문장 <b>35/35</b>가 잘못 막히지 않았고 오답 유도 문장은 처음 8/12만 걸러져 놓친 4건을 분석하고 보강해 <b>12/12</b>. 골든셋 40건 중 30건은 시스템 출력을 먼저 채택한 뒤 계약 문서와 대조해 확정</li>
-        <li>챗봇이 답해야 할 때와 거절해야 할 때를 모두 측정: 거절 프로브(답해야 할 질문 28건, 거절 대조군 6건)에서 불필요한 거절은 <b>3.6%</b>(1/28)로 낮았지만, 대조군 6건에는 모두 엉뚱한 근거로 답하는 <b>과소거절 6/6(100%)</b>을 찾아냄. 기존 근거 일치 지표로는 드러나지 않는 실패였고, 원인이 검증기가 아니라 앞단 검색에 있음을 확인</li>
-        <li>지인 52명에게 재난문자와 SAVERS 화면을 차례로 보여 준 설문에서 행동 지침 명확성("지금 무엇을 해야 할지 분명한가", 10점 만점) <b>3.2 → 8.3점</b>(Wilcoxon p&lt;0.001), "5분 안에 집을 나서겠다" 13% → 60%</li>
-        <li>고용노동부장관상(장려상, 326팀 중 공동 3위), ACK 2026 논문 제1저자·구두발표</li>
-        <li><b>한계:</b> 35/35와 12/12는 정답·오답 문장을 채점에 직접 넣어 잰 값이고, 거절 프로브 측정 당시 생성기는 근거 문장을 그대로 옮기는 오프라인 스텁이라, 실제 생성 모델을 붙인 뒤 다시 측정해야 함</li>
-      </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/savers-project">GitHub ↗</a> · <a href="https://youtube.com/shorts/yv6POI7o4R8">시연 영상(46초) ↗</a></p>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="meta">2026.06 – 2026.07</div>
-    <div class="body">
-      <h3><span class="name">입찰메이트</span> · 공공 RFP 문서 RAG 질의응답·요약</h3>
-      <p class="role">평가 담당 (5인 팀) · LangChain, FAISS, KURE-v1, EXAONE 3.5, RAGAS</p>
-      <figure class="fig"><a href="assets/proj_bidmate_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_bidmate_screen.jpg" width="1106" height="777" loading="lazy" alt="입찰메이트 채팅 화면: "RFP 핵심 요약해줘" 질문에 대상 기관·예산·마감일·핵심 요구조건을 정리하고, 아래에 근거 출처와 요약·적격성 판정·리스크 탐지 등 기능 버튼"></a><figcaption>서비스 화면: RFP 핵심 요약 질문에 대상 기관 · 예산 · 요구조건을 정리하고, 답변 아래에 근거 출처를 답니다. (가운데 일부 생략)</figcaption></figure>
-      <ul>
-        <li><b>문제:</b> HWP/PDF가 섞인 공공 RFP 100건에서 출처를 인용하고, 문서로 답할 수 없는 질문은 거절해야 함</li>
-        <li><b>담당 업무:</b> K-means 기반 골든셋 제작, 파싱·청킹 전처리 48개 조합 실험 코드, 규칙 기반 공고 추천 API(FastAPI) 작성, 임베딩 비교·KURE-v1 전환, RAGAS 평가 설계, 자동 채점 스크립트 구현</li>
-        <li>K-means 클러스터링으로 대표 문서를 골라 골든셋 50건을 만들고, 5개 유형 95문항(19개 RFP)으로 확장해 유형별 자동 채점기 구현</li>
-        <li>검색·답변 설정 <b>708개 조합</b>을 95문항 개발셋으로 3단계 비교해 최종 설정 <b>MRR 0.977</b>, Hit@4 1.0, 거절 19/19 (설정 선택과 평가에 같은 셋을 써서 새 질문에서는 낮을 수 있음)</li>
-        <li>OpenAI 대신 무료 로컬 조합(KURE-v1 + dense k=4 + EXAONE 3.5, GCP VM의 Ollama)으로 전환해 평균 응답 <b>3.6초</b>, 외부 API 호출 비용 0원</li>
-        <li>점수가 0.3에서 멈춘 원인이 모델이 아니라 골든셋 오류였음을 찾아 수정했고, 입력 길이 제한(4,096토큰) 때문에 근거가 잘리던 문제를 8,192토큰으로 늘려 해결, 효과 없이 응답만 21초 늦추던 리랭커는 제거</li>
-        <li><b>한계:</b> 조합 선택과 평가에 같은 골든셋을 써서, 처음 보는 질문에서는 점수가 더 낮을 수 있음</li>
-      </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/bidmate-rfp-rag">GitHub ↗</a> · <a href="https://youtu.be/vdpqzdG4k2I">시연 영상(2분) ↗</a></p>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="meta">2026.08</div>
-    <div class="body">
-      <h3><span class="name">AI 광고 스튜디오</span> · 소상공인용 광고 이미지·문구 생성</h3>
-      <p class="role">팀장 · PM · 평가 기준 설계 (5인 팀) · SDXL, ControlNet, IP-Adapter, FastAPI, GCP L4</p>
-      <figure class="fig"><a href="assets/proj_ad-studio_screen.jpg" target="_blank" rel="noopener"><img src="assets/proj_ad-studio_screen.jpg" width="1118" height="756" loading="lazy" alt="AI 광고 스튜디오 생성 결과 화면: 같은 선풍기 제품으로 감성·모던 톤 광고 이미지 2장과 헤드라인·서브카피 편집칸"></a><figcaption>서비스 화면: 원본 제품은 그대로 두고 배경만 바꾼 톤별 광고 시안과 문구 편집. 사람이 승인한 결과만 쇼츠로 만들어 YouTube에 예약 게시합니다.</figcaption></figure>
-      <ul>
-        <li><b>문제:</b> 시간대·채널마다 광고 이미지를 새로 만들어야 하지만, 사진 속 제품은 절대 바뀌면 안 됨</li>
-        <li><b>담당 업무:</b> 팀장·PM으로 4주 스프린트 운영, 평가 기준(eval_criteria) 설계, 최종 보고서 총괄</li>
-        <li><b>제품 보존율을 1순위 지표</b>로 정의: 원본 제품을 생성한 배경 위에 합성해 제품을 지키고, 제품 영역 CLIP 유사도 0.85 이상 검사 후 사람이 다시 확인하는 판정 기준을 설계해 대표 조합 <b>4/4</b> 통과(대규모 평가는 미실시)</li>
-        <li>팀 성과: LCM-LoRA로 배경 생성 17.47초 → 1.72초(약 10배), 이미지 한 장 전체 처리 5.97초, 자동화 테스트 486건 통과, 사람이 승인한 이미지만 13초 쇼츠로 만들어 YouTube 예약 게시</li>
-        <li><b>한계:</b> 정밀 이미지 비교(SSIM)와 블라인드 사람 평가는 하지 못해, 다음 단계 과제로 보고서에 명시</li>
-      </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/ad-creative-studio">GitHub ↗</a> · <a href="https://youtu.be/dgjC8w8YQi8">시연 영상(3분 38초) ↗</a> · <a href="https://youtu.be/k3lqPzKlClQ">생성 쇼츠 예시(13초) ↗</a></p>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="meta">2026.04 – 2026.05</div>
-    <div class="body">
-      <h3><span class="name">PillScope</span> · 경구약제 이미지 객체 탐지</h3>
-      <p class="role">팀장 · PM · 모델 실험 (5인 팀) · YOLOv11, RT-DETRv2, RF-DETR, COCO</p>
-      <figure class="fig"><a href="assets/proj_pillscope.jpg" target="_blank" rel="noopener"><img src="assets/proj_pillscope.jpg" width="1600" height="564" loading="lazy" alt="알약 이미지의 정답 박스(왼쪽)와 모델 예측 박스(오른쪽) 비교"></a><figcaption>왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지</figcaption></figure>
-      <ul>
-        <li><b>문제:</b> 외형이 비슷한 56개 클래스, 학습 이미지 186장, 51배 클래스 불균형(153 vs 3), 이미지당 최대 4개 알약</li>
-        <li><b>담당 업무:</b> PM, COCO → YOLO 공용 파이프라인 구축, YOLOv11l 학습, DETR 계열 실험, Crop &amp; Paste 증강</li>
-        <li>촬영 옵션만 다른 비슷한 사진을 같은 split으로 묶어 점수가 부풀려지지 않도록 <b>데이터 누수 방지</b></li>
-        <li>데이터가 적은 알약을 오려 붙이는 증강으로 학습 이미지를 <b>186장 → 1,026장</b>으로 늘려 mAP@0.5 0.886 → 0.964, 인터넷 알약 이미지를 대회 배경에 합성해 한 번도 찾지 못하던 희귀 알약까지 탐지</li>
-        <li>모델 4종 <b>7단계 실험</b>에서 YOLOv11l이 대회 지표인 검증 mAP@[0.75:0.95] <b>0.936</b>으로 RF-DETR(0.882)·RT-DETRv2(0.883)보다 높았고(모델별 학습 이미지 수가 달라 통제 비교는 아님), Kaggle 제출은 conf 임계값 조정과 3모델 WBF 앙상블로 첫 제출 0.851 → 0.936</li>
-      </ul>
-      <p class="links"><a href="https://github.com/eunnamahn/OralMedicineImageDetection">GitHub ↗</a></p>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="meta">2019.09 – 2019.12</div>
-    <div class="body">
-      <h3><span class="name">생의학 초록 문장 분류</span> · BERT·SciBERT 임베딩 비교</h3>
-      <p class="role">Penn State IST 597 딥러닝 수업 프로젝트 · 2인 팀(동일 기여) · 지도: C. Lee Giles 교수 · TensorFlow</p>
-      <figure class="fig"><a href="assets/proj_scibert.jpg" target="_blank" rel="noopener"><img src="assets/proj_scibert.jpg" width="2000" height="729" loading="lazy" alt="PubMed 20k RCT 데이터로 기존 Word2Vec 임베딩 + HSLN(정확도 92.35%)과 SciBERT 임베딩 + 같은 HSLN(정확도 92.43%)을 비교한 구조도"></a><figcaption>HSLN 분류기와 데이터는 그대로 두고 임베딩만 Word2Vec에서 SciBERT로 교체: 데이터 토큰 일치율 16%(Word2Vec 68%), 항목 수 1/175로도 정확도 92.35% → 92.43%.</figcaption></figure>
-      <ul>
-        <li><b>문제:</b> 생의학 논문 초록 대부분이 비구조화되어 있어, 연구자가 방법·결과 등 필요한 정보만 골라 읽기 어려움</li>
-        <li><b>담당 업무:</b> BERT·SciBERT에서 단어 임베딩을 추출해 기존 문장 분류 모델(HSLN)의 Word2Vec을 대체하고, 기준선 재현을 포함한 5가지 조건 실험 수행</li>
-        <li>어휘 수가 <b>약 1/175</b>인 임베딩으로 기존과 같은 수준의 정확도 유지(92.35% → 92.43%, PubMed 20k RCT, 단일 실행), 데이터 토큰 중 사전학습 어휘에 있는 비율이 낮은 점(16%, Word2Vec 68%)을 성능의 한계 요인으로 분석</li>
-      </ul>
-    </div>
-  </article>
 </section>
 
-<section id="publications">
-  <h2>논문</h2>
-  <article class="entry">
-    <div class="meta">2026.11</div>
-    <div class="body">
-      <h3>재난 취약계층을 위한 근거 기반 대피 안내 서비스의 설계 및 구현</h3>
-      <p class="role">제1저자, 구두발표(2026.11.06) · 한국정보처리학회 학술대회(ACK 2026) · KIPS_C2026B0142</p>
-    </div>
-  </article>
-  <article class="entry">
-    <div class="meta">2018</div>
-    <div class="body">
-      <h3>Multi-Well Analytical Solution for Coning Under Simultaneous Steady-State Flow of Three Phases</h3>
-      <p class="role">제1저자 · 구두발표 · 영문 · SPE Improved Oil Recovery Conference</p>
-      <p class="links"><a href="https://doi.org/10.2118/190182-MS">doi.org/10.2118/190182-MS ↗</a></p>
-    </div>
-  </article>
+<section class="sec" id="papers">
+  <div class="wide">
+    <span class="tag">논문</span>
+    <h2>제1저자로 발표한 논문</h2>
+    <div class="others" style="margin-top:30px"><div class="oi"><span class="n">01.</span><div><b>재난 취약계층을 위한 근거 기반 대피 안내 서비스의 설계 및 구현</b><span>한국정보처리학회 학술대회(ACK 2026) · 제1저자, 구두발표(2026.11.06) · KIPS_C2026B0142</span></div><span class="y num">2026</span></div><a class="oi" href="https://doi.org/10.2118/190182-MS"><span class="n">02.</span><div><b>Multi-Well Analytical Solution for Coning Under Simultaneous Steady-State Flow of Three Phases</b><span>SPE Improved Oil Recovery Conference · 제1저자, 구두발표 · doi.org/10.2118/190182-MS</span></div><span class="y num">2018</span></a></div>
+  </div>
 </section>
 
-<section id="research">
-  <h2>대학원 연구</h2>
-  <p class="lead">The Pennsylvania State University</p>
-
-  <article class="entry">
-    <div class="meta">2021 – 2024</div>
-    <div class="body">
-      <h3>시공간 저류층 데이터와 딥러닝(Seq2Seq-LSTM)을 활용한 원유 생산량 예측</h3>
-      <p class="role">박사 연구 · Seq2Seq-LSTM, 유전 알고리즘 (Python)</p>
-      <ul>
-        <li>위치·시간 데이터를 입력으로 하는 시계열 딥러닝 모델(Seq2Seq-LSTM)을 만들어, 주입량이나 유정 간격 같은 운영 조건이 바뀔 때의 원유 생산량 예측</li>
-        <li>수평정과 수직정이 섞인 유정 배치를 "등가 유정 간격 밀도"라는 하나의 지표로 표준화해 여러 유전을 같은 기준으로 비교</li>
-        <li>유전 알고리즘으로 모델 설정을 최적화해 테스트 데이터에서 <b>R² 0.81 이상</b>, 기존 단일 유정 모델보다 높은 정확도</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="meta">2019 – 2020</div>
-    <div class="body">
-      <h3>실험계획법(DOE)을 결합한 인공신경망 대리 모델 개발</h3>
-      <p class="role">박사 연구 · 인공신경망, 실험계획법(완전요인·내접 중심합성 설계)</p>
-      <ul>
-        <li>오래 걸리는 저류층 시뮬레이션을 대신할 인공신경망 대리 모델을 만들어, 원유 회수 증진 공정의 생산 예측과 위험 평가를 빠르게 수행</li>
-        <li>실험계획법으로 지하의 불확실한 변수를 모두 반영하면서 필요한 시뮬레이션 횟수를 최소화</li>
-        <li>테스트 데이터 <b>평균 오차 2% 미만, 최대 오차 8% 미만</b>으로, 기존 시뮬레이터 대신 생산 예측과 위험 분석에 쓸 수 있음을 확인</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="meta">2015 – 2018</div>
-    <div class="body">
-      <h3>원유와 함께 물·가스가 딸려 나오는 현상의 수학 공식 유도</h3>
-      <p class="role">석사 논문 · 포텐셜 함수 기반 해석해 유도(라플라스 방정식, 중첩 원리), 수치 적분(Newton–Cotes)</p>
-      <ul>
-        <li>원유를 뽑을 때 물·가스가 함께 올라오는 현상을 시뮬레이션 없이 바로 계산할 수 있는 정확한 수학 공식(해석해)으로 유도하고, 물·원유·가스 3상이 동시에 흐르는 경우와 주입정·5점 패턴을 포함한 <b>6가지 유정 배치</b>로 확장</li>
-        <li>물·가스 없이 뽑을 수 있는 최대 생산량(임계 생산량)을 바로 계산할 수 있게 하고, 모세관압이 이를 크게 낮춘다는 점을 밝혀 수치 시뮬레이터 결과를 검증하는 기준 제시(SPE 2018 제1저자 논문)</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="entry">
-    <div class="meta">2016.02 – 2016.05</div>
-    <div class="body">
-      <h3>원유·물·가스 흐름 시뮬레이터 개발</h3>
-      <p class="role">PNG 512 수치 저류층 시뮬레이션 수업 프로젝트 · 개인 · MATLAB (약 1,000줄)</p>
-      <ul>
-        <li>지하 지층 지도를 60×30 격자로 나누고 원유·물·가스가 시간에 따라 어떻게 움직이는지 계산하는 시뮬레이터를 <b>처음부터 구현</b>(Newton-Raphson 반복 해법, 대형 행렬 해법 GMRES, 유체 물성 표 보간)</li>
-        <li>매 계산 단계마다 질량 보존을 점검해 오류를 잡도록 설계하고, 정답이 알려진 <b>표준 예제와 결과 일치</b> 확인</li>
-      </ul>
-    </div>
-  </article>
+<section class="sec" id="research">
+  <div class="wide">
+    <span class="tag">연구</span>
+    <h2>대학원 연구</h2>
+    <p>The Pennsylvania State University · 2015.08 – 2024.12 · 석유·에너지 분야 수학적 모델링</p>
+    <div class="others" style="margin-top:30px"><div class="oi"><span class="n">01.</span><div><b>시공간 저류층 데이터와 딥러닝을 활용한 원유 생산량 예측</b><span>박사 연구 · Seq2Seq-LSTM과 유전 알고리즘으로 운영 조건 변화에 따른 생산량 예측, 테스트 R² 0.81 이상</span></div><span class="y num">2021 – 2024</span></div><div class="oi"><span class="n">02.</span><div><b>실험계획법(DOE)을 결합한 인공신경망 대리 모델</b><span>박사 연구 · 실험계획법으로 시뮬레이션 수를 줄여 학습, 저류층 시뮬레이터 대신 쓸 수 있는 평균 오차 2% 미만</span></div><span class="y num">2019 – 2020</span></div><div class="oi"><span class="n">03.</span><div><b>원유와 함께 물·가스가 딸려 나오는 현상의 해석해 유도</b><span>석사 논문 · 물과 가스가 함께 유입되기 전 최대 생산량을 시뮬레이션 없이 계산, 6가지 유정 배치로 확장 · SPE 2018</span></div><span class="y num">2015 – 2018</span></div><div class="oi"><span class="n">04.</span><div><b>원유·물·가스 흐름 시뮬레이터 개발</b><span>수업 프로젝트(PNG 512) · 60×30 격자에서 원유·물·가스 흐름을 계산하는 MATLAB 약 1,000줄, Newton-Raphson과 GMRES</span></div><span class="y num">2016</span></div></div>
+  </div>
 </section>
 
-<section id="education">
-  <h2>학력</h2>
-  <article class="entry">
-    <div class="meta">2018.08 – 2024.12</div>
-    <div class="body">
-      <h3>박사과정 수료, The Pennsylvania State University</h3>
-      <p class="role">Energy and Mineral Engineering</p>
-      <p>지도교수 Gregory R. King · 부전공 통계학, 계산과학(Computational Science) · 학점 3.81 / 4.00</p>
-    </div>
-  </article>
-  <article class="entry">
-    <div class="meta">2015.08 – 2018.08</div>
-    <div class="body">
-      <h3>석사, The Pennsylvania State University</h3>
-      <p class="role">Energy and Mineral Engineering (Petroleum and Natural Gas Engineering option)</p>
-      <p>지도교수 Russell T. Johns · 학점 3.71 / 4.00</p>
-    </div>
-  </article>
-  <article class="entry">
-    <div class="meta">2009.03 – 2015.02</div>
-    <div class="body">
-      <h3>학사, 한양대학교</h3>
-      <p class="role">자원환경공학과</p>
-      <p>학점 4.28 / 4.50 · 학과 수석(33명 중 1위), 제2공과대학 차석 졸업</p>
-      <p>졸업논문: 폴리머 공법 적용 시 원유 생산성·경제성 평가(CMG 시뮬레이션·NPV 분석)</p>
-    </div>
-  </article>
-</section>
+<div class="wrap" style="margin-top:70px">
+  <section class="blk" id="education"><h2>학력</h2><div><div class="row"><b>Penn State 박사과정 수료</b><span class="d num">2018.08 – 2024.12</span></div><div class="role">Energy and Mineral Engineering · 지도교수 Gregory R. King · 부전공 통계학, 계산과학 · GPA 3.81 / 4.00</div><div class="row"><b>Penn State 석사</b><span class="d num">2015.08 – 2018.08</span></div><div class="role">Energy and Mineral Engineering (석유천연가스공학) · 지도교수 Russell T. Johns · GPA 3.71 / 4.00</div><div class="row"><b>한양대학교 자원환경공학과 학사</b><span class="d num">2009.03 – 2015.02</span></div><div class="role">학과 수석(33명 중 1위), 제2공과대학 차석 졸업 · GPA 4.28 / 4.50</div></div></section>
+  <section class="blk"><h2>강의·수상<br>자격·교육</h2><div><div class="row"><b>대학원 조교</b><span class="d num">2016 – 2024</span></div><div class="role">Penn State 영어 학부 수업 · EME 올해의 대학원 조교상(2017, 학과 조교 약 60명 중 1명)</div><div class="row"><b>대학원 학생회 공동회장</b><span class="d num">2019 – 2024</span></div><div class="role">College of Earth and Mineral Sciences, Penn State</div><div class="row"><b>한국석유공사 베트남 사무소 해외 인턴십</b><span class="d num">2013.06 – 2013.08</span></div><div class="role">8주 · 산업통상자원부 자원개발특성화대학 사업 선발</div><div class="row"><b>고용노동부장관상(장려상)</b><span class="d num">2026</span></div><div class="role">제8회 K-디지털 트레이닝 해커톤 · 326팀 중 공동 3위</div><div class="row"><b>코드잇 스프린트 AI 엔지니어 10기 수료</b><span class="d num">2026.02 – 2026.08</span></div><div class="role">팀 프로젝트 3회(객체 탐지, RAG, 생성형 AI)와 해커톤 1회, 팀장 3회 역임</div><div class="row"><b>데이터분석 준전문가(ADsP)</b><span class="d num">2026.06</span></div><div class="role">한국데이터산업진흥원(제49회)</div><div class="row"><b>TOEIC 985 / 990</b><span class="d num">2026.03</span></div><div class="role">Listening 490, Reading 495</div><div class="row"><b>Engineer in Training (EIT)</b><span class="d num">2017.03</span></div><div class="role">미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429</div></div></section>
+  <section class="blk" id="skills"><h2>기술</h2><div class="chips"><span class="chip">Python</span><span class="chip">LangChain</span><span class="chip">RAG (FAISS, BM25)</span><span class="chip">KURE-v1</span><span class="chip">EXAONE 3.5 (Ollama)</span><span class="chip">OpenAI API</span><span class="chip">Claude Code</span><span class="chip">골든셋 설계</span><span class="chip">Hit@k · MRR</span><span class="chip">거절 정확도</span><span class="chip">RAGAS</span><span class="chip">pytest</span><span class="chip">GitHub Actions CI</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">YOLO</span><span class="chip">RT-DETR</span><span class="chip">실험계획법(DOE)</span><span class="chip">FastAPI</span><span class="chip">Docker Compose</span><span class="chip">AWS EC2</span><span class="chip">Vercel</span><span class="chip">GCP</span><span class="chip">FCM</span></div></section>
+</div>
 
-<section id="activities">
-  <h2>강의, 수상, 자격, 교육</h2>
-  <article class="entry">
-    <div class="meta">2016 – 2024</div>
-    <div class="body">
-      <h3>대학원 조교</h3>
-      <p class="role">The Pennsylvania State University · 영어 학부 수업</p>
-      <p>오피스아워·복습 세션 운영 · 과제별 상세 피드백</p>
-      <p><b>EME 올해의 대학원 조교상</b>(2017, 학과 조교 약 60명 중 1명 선정)</p>
-    </div>
-  </article>
-  <article class="entry">
-    <div class="meta">2019 – 2024</div>
-    <div class="body">
-      <h3>대학원 학생회 공동회장</h3>
-      <p class="role">College of Earth and Mineral Sciences, The Pennsylvania State University</p>
-    </div>
-  </article>
-  <article class="entry">
-    <div class="meta">2013.06 – 2013.08</div>
-    <div class="body"><h3>한국석유공사 베트남 사무소 해외 인턴십(8주)</h3><p class="role">산업통상자원부 자원개발특성화대학 사업 선발</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2026</div>
-    <div class="body"><h3>고용노동부장관상(장려상)</h3><p class="role">제8회 K-디지털 트레이닝 해커톤 · 326팀 중 공동 3위</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2026.02 – 2026.08</div>
-    <div class="body"><h3>코드잇 스프린트 AI 엔지니어 10기 수료</h3><p class="role">팀 프로젝트 3회(객체 탐지, RAG, 생성형 AI)와 해커톤 1회, 팀장 3회 역임</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2026.06</div>
-    <div class="body"><h3>데이터분석 준전문가(ADsP)</h3><p class="role">한국데이터산업진흥원(제49회)</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2026.03</div>
-    <div class="body"><h3>TOEIC 985 / 990</h3><p class="role">Listening 490, Reading 495</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2017.03</div>
-    <div class="body"><h3>Engineer in Training (EIT)</h3><p class="role">미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2013 – 2014</div>
-    <div class="body"><h3>대학생 논문 공모전 3회 입상</h3><p class="role">GS에너지 3위, 한국광해관리공단·한국환경산업기술원 2위</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2013 – 2014</div>
-    <div class="body"><h3>국가 이공계 장학금</h3><p class="role">4학기 전액</p></div>
-  </article>
-  <article class="entry">
-    <div class="meta">2010.01 – 2011.11</div>
-    <div class="body"><h3>육군 병장 만기제대</h3></div>
-  </article>
-</section>
-
-<section id="skills">
-  <h2>기술</h2>
-  <dl>
-        <div><dt>AI · LLM</dt><dd>LangChain, RAG(FAISS, BM25), KURE-v1, EXAONE 3.5(Ollama), OpenAI API, Claude Code</dd></div>
-        <div><dt>평가</dt><dd>골든셋 설계, Hit@k, MRR, 거절 정확도, RAGAS, mAP, pytest, GitHub Actions CI</dd></div>
-        <div><dt>ML · 비전</dt><dd>PyTorch, TensorFlow, Scikit-learn, YOLO, RT-DETR, 실험계획법(DOE), MATLAB</dd></div>
-        <div><dt>백엔드 · 인프라</dt><dd>Python, FastAPI, Docker Compose, AWS EC2, Vercel, GCP, FCM, Git</dd></div>
-      </dl>
+<section class="sec" id="contact">
+  <div class="wide">
+    <span class="tag">연락</span>
+    <h2>연락하기</h2>
+    <p class="contact">채용이나 협업 제안은 <a href="mailto:baduk89@hanmail.net">baduk89@hanmail.net</a>으로 편하게 메일 주세요. 코드는 <a href="https://github.com/eunnamahn">GitHub</a>에서 볼 수 있습니다.</p>
+  </div>
 </section>
 </main>
-
-<footer>
-  <a href="mailto:baduk89@hanmail.net">baduk89@hanmail.net</a> · <a href="https://github.com/eunnamahn">github.com/eunnamahn</a><br><br>
-  최종 업데이트 2026년 11월
-</footer>
+<footer>© 2026 안은남 · 최종 업데이트 2026년 11월</footer>
+<nav class="dock" aria-label="Navigation">
+  <a href="./" title="홈" aria-label="홈"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></a>
+  <a href="./#projects" title="프로젝트" aria-label="프로젝트"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><rect x="13" y="13" width="8" height="7" rx="2"/></svg></a>
+  <span class="sep"></span>
+  <a href="https://github.com/eunnamahn" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></a>
+  <a href="./#papers" title="논문" aria-label="논문"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 012 2v12a2 2 0 00-2-2H4zM20 5h-6a2 2 0 00-2 2v12a2 2 0 012-2h6z"/></svg></a>
+  <a href="mailto:baduk89@hanmail.net" title="이메일" aria-label="이메일"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+  <span class="sep"></span>
+  <a class="lang" href="en/" title="English" aria-label="English" lang="en">EN</a>
+  <button type="button" id="theme" title="밝기 전환" aria-label="밝기 전환"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg></button>
+</nav>
+<script>
+(function(){
+  var b=document.getElementById('theme');
+  b.addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches,n=dark?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+  document.addEventListener('click',function(e){var box=e.target.closest('.arch');if(!box)return;var lb=document.createElement('div');lb.className='lb';lb.innerHTML=box.innerHTML;lb.addEventListener('click',function(){lb.remove()});document.body.appendChild(lb)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=document.querySelector('.lb');if(lb)lb.remove()}});
+})();
+</script>
 </body>
 </html>

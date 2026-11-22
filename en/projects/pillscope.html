@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PillScope · Object detection for oral medication images | Eunnam Ahn</title>
+<meta name="description" content="An object detector that finds and tells apart 56 look-alike pills in photos. Augmentation and leakage-proof splits handled only 186 training images and a 51× class imbalance.">
+<link rel="canonical" href="https://eunnamahn.github.io/en/projects/pillscope.html">
+<link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/projects/pillscope.html">
+<meta property="og:title" content="PillScope · Object detection for oral medication images | Eunnam Ahn">
+<meta property="og:description" content="An object detector that finds and tells apart 56 look-alike pills in photos. Augmentation and leakage-proof splits handled only 186 training images and a 51× class imbalance.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eunnamahn.github.io/en/projects/pillscope.html">
+<meta property="og:image" content="https://eunnamahn.github.io/profile.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="dots"></div>
+<main id="main"><div class="wrap dt">
+ <div class="back"><a class="pill" href="../../#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>All projects</a></div>
+ <h1>PillScope · Object detection for oral medication images</h1>
+ <div class="meta"><span class="num">Apr – May 2026</span> · Codeit Sprint team project</div>
+ 
+ <p class="lead">The model locates each pill in photos of 3–4 pills and names it among 56 classes. There were 186 training images and a 51× class imbalance (153 vs. 3).</p>
+ <div class="links"><a class="pill dark" href="https://github.com/eunnamahn/OralMedicineImageDetection"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</a></div>
+ <div class="hr"></div>
+ 
+ <h2>What I did</h2>
+ <dl class="kv"><dt>Role</dt><dd>Team lead · PM · Model experiments</dd><dt>Period</dt><dd class="num">Apr – May 2026</dd><dt>Team</dt><dd>Team of 5 · Codeit Sprint team project</dd></dl>
+ <h3>Team</h3><p>Managed a 7-stage experiment plan and roles as team lead and PM</p><h3>Pipeline</h3><p>Built the shared COCO → YOLO training pipeline, trained YOLOv11l and ran DETR experiments</p><h3>Data</h3><p>Crop-and-paste augmentation; grouped near-duplicate shots into the same split to prevent leakage</p>
+ <h2>Results</h2>
+ <div class="mets"><div class="met"><div class="v num">186 → 1,026</div><div class="l">Training images after augmentation</div><div class="s">mAP@0.5 0.886 → 0.964</div></div><div class="met"><div class="v num">0.851 → 0.936</div><div class="l">Kaggle score</div><div class="s">Confidence tuning and a 3-model WBF ensemble</div></div><div class="met full"><div class="v num">0.936</div><div class="l">YOLOv11l validation mAP@[0.75:0.95]</div><div class="s">Ahead of RF-DETR 0.882 and RT-DETRv2 0.883; training-set sizes differed, so this is not a controlled comparison</div></div></div>
+ <h2>Screens</h2>
+ <figure class="shot"><img src="../../assets/proj_pillscope.jpg" alt="Ground truth (left) vs. model prediction (right); the rare class is detected too" loading="lazy"><figcaption>Ground truth (left) vs. model prediction (right); the rare class is detected too</figcaption></figure>
+ <h2>System architecture</h2><p class="archcap">Training pipeline connected to the service</p>
+ <div class="arch"><img src="../../assets/arch_pillscope.jpg" alt="PillScope system architecture; purple badges mark the parts I owned" loading="lazy"></div>
+ <p class="archnote">Purple badges mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)</p>
+ <h2>Key decisions</h2>
+ <div class="dec"><h3>1. Fix the split before trusting the score</h3><p><b>Why:</b> Near-duplicate shots split across training and validation inflate the score.</p><p><b>What changed:</b> Grouped near-duplicate shots into the same split.</p><p><b>Result:</b> Validation scores became trustworthy enough to compare models.</p></div><div class="dec"><h3>2. Grow the rare pills directly</h3><p><b>Why:</b> Some rare pills were never detected.</p><p><b>What changed:</b> Cropped and pasted under-represented pills and composited web pill images onto the competition background.</p><p><b>Result:</b> The training set grew to 1,026 images and the rare pills became detectable.</p></div>
+ <h2>Limitations</h2>
+ <p class="limit">Training-set sizes differed by model (1,116 / 1,206 / 186 images), so the model comparison is not controlled.</p>
+ <div class="chips out" style="margin-top:28px"><span class="chip">YOLOv11</span><span class="chip">RT-DETRv2</span><span class="chip">RF-DETR</span><span class="chip">COCO</span><span class="chip">WBF</span></div>
+ <div class="pn"><a href="adstudio.html"><small>Previous</small><b>AI Ad Studio</b></a><a class="nx" href="scibert.html"><small>Next</small><b>Biomedical abstract sentence classification</b></a></div>
+</div></main>
+<footer>© 2026 Eunnam Ahn · Last updated November 2026</footer>
+<nav class="dock" aria-label="Navigation">
+  <a href="../../" title="Home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></a>
+  <a href="../../#projects" title="Projects" aria-label="Projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><rect x="13" y="13" width="8" height="7" rx="2"/></svg></a>
+  <span class="sep"></span>
+  <a href="https://github.com/eunnamahn" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></a>
+  <a href="../../#papers" title="Publications" aria-label="Publications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 012 2v12a2 2 0 00-2-2H4zM20 5h-6a2 2 0 00-2 2v12a2 2 0 012-2h6z"/></svg></a>
+  <a href="mailto:baduk89@hanmail.net" title="Email" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+  <span class="sep"></span>
+  <a class="lang" href="../../projects/pillscope.html" title="한국어" aria-label="한국어" lang="ko">KO</a>
+  <button type="button" id="theme" title="Toggle theme" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg></button>
+</nav>
+<script>
+(function(){
+  var b=document.getElementById('theme');
+  b.addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches,n=dark?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+  document.addEventListener('click',function(e){var box=e.target.closest('.arch');if(!box)return;var lb=document.createElement('div');lb.className='lb';lb.innerHTML=box.innerHTML;lb.addEventListener('click',function(){lb.remove()});document.body.appendChild(lb)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=document.querySelector('.lb');if(lb)lb.remove()}});
+})();
+</script>
+</body>
+</html>

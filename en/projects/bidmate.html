@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BidMate · RAG Q&amp;A for public RFP documents | Eunnam Ahn</title>
+<meta name="description" content="A RAG chatbot that answers questions about 100 public RFPs with cited evidence and refuses what the documents cannot answer. I built the 95-question golden set and scorers, and found and fixed the golden-set errors and evidence truncation holding scores down.">
+<link rel="canonical" href="https://eunnamahn.github.io/en/projects/bidmate.html">
+<link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/projects/bidmate.html">
+<meta property="og:title" content="BidMate · RAG Q&amp;A for public RFP documents | Eunnam Ahn">
+<meta property="og:description" content="A RAG chatbot that answers questions about 100 public RFPs with cited evidence and refuses what the documents cannot answer. I built the 95-question golden set and scorers, and found and fixed the golden-set errors and evidence truncation holding scores down.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eunnamahn.github.io/en/projects/bidmate.html">
+<meta property="og:image" content="https://eunnamahn.github.io/profile.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="dots"></div>
+<main id="main"><div class="wrap dt">
+ <div class="back"><a class="pill" href="../../#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>All projects</a></div>
+ <h1>BidMate · RAG Q&amp;A for public RFP documents</h1>
+ <div class="meta"><span class="num">Jun – Jul 2026</span> · Codeit Sprint team project</div>
+ 
+ <p class="lead">Public RFPs mix long HWP and PDF files. BidMate lets bid managers see where each answer comes from: it cites the source and refuses questions the documents cannot answer, running only on local models with no external API.</p>
+ <div class="links"><a class="pill dark" href="https://github.com/eunnamahn/bidmate-rfp-rag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</a><a class="pill" href="https://youtu.be/vdpqzdG4k2I"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Demo video (2 min)</a></div>
+ <div class="hr"></div>
+ <div class="dvis"><div class="flow"><div class="st"><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#2f55d4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><b>100 RFPs</b><span>HWP · PDF parsing</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#2f55d4" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/></svg><b>Retrieval</b><span>KURE-v1 · k=4</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><b>Cited answer</b><span>or refusal</span></div></div></div></div>
+ <h2>What I did</h2>
+ <dl class="kv"><dt>Role</dt><dd>Evaluation</dd><dt>Period</dt><dd class="num">Jun – Jul 2026</dd><dt>Team</dt><dd>Team of 5 · Codeit Sprint team project</dd></dl>
+ <h3>Golden set</h3><p>Picked representative documents with K-means for 50 questions, then grew it to 95 questions of 5 types over 19 RFPs</p><h3>Preprocessing experiments</h3><p>Experiment code comparing 48 parsing and chunking combinations for HWP and PDF files full of tables</p><h3>Evaluation</h3><p>RAGAS evaluation design, type-specific automated scorers, embedding comparison and the switch to KURE-v1</p><h3>Recommendation API</h3><p>Rule-based bid recommendation API matched to a company profile (FastAPI, src/recommender.py)</p>
+ <h2>Results</h2>
+ <div class="mets"><div class="met full"><div class="v num">0.3 → 1.0</div><div class="l">Hit@k, correct document retrieved</div><div class="bars"><div class="bar"><span>Before</span><i style="width:30%"></i><em>0.3</em></div><div class="bar now"><span>After</span><i style="width:100%"></i><em>1.0</em></div></div><div class="s">Fixing wrong answer file names in the golden set, not changing the model</div></div><div class="met"><div class="v num">0.977</div><div class="l">MRR of the final setup</div><div class="s">708 retrieval and generation configurations compared in 3 stages on the 95-question dev set · Hit@4 1.0</div></div><div class="met"><div class="v num">3.6 s</div><div class="l">Mean latency, $0 API cost</div><div class="s">KURE-v1 + EXAONE 3.5 on Ollama on a GCP VM · refused 19/19 out-of-scope questions</div></div></div>
+ <h2>Screens</h2>
+ <figure class="shot"><img src="../../assets/proj_bidmate_screen.jpg" alt="Service screen: RFP summary with the cited source (middle trimmed; UI in Korean)" loading="lazy"><figcaption>Service screen: RFP summary with the cited source (middle trimmed; UI in Korean)</figcaption></figure>
+ <h2>System architecture</h2><p class="archcap">Indexing, serving and an evaluation loop</p>
+ <div class="arch"><img src="../../assets/arch_bidmate.jpg" alt="BidMate system architecture; purple badges mark the parts I owned" loading="lazy"></div>
+ <p class="archnote">Purple badges mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)</p>
+ <h2>Key decisions</h2>
+ <div class="dec"><h3>1. When a score stalls, check the measurement first</h3><p><b>Why:</b> Hit@k sat at 0.3 for a long time and changing models and settings did not move it.</p><p><b>What changed:</b> Opening the failed questions one by one showed retrieval was finding the right documents; the answer file names in my golden set were wrong.</p><p><b>Result:</b> Fixing the golden set took it to 1.0. Since then, when a score looks wrong I open the failed cases first.</p></div><div class="dec"><h3>2. The context window matters more than the evidence count</h3><p><b>Why:</b> Raising evidence from 4 to 12 chunks dropped the 5-type average from 81.9 to 40.7.</p><p><b>What changed:</b> Changing one variable at a time showed evidence was being cut off past the 4,096-token context; with the same settings, k=4, 8 and 12 scored 81.9, 46.1 and 40.7.</p><p><b>Result:</b> Settling on 4 chunks and an 8,192-token context scored 82.8 in a like-for-like comparison.</p></div><div class="dec"><h3>3. A local stack with no external API</h3><p><b>Why:</b> Public documents called for no external API, and costs had to come down.</p><p><b>What changed:</b> Replaced OpenAI with KURE-v1 embeddings and EXAONE 3.5 on Ollama on a GCP VM.</p><p><b>Result:</b> Mean latency 3.6 s with no external API cost. A reranker that added 21 s for no gain was removed.</p></div>
+ <h2>Limitations</h2>
+ <p class="limit">The same 95-question golden set was used to choose and to evaluate the configuration, so scores on unseen questions may be lower. Re-measuring on an independent test set is the next step.</p>
+ <div class="chips out" style="margin-top:28px"><span class="chip">LangChain</span><span class="chip">FAISS</span><span class="chip">KURE-v1</span><span class="chip">EXAONE 3.5</span><span class="chip">RAGAS</span><span class="chip">FastAPI</span></div>
+ <div class="pn"><a href="savers.html"><small>Previous</small><b>SAVERS</b></a><a class="nx" href="adstudio.html"><small>Next</small><b>AI Ad Studio</b></a></div>
+</div></main>
+<footer>© 2026 Eunnam Ahn · Last updated November 2026</footer>
+<nav class="dock" aria-label="Navigation">
+  <a href="../../" title="Home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></a>
+  <a href="../../#projects" title="Projects" aria-label="Projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><rect x="13" y="13" width="8" height="7" rx="2"/></svg></a>
+  <span class="sep"></span>
+  <a href="https://github.com/eunnamahn" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></a>
+  <a href="../../#papers" title="Publications" aria-label="Publications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 012 2v12a2 2 0 00-2-2H4zM20 5h-6a2 2 0 00-2 2v12a2 2 0 012-2h6z"/></svg></a>
+  <a href="mailto:baduk89@hanmail.net" title="Email" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+  <span class="sep"></span>
+  <a class="lang" href="../../projects/bidmate.html" title="한국어" aria-label="한국어" lang="ko">KO</a>
+  <button type="button" id="theme" title="Toggle theme" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></svg></button>
+</nav>
+<script>
+(function(){
+  var b=document.getElementById('theme');
+  b.addEventListener('click',function(){var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches,n=dark?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}});
+  document.addEventListener('click',function(e){var box=e.target.closest('.arch');if(!box)return;var lb=document.createElement('div');lb.className='lb';lb.innerHTML=box.innerHTML;lb.addEventListener('click',function(){lb.remove()});document.body.appendChild(lb)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var lb=document.querySelector('.lb');if(lb)lb.remove()}});
+})();
+</script>
+</body>
+</html>
