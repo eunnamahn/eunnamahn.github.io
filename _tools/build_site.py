@@ -102,19 +102,25 @@ KO = {
         ("Penn State 석사", "2015.08 – 2018.08", "Energy and Mineral Engineering (석유천연가스공학) · 지도교수 Russell T. Johns · GPA 3.71 / 4.00"),
         ("한양대학교 자원환경공학과 학사", "2009.03 – 2015.02", "학과 수석(33명 중 1위), 제2공과대학 차석 졸업 · GPA 4.28 / 4.50"),
     ],
-    "misc_h": "강의·수상<br>자격·교육",
     "misc": [
-        ("대학원 조교", "2016 – 2024", "Penn State 영어 학부 수업 · EME 올해의 대학원 조교상(2017, 학과 조교 약 60명 중 1명)"),
-        ("대학원 학생회 공동회장", "2019 – 2024", "College of Earth and Mineral Sciences, Penn State"),
-        ("한국석유공사 베트남 사무소 해외 인턴십", "2013.06 – 2013.08", "8주 · 산업통상자원부 자원개발특성화대학 사업 선발"),
-        ("고용노동부장관상(장려상)", "2026.09", "제8회 K-디지털 트레이닝 해커톤 · 326팀 중 공동 3위"),
-        ("코드잇 스프린트 AI 엔지니어 10기 수료", "2026.02 – 2026.08", "팀 프로젝트 3회(객체 탐지, RAG, 생성형 AI)와 해커톤 1회, 팀장 3회 역임"),
-        ("데이터분석 준전문가(ADsP)", "2026.06", "한국데이터산업진흥원(제49회)"),
-        ("TOEIC 985 / 990", "2026.03", "Listening 490, Reading 495"),
-        ("Engineer in Training (EIT)", "2017.03", "미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429"),
-        ("대학생 논문 공모전 3회 입상", "2013 – 2014", "GS에너지 3위, 한국광해관리공단·한국환경산업기술원 2위"),
-        ("국가 이공계 장학금", "2013 – 2014", "4학기 전액"),
-        ("육군 병장", "2010.01 – 2011.11", "만기제대"),
+        ("강의·활동", [
+            ("대학원 학생회 공동회장", "2019 – 2024", "College of Earth and Mineral Sciences, Penn State"),
+            ("대학원 강의조교", "2016.11 – 2024.12", "Penn State 학부 수업을 영어로 강의·지도"),
+            ("한국석유공사 베트남 사무소 해외 인턴십", "2013.06 – 2013.08", "8주 · 산업통상자원부 자원개발특성화대학 사업 선발"),
+        ]),
+        ("교육·자격", [
+            ("코드잇 스프린트 AI 엔지니어 10기 수료", "2026.02 – 2026.08", "팀 프로젝트 3회(객체 탐지, RAG, 생성형 AI)와 해커톤 1회, 팀장 3회 역임"),
+            ("데이터분석 준전문가(ADsP)", "2026.06", "한국데이터산업진흥원(제49회)"),
+            ("TOEIC 985 / 990", "2026.03", "Listening 490, Reading 495"),
+            ("Engineer in Training (EIT)", "2017.03", "미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429"),
+        ]),
+        ("수상·병역", [
+            ("고용노동부장관상(장려상)", "2026.09", "제8회 K-디지털 트레이닝 해커톤 · 326팀 중 공동 3위"),
+            ("EME 올해의 대학원 조교상", "2017", "Penn State · 학과 조교 약 60명 중 1명"),
+            ("대학생 논문 공모전 3회 입상", "2013 – 2014", "GS에너지 3위, 한국광해관리공단·한국환경산업기술원 2위"),
+            ("국가 이공계 장학금", "2013 – 2014", "4학기 전액"),
+            ("육군 병장", "2010.01 – 2011.11", "만기제대"),
+        ]),
     ],
     "skills_h": "기술",
     "skills": [("AI · LLM", ["LangChain", "RAG (FAISS, BM25)", "KURE-v1", "EXAONE 3.5 (Ollama)", "OpenAI API", "Claude Code"]),
@@ -237,19 +243,25 @@ EN = {
         ("M.S., Penn State", "Aug 2015 – Aug 2018", "Energy and Mineral Engineering (Petroleum and Natural Gas Engineering option) · advised by Prof. Russell T. Johns · GPA 3.71 / 4.00"),
         ("B.S., Hanyang University", "Mar 2009 – Feb 2015", "Natural Resources and Environmental Engineering · 1st of 33 in the department, 2nd in the College of Engineering II · GPA 4.28 / 4.50"),
     ],
-    "misc_h": "Teaching, honors<br>&amp; training",
     "misc": [
-        ("Teaching Assistant", "2016 – 2024", "Penn State undergraduate courses in English · EME Graduate Teaching Assistant of the Year (2017, 1 of ~60 TAs)"),
-        ("Co-chair, EMS Graduate Student Council", "2019 – 2024", "College of Earth and Mineral Sciences, Penn State"),
-        ("Overseas internship, KNOC Vietnam Office", "Jun – Aug 2013", "8 weeks · selected through the Ministry of Trade, Industry and Energy resource-development university program"),
-        ("Minister of Employment and Labor Award", "Sep 2026", "8th K-Digital Training Hackathon · joint 3rd of 326 teams"),
-        ("Codeit Sprint AI Engineer Bootcamp (10th cohort)", "Feb – Aug 2026", "3 team projects (detection, RAG, generative AI) and a hackathon, team lead on 3"),
-        ("Advanced Data Analytics Semi-Professional (ADsP)", "Jun 2026", "Korea Data Agency (49th exam)"),
-        ("TOEIC 985 / 990", "Mar 2026", "Listening 490, Reading 495"),
-        ("Engineer in Training (EIT)", "Mar 2017", "NCEES FE exam, Pennsylvania · ET 023429"),
-        ("Student paper competitions, 3 awards", "2013 – 2014", "GS Energy 3rd; Mine Reclamation Corporation and Korea Environmental Industry &amp; Technology Institute 2nd"),
-        ("National Science &amp; Engineering Scholarship", "2013 – 2014", "Full tuition, 4 semesters"),
-        ("Sergeant, Republic of Korea Army", "Jan 2010 – Nov 2011", "Honorable discharge"),
+        ("Teaching &amp; activities", [
+            ("Co-chair, EMS Graduate Student Council", "2019 – 2024", "College of Earth and Mineral Sciences, Penn State"),
+            ("Graduate Teaching Assistant", "Nov 2016 – Dec 2024", "Taught Penn State undergraduate courses in English"),
+            ("Overseas internship, KNOC Vietnam Office", "Jun – Aug 2013", "8 weeks · selected through the Ministry of Trade, Industry and Energy resource-development university program"),
+        ]),
+        ("Training &amp; certifications", [
+            ("Codeit Sprint AI Engineer Bootcamp (10th cohort)", "Feb – Aug 2026", "3 team projects (detection, RAG, generative AI) and a hackathon, team lead on 3"),
+            ("Advanced Data Analytics Semi-Professional (ADsP)", "Jun 2026", "Korea Data Agency (49th exam)"),
+            ("TOEIC 985 / 990", "Mar 2026", "Listening 490, Reading 495"),
+            ("Engineer in Training (EIT)", "Mar 2017", "NCEES FE exam, Pennsylvania · ET 023429"),
+        ]),
+        ("Honors &amp; service", [
+            ("Minister of Employment and Labor Award", "Sep 2026", "8th K-Digital Training Hackathon · joint 3rd of 326 teams"),
+            ("EME Graduate Teaching Assistant of the Year", "2017", "Penn State · 1 of ~60 TAs"),
+            ("Student paper competitions, 3 awards", "2013 – 2014", "GS Energy 3rd; Mine Reclamation Corporation and Korea Environmental Industry &amp; Technology Institute 2nd"),
+            ("National Science &amp; Engineering Scholarship", "2013 – 2014", "Full tuition, 4 semesters"),
+            ("Sergeant, Republic of Korea Army", "Jan 2010 – Nov 2011", "Honorable discharge"),
+        ]),
     ],
     "skills_h": "Skills",
     "skills": [("AI · LLM", ["LangChain", "RAG (FAISS, BM25)", "KURE-v1", "EXAONE 3.5 (Ollama)", "OpenAI API", "Claude Code"]),
@@ -452,6 +464,7 @@ def home(L, prefix):
     others = oi(1, sp["title"], sp["short"], sp["year"], f"projects/scibert.html")
     papers = "".join(oi(i + 1, *p[:2], p[3], p[2]) for i, p in enumerate(L["papers"]))
     research = "".join(oi(i + 1, *r) for i, r in enumerate(L["research"]))
+    misc = "".join(f'  <section class="blk"><h2>{h}</h2><div>{rows(items)}</div></section>\n' for h, items in L["misc"])
     skills = "".join(f'<div class="skrow"><b>{g}</b><div class="chips">' + "".join(f'<span class="chip">{s}</span>' for s in items) + "</div></div>" for g, items in L["skills"])
     about = "".join(f"<p>{x}</p>" for x in L["about"])
     rname, rhref = L["resume"]
@@ -507,8 +520,7 @@ def home(L, prefix):
 
 <div class="wrap" style="margin-top:70px">
   <section class="blk" id="education"><h2>{L['edu_h']}</h2><div>{rows(L['edu'])}</div></section>
-  <section class="blk"><h2>{L['misc_h']}</h2><div>{rows(L['misc'])}</div></section>
-  <section class="blk" id="skills"><h2>{L['skills_h']}</h2><div>{skills}</div></section>
+{misc}  <section class="blk" id="skills"><h2>{L['skills_h']}</h2><div>{skills}</div></section>
 </div>
 
 <section class="sec" id="contact">
