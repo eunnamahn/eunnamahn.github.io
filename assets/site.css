@@ -6,7 +6,7 @@
    COLOUR pure white ground, near-black ink, project colours from the portfolio deck: teal SAVERS, blue BidMate, coral accent
    TYPE Noto Sans KR 800 headings + Noto Sans KR text, Inter for figures
    LAYOUT narrow 720px reading column for text, 1180px grid for project cards; phone stacks to one column */
-:root{color-scheme:light dark;--bg:light-dark(#f4f7fc,#0e1218);--ink:light-dark(#141414,#eef1f5);--sub:light-dark(#5b6b80,#9fadbf);--line:light-dark(#dfe5ee,#26303c);--soft:light-dark(#eef2f8,#151b23);--card:light-dark(#ffffff,#141a22);--chip:light-dark(#e8eef7,#1f2834);--accent:light-dark(#1f4e8c,#8fb4ea);--slate:light-dark(#5b6b80,#a3b1c2);--teal:#0e7c7b;--blue:#2f55d4;--coral:#e4572e;--dot:light-dark(#d3dbe7,#2a3441)}
+:root{color-scheme:light dark;--bg:light-dark(#f4f7fc,#0e1218);--ink:light-dark(#141414,#eef1f5);--sub:light-dark(#5b6b80,#9fadbf);--line:light-dark(#dfe5ee,#26303c);--soft:light-dark(#eef2f8,#151b23);--card:light-dark(#ffffff,#141a22);--chip:light-dark(#e8eef7,#1f2834);--accent:light-dark(#1f4e8c,#8fb4ea);--wine:light-dark(#9b2c3f,#e59aa8);--slate:light-dark(#5b6b80,#a3b1c2);--teal:#0e7c7b;--blue:#2f55d4;--coral:#e4572e;--dot:light-dark(#d3dbe7,#2a3441)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth}
@@ -68,7 +68,7 @@ ul.tight li{margin:3px 0;font-size:15px}
 .body h3 em{font-style:normal;color:var(--sub);font-weight:400}
 .meta{color:var(--sub);font-size:15px;margin:6px 0 14px}
 .desc{color:color-mix(in srgb,var(--ink) 78%,var(--bg));font-size:15.5px;margin:0 0 18px;flex:1}
-.award{display:inline-block;font-size:13px;font-weight:700;color:var(--coral);margin-bottom:12px}
+.award{display:inline-block;font-size:13px;font-weight:700;color:var(--wine);margin-bottom:12px}
 .others{max-width:900px;margin:56px auto 0;text-align:left}
 .others h3{font-size:20px;margin:0 0 10px}
 .oi{display:grid;grid-template-columns:44px 1fr auto;gap:12px;padding:18px 0;border-top:1px solid var(--line);text-decoration:none}
@@ -141,7 +141,7 @@ ul.tight li::marker{color:var(--accent)}
 .chip{background:var(--chip);color:color-mix(in srgb,var(--accent) 70%,var(--ink))}
 .chips.out .chip{color:var(--ink)}
 .mini{background:var(--accent);color:#fff}
-.body h3 span:first-child{color:var(--accent)}
+.body h3 span:first-child{color:var(--wine)}
 .body h3 em{color:var(--slate)}
 .card:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
 .oi b{color:var(--accent)}
@@ -150,7 +150,7 @@ ul.tight li::marker{color:var(--accent)}
 .ti b{color:var(--ink)}
 .contact a{color:var(--accent)}
 .dock a:hover,.dock button:hover{border-color:var(--accent);color:var(--accent)}
-.dt h1{color:var(--accent)}
+.dt h1{color:var(--wine)}
 .dt h2{color:var(--accent);padding-bottom:8px;border-bottom:2px solid var(--accent)}
 .dt h3{color:var(--ink)}
 .met .v{color:var(--accent)}
