@@ -35,7 +35,7 @@
  <h3>팀 운영</h3><p>팀장이자 PM으로 7단계 실험 일정과 역할 관리</p><h3>파이프라인</h3><p>COCO → YOLO 공용 학습 파이프라인 구축, YOLOv11l 학습과 DETR 계열 실험</p><h3>데이터</h3><p>Crop & Paste 증강, 비슷한 사진을 같은 split으로 묶는 누수 방지</p>
  <h3>직접 작성한 코드</h3><p><a href="https://github.com/eunnamahn/OralMedicineImageDetection/tree/main/members/eunnam">COCO → YOLO 파이프라인, EDA·전처리·증강 노트북 (members/eunnam)</a></p>
  <h2>성과</h2>
- <div class="mets"><div class="met"><div class="v num">186 → 1,026장</div><div class="l">증강으로 늘린 학습 이미지</div><div class="s">mAP@0.5 0.886 → 0.964</div></div><div class="met"><div class="v num">0.851 → 0.936</div><div class="l">Kaggle 점수</div><div class="s">conf 임계값 조정과 3모델 WBF 앙상블</div></div><div class="met full"><div class="v num">0.936</div><div class="l">YOLOv11l 검증 mAP@[0.75:0.95]</div><div class="s">RF-DETR 0.882, RT-DETRv2 0.883보다 높음. 모델마다 학습 이미지 수가 달라 통제 비교는 아님</div></div></div>
+ <div class="mets"><div class="met"><div class="v num">186 → 1,026장</div><div class="l">증강으로 늘린 학습 이미지</div><div class="s">mAP@0.5 0.886 → 0.964</div></div><div class="met"><div class="v num">0.851 → 0.9355</div><div class="l">Kaggle 점수</div><div class="s">conf 임계값 조정과 3모델 WBF 앙상블</div></div><div class="met full"><div class="v num">0.936</div><div class="l">YOLOv11l 검증 mAP@[0.75:0.95]</div><div class="s">RF-DETR 0.882, RT-DETRv2 0.883보다 높음. 모델마다 학습 이미지 수가 달라 통제 비교는 아님</div></div></div>
  <h2>화면</h2>
  <figure class="shot"><img src="../assets/proj_pillscope.jpg" alt="왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지" loading="lazy"><figcaption>왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지</figcaption></figure>
  <h2>시스템 구조</h2><p class="archcap">학습 파이프라인과 서비스를 연결한 구조</p>
