@@ -39,8 +39,8 @@
  <h2>Screens</h2>
  <figure class="shot"><img src="../../assets/proj_pillscope.jpg" alt="Ground truth (left) vs. model prediction (right); the rare class is detected too" loading="lazy"><figcaption>Ground truth (left) vs. model prediction (right); the rare class is detected too</figcaption></figure>
  <h2>System architecture</h2><p class="archcap">Training pipeline connected to the service</p>
- <div class="arch"><img src="../../assets/arch_pillscope.jpg" alt="PillScope system architecture; purple badges mark the parts I owned" loading="lazy"></div>
- <p class="archnote">Purple badges mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)</p>
+ <div class="arch"><img src="../../assets/arch_pillscope.jpg" alt="PillScope system architecture; Burgundy labels mark the parts I owned" loading="lazy"></div>
+ <p class="archnote">Burgundy labels mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)</p>
  <h2>Key decisions</h2>
  <div class="dec"><h3>1. Fix the split before trusting the score</h3><p><b>Why:</b> Near-duplicate shots split across training and validation inflate the score.</p><p><b>What changed:</b> Grouped near-duplicate shots into the same split.</p><p><b>Result:</b> Validation scores became trustworthy enough to compare models.</p></div><div class="dec"><h3>2. Grow the rare pills directly</h3><p><b>Why:</b> Some rare pills were never detected.</p><p><b>What changed:</b> Cropped and pasted under-represented pills and composited web pill images onto the competition background.</p><p><b>Result:</b> The training set grew to 1,026 images and the rare pills became detectable.</p></div>
  <h2>Limitations</h2>

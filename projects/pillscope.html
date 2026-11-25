@@ -39,8 +39,8 @@
  <h2>화면</h2>
  <figure class="shot"><img src="../assets/proj_pillscope.jpg" alt="왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지" loading="lazy"><figcaption>왼쪽 정답, 오른쪽 모델 예측 · 희귀 클래스(큐시드정)까지 탐지</figcaption></figure>
  <h2>시스템 구조</h2><p class="archcap">학습 파이프라인과 서비스를 연결한 구조</p>
- <div class="arch"><img src="../assets/arch_pillscope.jpg" alt="PillScope 시스템 아키텍처. 보라색 배지는 내가 맡은 일" loading="lazy"></div>
- <p class="archnote">보라색 배지가 제가 맡은 부분입니다. 이미지를 누르면 크게 볼 수 있습니다.</p>
+ <div class="arch"><img src="../assets/arch_pillscope.jpg" alt="PillScope 시스템 아키텍처. 버건디 라벨은 내가 맡은 일" loading="lazy"></div>
+ <p class="archnote">버건디 라벨이 제가 맡은 부분입니다. 이미지를 누르면 크게 볼 수 있습니다.</p>
  <h2>구조 결정</h2>
  <div class="dec"><h3>1. 점수가 부풀지 않게 split부터</h3><p><b>왜:</b> 촬영 옵션만 다른 비슷한 사진이 학습과 검증에 나뉘어 들어가면 점수가 실제보다 높게 나옵니다.</p><p><b>바꾼 구조:</b> 비슷한 사진을 같은 split으로 묶었습니다.</p><p><b>결과:</b> 검증 점수를 믿고 모델을 비교할 수 있게 됐습니다.</p></div><div class="dec"><h3>2. 데이터가 적은 알약을 직접 늘린다</h3><p><b>왜:</b> 한 번도 찾지 못하는 희귀 알약이 있었습니다.</p><p><b>바꾼 구조:</b> 데이터가 적은 알약을 오려 붙이고, 인터넷 알약 이미지를 대회 배경에 합성했습니다.</p><p><b>결과:</b> 학습 이미지가 1,026장이 됐고 희귀 알약까지 탐지했습니다.</p></div>
  <h2>한계</h2>

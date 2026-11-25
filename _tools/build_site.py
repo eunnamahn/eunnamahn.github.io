@@ -135,8 +135,8 @@ KO = {
     "back": "프로젝트 목록", "code_h": "직접 작성한 코드", "prev": "이전", "next": "다음",
     "h_work": "내가 맡은 일", "h_mets": "성과", "h_shot": "화면", "h_arch": "시스템 구조", "h_decs": "구조 결정", "h_limit": "한계",
     "kv": ("역할", "기간", "팀"), "dec_k": ("왜:", "바꾼 구조:", "결과:"),
-    "arch_note": "보라색 배지가 제가 맡은 부분입니다. 이미지를 누르면 크게 볼 수 있습니다.",
-    "arch_alt": "시스템 아키텍처. 보라색 배지는 내가 맡은 일",
+    "arch_note": "버건디 라벨이 제가 맡은 부분입니다. 이미지를 누르면 크게 볼 수 있습니다.",
+    "arch_alt": "시스템 아키텍처. 버건디 라벨은 내가 맡은 일",
     "P": {
         "savers": dict(title="SAVERS", sub="재난 취약계층 맞춤 대피 안내", when="2026.07 – 2026.09", org="K-디지털 트레이닝 해커톤 2026", team="4인 팀", role="팀장 · PM · 평가와 인프라",
             award="고용노동부장관상 · 326팀 중 공동 3위 · ACK 2026 제1저자",
@@ -276,8 +276,8 @@ EN = {
     "back": "All projects", "code_h": "Code I wrote", "prev": "Previous", "next": "Next",
     "h_work": "What I did", "h_mets": "Results", "h_shot": "Screens", "h_arch": "System architecture", "h_decs": "Key decisions", "h_limit": "Limitations",
     "kv": ("Role", "Period", "Team"), "dec_k": ("Why:", "What changed:", "Result:"),
-    "arch_note": "Purple badges mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)",
-    "arch_alt": "system architecture; purple badges mark the parts I owned",
+    "arch_note": "Burgundy labels mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)",
+    "arch_alt": "system architecture; Burgundy labels mark the parts I owned",
     "P": {
         "savers": dict(title="SAVERS", sub="Evacuation guidance for disaster-vulnerable residents", when="Jul – Sep 2026", org="K-Digital Training Hackathon 2026", team="Team of 4", role="Team lead · PM · Evaluation & infra",
             award="Minister of Employment and Labor Award · joint 3rd of 326 teams · first author, ACK 2026",

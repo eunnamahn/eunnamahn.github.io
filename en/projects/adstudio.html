@@ -39,8 +39,8 @@
  <h2>Screens</h2>
  <figure class="shot"><img src="../../assets/proj_ad-studio_screen.jpg" alt="Service screen: tone-specific drafts that keep the original product and change only the background, with copy editing (UI in Korean)" loading="lazy"><figcaption>Service screen: tone-specific drafts that keep the original product and change only the background, with copy editing (UI in Korean)</figcaption></figure>
  <h2>System architecture</h2><p class="archcap">Generation pipeline with a product-preservation check</p>
- <div class="arch"><img src="../../assets/arch_adstudio.jpg" alt="AI Ad Studio system architecture; purple badges mark the parts I owned" loading="lazy"></div>
- <p class="archnote">Purple badges mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)</p>
+ <div class="arch"><img src="../../assets/arch_adstudio.jpg" alt="AI Ad Studio system architecture; Burgundy labels mark the parts I owned" loading="lazy"></div>
+ <p class="archnote">Burgundy labels mark the parts I owned. Click the image to enlarge it. (Diagram in Korean.)</p>
  <h2>Key decisions</h2>
  <div class="dec"><h3>1. If the product changes, it is not an ad</h3><p><b>Why:</b> Generative models can alter a product's shape or label while changing the background.</p><p><b>What changed:</b> The original product is composited onto the generated background, checked for masked-region CLIP similarity ≥ 0.85, then reviewed by a person.</p><p><b>Result:</b> All 4 representative cases passed.</p></div><div class="dec"><h3>2. Publish only what a person approved</h3><p><b>Why:</b> Posting generated results automatically could put out a wrong ad.</p><p><b>What changed:</b> Only human-approved images become 13-second Shorts scheduled to YouTube.</p><p><b>Result:</b> The team's 486 automated tests passed.</p></div>
  <h2>Limitations</h2>
