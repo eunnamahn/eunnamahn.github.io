@@ -214,7 +214,7 @@ EN = {
     "skip": "Skip to content",
     "hello": "Hi, I'm Eunnam Ahn",
     "tagline": "AI engineer using mathematical modeling to measure LLM/RAG performance problems and fix their root causes",
-    "resume": ("Curriculum Vitae", "../resume_en.pdf"), "other_lang": ("한국어", "../"), "other_code": "KO",
+    "resume": ("Resume", "../resume_en.pdf"), "other_lang": ("한국어", "../"), "other_code": "KO",
     "photo_alt": "Photo of Eunnam Ahn",
     "about_h": "About",
     "about": [
@@ -473,7 +473,7 @@ def home(L, prefix):
     skills = "".join(f'<div class="skrow"><b>{g}</b><div class="chips">' + "".join(f'<span class="chip">{s}</span>' for s in items) + "</div></div>" for g, items in L["skills"])
     about = "".join(f"<p>{x}</p>" for x in L["about"])
     rname, rhref = L["resume"]
-    # only show the CV button when the PDF exists (resume_en.pdf is not uploaded yet)
+    # only show the resume button when the PDF exists
     pdf = os.path.normpath(os.path.join(ROOT, "en" if L["lang"] == "en" else "", rhref))
     resume_pill = f'        <a class="pill dark" href="{rhref}">{rname}</a>\n' if os.path.exists(pdf) else ""
     return head(L, L["title"], L["desc"], depth, canon, alt) + f"""<main id="main">
