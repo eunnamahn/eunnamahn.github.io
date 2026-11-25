@@ -39,9 +39,9 @@ LINKS = {
     "scibert": [],
 }
 TAGS = {
-    "savers": ["FastAPI", "ChromaDB", "OSMnx", "NetworkX", "AWS EC2", "Vercel", "FCM"],
-    "bidmate": ["LangChain", "FAISS", "KURE-v1", "EXAONE 3.5", "RAGAS", "FastAPI"],
-    "adstudio": ["SDXL", "ControlNet", "IP-Adapter", "FastAPI", "GCP L4"],
+    "savers": ["FastAPI", "Docker Compose", "AWS EC2", "Vercel", "FCM", "pytest"],
+    "bidmate": ["LangChain", "FAISS", "KURE-v1", "EXAONE 3.5", "Ollama", "RAGAS", "FastAPI"],
+    "adstudio": {"ko": ["CLIP 유사도 평가 기준"], "en": ["CLIP similarity evaluation"]},  # only tech from my own role
     "pillscope": ["YOLOv11", "RT-DETRv2", "RF-DETR", "COCO", "WBF"],
     "scibert": ["TensorFlow", "BiLSTM-CRF", "BERT", "SciBERT"],
 }
@@ -111,7 +111,7 @@ KO = {
         ("교육·자격", [
             ("코드잇 스프린트 AI 엔지니어 10기 수료", "2026.02 – 2026.08", "팀 프로젝트 3회(객체 탐지, RAG, 생성형 AI)와 해커톤 1회, 팀장 3회 역임"),
             ("데이터분석 준전문가(ADsP)", "2026.06", "한국데이터산업진흥원(제49회)"),
-            ("TOEIC 985 / 990", "2026.03", "Listening 490, Reading 495"),
+            ("TOEIC 985", "2026.03", ""),
             ("Engineer in Training (EIT)", "2017.03", "미국 NCEES FE 시험 합격(펜실베이니아주) · 등록번호 ET 023429"),
         ]),
         ("수상·병역", [
@@ -252,7 +252,7 @@ EN = {
         ("Training &amp; certifications", [
             ("Codeit Sprint AI Engineer Bootcamp (10th cohort)", "Feb – Aug 2026", "3 team projects (detection, RAG, generative AI) and a hackathon, team lead on 3"),
             ("Advanced Data Analytics Semi-Professional (ADsP)", "Jun 2026", "Korea Data Agency (49th exam)"),
-            ("TOEIC 985 / 990", "Mar 2026", "Listening 490, Reading 495"),
+            ("TOEIC 985", "Mar 2026", "out of 990"),
             ("Engineer in Training (EIT)", "Mar 2017", "NCEES FE exam, Pennsylvania · ET 023429"),
         ]),
         ("Honors &amp; service", [
@@ -434,7 +434,7 @@ def card(L, pid, depth):
     kinds = list(dict.fromkeys(l[0] for l in LINKS[pid]))
     minis = "".join(f'<span class="mini">{ICON[k]}{"GitHub" if k=="gh" else ("시연" if L["lang"]=="ko" else "Demo")}</span>' for k in kinds)
     award = f'<span class="award">{p["award"]}</span>' if p.get("award") else ""
-    tags = "".join(f'<span class="chip">{t}</span>' for t in TAGS[pid])
+    tags = "".join(f'<span class="chip">{t}</span>' for t in tags_for(pid, L))
     return f"""<a class="card" href="projects/{pid}.html">
  <div class="vis"><div class="top"><small>{p['org']}</small><span class="acts">{minis}</span></div>{vis}</div>
  <div class="body"><h3><span>{p['title']} <em>· {p['sub']}</em></span><span aria-hidden="true">↗</span></h3>
@@ -442,6 +442,11 @@ def card(L, pid, depth):
  {award}
  <p class="desc">{p['desc']}</p>
  <div class="chips out">{tags}</div></div></a>"""
+
+
+def tags_for(pid, L):
+    t = TAGS[pid]
+    return t[L["lang"]] if isinstance(t, dict) else t
 
 
 def rows(items):
@@ -571,7 +576,7 @@ def detail(L, pid):
         arch = f"""<h2>{L['h_arch']}</h2><p class="archcap">{p['arch_title']}</p>
  <div class="arch"><img src="{up}assets/{ARCH[pid]}" alt="{p['title']} {L['arch_alt']}" loading="lazy"></div>
  <p class="archnote">{L['arch_note']}</p>"""
-    tags = "".join(f'<span class="chip">{t}</span>' for t in TAGS[pid])
+    tags = "".join(f'<span class="chip">{t}</span>' for t in tags_for(pid, L))
     pn = ""
     if pv:
         pn += f'<a href="{pv}.html"><small>{L["prev"]}</small><b>{L["P"][pv]["title"]}</b></a>'

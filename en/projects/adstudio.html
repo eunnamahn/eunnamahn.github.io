@@ -45,7 +45,7 @@
  <div class="dec"><h3>1. If the product changes, it is not an ad</h3><p><b>Why:</b> Generative models can alter a product's shape or label while changing the background.</p><p><b>What changed:</b> The original product is composited onto the generated background, checked for masked-region CLIP similarity ≥ 0.85, then reviewed by a person.</p><p><b>Result:</b> All 4 representative cases passed.</p></div><div class="dec"><h3>2. Publish only what a person approved</h3><p><b>Why:</b> Posting generated results automatically could put out a wrong ad.</p><p><b>What changed:</b> Only human-approved images become 13-second Shorts scheduled to YouTube.</p><p><b>Result:</b> The team's 486 automated tests passed.</p></div>
  <h2>Limitations</h2>
  <p class="limit">No pixel-level comparison (SSIM) or blind human evaluation yet; both are listed as next steps in the report.</p>
- <div class="chips out" style="margin-top:28px"><span class="chip">SDXL</span><span class="chip">ControlNet</span><span class="chip">IP-Adapter</span><span class="chip">FastAPI</span><span class="chip">GCP L4</span></div>
+ <div class="chips out" style="margin-top:28px"><span class="chip">CLIP similarity evaluation</span></div>
  <div class="pn"><a href="bidmate.html"><small>Previous</small><b>BidMate</b></a><a class="nx" href="pillscope.html"><small>Next</small><b>PillScope</b></a></div>
 </div></main>
 <footer>© 2026 Eunnam Ahn · Last updated November 2026</footer>

@@ -45,7 +45,7 @@
  <div class="dec"><h3>1. 제품이 바뀌면 광고가 아니다</h3><p><b>왜:</b> 생성 모델은 배경을 바꾸면서 제품 모양이나 라벨까지 바꿀 수 있습니다.</p><p><b>바꾼 구조:</b> 원본 제품을 생성한 배경 위에 합성해 제품을 지키고, 제품 영역의 CLIP 유사도가 0.85 이상인지 검사한 뒤 사람이 다시 확인하게 했습니다.</p><p><b>결과:</b> 대표 조합 4건이 모두 통과했습니다.</p></div><div class="dec"><h3>2. 사람이 승인한 것만 게시</h3><p><b>왜:</b> 자동으로 만든 결과를 그대로 올리면 잘못된 광고가 나갈 수 있습니다.</p><p><b>바꾼 구조:</b> 사람이 승인한 이미지만 13초 쇼츠로 만들어 YouTube에 예약 게시하게 했습니다.</p><p><b>결과:</b> 팀 자동화 테스트 486건을 통과했습니다.</p></div>
  <h2>한계</h2>
  <p class="limit">정밀 이미지 비교(SSIM)와 블라인드 사람 평가는 하지 못해, 다음 단계 과제로 보고서에 적었습니다.</p>
- <div class="chips out" style="margin-top:28px"><span class="chip">SDXL</span><span class="chip">ControlNet</span><span class="chip">IP-Adapter</span><span class="chip">FastAPI</span><span class="chip">GCP L4</span></div>
+ <div class="chips out" style="margin-top:28px"><span class="chip">CLIP 유사도 평가 기준</span></div>
  <div class="pn"><a href="bidmate.html"><small>이전</small><b>입찰메이트</b></a><a class="nx" href="pillscope.html"><small>다음</small><b>PillScope</b></a></div>
 </div></main>
 <footer>© 2026 안은남 · 최종 업데이트 2026년 11월</footer>
