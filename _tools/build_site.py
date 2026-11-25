@@ -64,7 +64,7 @@ CODE = {  # (KO label, EN label, url) — same links as the GitHub profile READM
     "adstudio": [("평가 기준 문서 (eval/eval_criteria.md)", "Evaluation criteria (eval/eval_criteria.md)", "https://github.com/eunnamahn/ad-creative-studio/blob/main/eval/eval_criteria.md")],
     "pillscope": [("COCO → YOLO 파이프라인, EDA·전처리·증강 노트북 (members/eunnam)", "COCO → YOLO pipeline, EDA, preprocessing and augmentation notebooks (members/eunnam)", "https://github.com/eunnamahn/OralMedicineImageDetection/tree/main/members/eunnam")],
 }
-ORDER = ["savers", "bidmate", "adstudio", "pillscope", "scibert"]
+ORDER = ["savers", "bidmate", "pillscope", "adstudio", "scibert"]
 
 # ---------------------------------------------------------------- Korean
 KO = {
