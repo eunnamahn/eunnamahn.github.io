@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SAVERS · Evacuation guidance for disaster-vulnerable residents | Eunnam Ahn</title>
+<title>SAVERS: Evacuation guidance for disaster-vulnerable residents | Eunnam Ahn</title>
 <meta name="description" content="A web app that sends shelter and walking-route guidance fitted to each resident's location and mobility during heavy-rain and flood alerts. Rule-based code picks shelters and routes and the LLM only explains them; I wrote the evaluation code that checks this boundary holds.">
 <link rel="canonical" href="https://eunnamahn.github.io/en/projects/savers.html">
 <link rel="alternate" hreflang="ko" href="https://eunnamahn.github.io/projects/savers.html">
-<meta property="og:title" content="SAVERS · Evacuation guidance for disaster-vulnerable residents | Eunnam Ahn">
+<meta property="og:title" content="SAVERS: Evacuation guidance for disaster-vulnerable residents | Eunnam Ahn">
 <meta property="og:description" content="A web app that sends shelter and walking-route guidance fitted to each resident's location and mobility during heavy-rain and flood alerts. Rule-based code picks shelters and routes and the LLM only explains them; I wrote the evaluation code that checks this boundary holds.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://eunnamahn.github.io/en/projects/savers.html">
@@ -23,19 +23,19 @@
 <div class="dots"></div>
 <main id="main"><div class="wrap dt">
  <div class="back"><a class="pill" href="../../#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>All projects</a></div>
- <h1>SAVERS · Evacuation guidance for disaster-vulnerable residents</h1>
- <div class="meta"><span class="num">Jul – Sep 2026</span> · K-Digital Training Hackathon 2026</div>
- <span class="award">Minister of Employment and Labor Award · joint 3rd of 326 teams · first author, ACK 2026</span>
+ <h1>SAVERS: Evacuation guidance for disaster-vulnerable residents</h1>
+ <div class="meta"><span class="num">Jul – Sep 2026</span> | K-Digital Training Hackathon 2026</div>
+ <span class="award">Minister of Employment and Labor Award, joint 3rd of 326 teams, first author, ACK 2026</span>
  <p class="lead">Official disaster texts send the same message to everyone in an area. SAVERS is a PWA that gives residents who cannot judge or evacuate alone personal guidance, with no app install and no constant location tracking, and tells guardians whether their family member has evacuated.</p>
  <div class="links"><a class="pill dark" href="https://github.com/eunnamahn/savers-project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</a><a class="pill" href="https://youtube.com/shorts/yv6POI7o4R8"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Demo video (46 s)</a></div>
  <div class="hr"></div>
- <div class="dvis"><div class="flow"><div class="st"><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#e4572e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/></svg><b>Official alert</b><span>KMA · flood control</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#0e7c7b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><b>Rule-based code</b><span>Shelter and route</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg><b>LLM</b><span>Explains only</span></div></div><h4>Code decides<i>·</i>LLM explains</h4></div></div>
+ <div class="dvis"><div class="flow"><div class="st"><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#e4572e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/></svg><b>Official alert</b><span>KMA, flood control</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#0e7c7b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><b>Rule-based code</b><span>Shelter and route</span></div><span class="arw">→</span><div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg><b>LLM</b><span>Explains only</span></div></div><h4>Code decides, LLM explains</h4></div></div>
  <h2>What I did</h2>
- <dl class="kv"><dt>Role</dt><dd>Team lead · PM · Evaluation & infra</dd><dt>Period</dt><dd class="num">Jul – Sep 2026</dd><dt>Team</dt><dd>Team of 4 · K-Digital Training Hackathon 2026</dd></dl>
+ <dl class="kv"><dt>Role</dt><dd>Team lead, PM, Evaluation & infra</dd><dt>Period</dt><dd class="num">Jul – Sep 2026</dd><dt>Team</dt><dd>Team of 4, K-Digital Training Hackathon 2026</dd></dl>
  <h3>Team</h3><p>Took over QA and infrastructure from a teammate who left mid-project, re-planned roles and schedule, and switched from fixing the design up front to short iterations</p><h3>Evaluation code</h3><p>A 40-case guardian golden set (35 answer, 5 refusal), 12 adversarial regressions, a 34-case refusal probe and automated scoring scripts</p><h3>Infrastructure code</h3><p>Real FCM web-push sending (PR #214, #215), Vercel and AWS EC2 deployment, CI quality checks</p><h3>Records and paper</h3><p>Kept the decision records (ADRs); first-authored and presented the ACK 2026 paper</p>
  <h3>Code I wrote</h3><p><a href="https://github.com/eunnamahn/savers-project/tree/main/apps/ai-engine/eval">Evaluation code (apps/ai-engine/eval)</a>, <a href="https://github.com/team-savers/savers-project/pull/214">Real FCM sending PR #214</a>, <a href="https://github.com/team-savers/savers-project/pull/215">#215</a></p>
  <h2>Results</h2>
- <div class="mets"><div class="met full"><div class="v num">3.2 → 8.3</div><div class="l">Action clarity (out of 10)</div><div class="bars"><div class="bar"><span>Disaster text</span><i style="width:32%"></i><em>3.2</em></div><div class="bar now"><span>SAVERS</span><i style="width:83%"></i><em>8.3</em></div></div><div class="s">Within-subject survey of 52 acquaintances shown the disaster text and then SAVERS · Wilcoxon p<0.001 · "would leave within 5 minutes" 13% → 60%</div></div><div class="met"><div class="v num">6/6</div><div class="l">Under-refusals found</div><div class="s">All 6 out-of-scope controls were answered from unrelated evidence; wrong refusals were only 1/28 (3.6%)</div></div><div class="met"><div class="v num">12/12</div><div class="l">Adversarial answers blocked</div><div class="s">The first scorer caught only 8/12; I analyzed the 4 misses and extended it. 0 of 35 correct answers wrongly blocked</div></div></div>
+ <div class="mets"><div class="met full"><div class="v num">3.2 → 8.3</div><div class="l">Action clarity (out of 10)</div><div class="bars"><div class="bar"><span>Disaster text</span><i style="width:32%"></i><em>3.2</em></div><div class="bar now"><span>SAVERS</span><i style="width:83%"></i><em>8.3</em></div></div><div class="s">Within-subject survey of 52 acquaintances shown the disaster text and then SAVERS, Wilcoxon p<0.001, "would leave within 5 minutes" 13% → 60%</div></div><div class="met"><div class="v num">6/6</div><div class="l">Under-refusals found</div><div class="s">All 6 out-of-scope controls were answered from unrelated evidence; wrong refusals were only 1/28 (3.6%)</div></div><div class="met"><div class="v num">12/12</div><div class="l">Adversarial answers blocked</div><div class="s">The first scorer caught only 8/12; I analyzed the 4 misses and extended it. 0 of 35 correct answers wrongly blocked</div></div></div>
  <h2>Screens</h2>
  <figure class="shot"><img src="../../assets/proj_savers_screens.jpg" alt="Service screens: alert link → shelter guidance → route and arrival check (UI in Korean)" loading="lazy"><figcaption>Service screens: alert link → shelter guidance → route and arrival check (UI in Korean)</figcaption></figure>
  <h2>System architecture</h2><p class="archcap">Rule-based code decides, the LLM explains</p>
@@ -48,7 +48,7 @@
  <div class="chips out" style="margin-top:28px"><span class="chip">FastAPI</span><span class="chip">Docker Compose</span><span class="chip">AWS EC2</span><span class="chip">Vercel</span><span class="chip">FCM</span><span class="chip">pytest</span></div>
  <div class="pn"><a class="nx" href="bidmate.html"><small>Next</small><b>BidMate</b></a></div>
 </div></main>
-<footer>© 2026 Eunnam Ahn · Last updated November 2026</footer>
+<footer>© 2026 Eunnam Ahn | Last updated November 2026</footer>
 <nav class="dock" aria-label="Navigation">
   <a href="../../" title="Home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></a>
   <a href="../../#projects" title="Projects" aria-label="Projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><rect x="13" y="13" width="8" height="7" rx="2"/></svg></a>
